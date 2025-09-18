@@ -408,6 +408,7 @@ function toggleMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const overlay = document.querySelector('.drawer-overlay');
+    const mobileDrawer = document.getElementById('mobile-drawer');
     
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
@@ -418,6 +419,7 @@ function closeDrawer() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const overlay = document.querySelector('.drawer-overlay');
+    const mobileDrawer = document.getElementById('mobile-drawer');
     
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
@@ -697,52 +699,83 @@ function copyPromoCode(code, promoId) {
 
 // Vendor Application Functions
 function initializeVendorForm() {
-    const form = document.getElementById('vendor-application-form');
-    if (!form) return;
-    
-    form.addEventListener('submit', handleVendorSubmission);
+    // No JS needed for direct HTML POST to Google Apps Script
+    // Remove event listener to allow default form submission
 }
 
 function handleVendorSubmission(e) {
     e.preventDefault();
     
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    
-    // Validate required fields
-    const requiredFields = ['businessName', 'contactPerson', 'phone', 'email', 'location', 'businessType'];
-    const missingFields = requiredFields.filter(field => !data[field]);
-    
-    if (missingFields.length > 0) {
-        showNotification('Please fill in all required fields.', 'error');
-        return;
-    }
-    
-    // Validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
-        showNotification('Please enter a valid email address.', 'error');
-        return;
-    }
-    
-    // Validate phone
-    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-    if (!phoneRegex.test(data.phone.replace(/\s/g, ''))) {
-        showNotification('Please enter a valid phone number.', 'error');
-        return;
-    }
-    
-    // Simulate form submission
-    const submitBtn = e.target.querySelector('.submit-btn');
+    const form = e.target;
+    const submitBtn = form.querySelector('.submit-btn');
     submitBtn.textContent = 'Submitting...';
     submitBtn.disabled = true;
-    
-    setTimeout(() => {
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby64W3NO8W_qvOIWd3RT5jSR-IEZpApQWOyL9T-s_8ouF6lmTVdS3rLtkrCpTenCCg/exec';
+
+function initializeVendorForm() {
+    console.log('Initializing vendor form...');
+    const form = document.getElementById('vendor-application-form');
+    if (form) {
+        console.log('Found vendor form, adding submit handler');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Form submit triggered');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
+            
+            const formData = new FormData(form);
+            const loadingMessage = document.createElement('div');
+            loadingMessage.textContent = 'Submitting...';
+            loadingMessage.style.color = '#eab308';
+            form.appendChild(loadingMessage);
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData,
+                mode: 'cors',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Success! Your application has been submitted.');
+                    form.reset();
+                } else {
+                    throw new Error('Network response was not ok: ' + response.status);
+                }
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Error! Something went wrong. Please try again.');
+            })
+            .finally(() => {
+                if (submitBtn) submitBtn.disabled = false;
+                if (loadingMessage) loadingMessage.remove();
+            });
+        });
+    } else {
+        console.error('Vendor form not found in the DOM');
+    }
+}
+    const formData = new FormData(form);
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
         showNotification('🎉 Thank you! Your application has been submitted successfully. We\'ll contact you within 24 hours.');
-        e.target.reset();
+        form.reset();
         submitBtn.textContent = 'Submit Application';
         submitBtn.disabled = false;
-    }, 2000);
+    })
+    .catch(error => {
+        showNotification('Submission failed. Please try again later.', 'error');
+        submitBtn.textContent = 'Submit Application';
+        submitBtn.disabled = false;
+    });
 }
 
 // Utility Functions
@@ -867,14 +900,18 @@ function addRippleEffect(element) {
 function initializeSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                const offsetTop = target.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+            // Prevent invalid selector for href="#"
+            if (href && href.length > 1) {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
@@ -885,11 +922,11 @@ function initializeNavbarEffects() {
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+            navbar.style.background = "url('BG.svg') center center/cover no-repeat, rgba(255, 255, 255, 0.98)";
+            navbar.style.boxShadow = 'none';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            navbar.style.background = "url('BG.svg') center center/cover no-repeat, rgba(255, 255, 255, 0.95)";
+            navbar.style.boxShadow = 'none';
         }
     });
 }

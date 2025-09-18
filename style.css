@@ -1,3 +1,90 @@
+@media (min-width: 900px) {
+    .nav-menu .download-btn {
+        display: none !important;
+    }
+}
+/* Hide Download App in nav-menu except on mobile */
+@media (min-width: 901px) {
+    .nav-menu .download-btn {
+        display: none !important;
+    }
+}
+/* Bigger and rounded logo in navbar */
+.logo img {
+    height: 120px !important;
+    border-radius: 32px !important;
+    border: 3px solid #ffe082 !important;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07) !important;
+    background: none !important;
+    transition: box-shadow 0.2s;
+}
+/* Make nav menu section titles bolder and bigger */
+.nav-menu a {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+/* Ensure Download App button in nav-menu aligns visually */
+.nav-menu .download-btn {
+    font-size: 1.08rem;
+    font-weight: 700;
+    padding: 0.6rem 1.2rem;
+    margin-left: 0.5rem;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #eab308 60%, #facc15 100%);
+    color: #222;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.nav-menu .download-btn:hover {
+    background: linear-gradient(90deg, #facc15 60%, #eab308 100%);
+}
+/* Mobile Drawer Styles */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    max-width: 350px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 20px rgba(0,0,0,0.15);
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+.mobile-drawer.active {
+    transform: translateX(0);
+}
+.drawer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.drawer-menu li a {
+    color: #333;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.drawer-menu li a:hover {
+    color: #eab308;
+}
+@media (min-width: 769px) {
+    .mobile-drawer {
+        display: none !important;
+    }
+}
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -29,9 +116,9 @@ html {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: url('BG.svg') center center/cover no-repeat, rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    box-shadow: none;
     z-index: 1000;
     transition: all 0.3s ease;
 }

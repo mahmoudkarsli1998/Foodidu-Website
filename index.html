@@ -12,9 +12,9 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="Logo.svg" alt="Foodidu Logo"
-                     style="height:90px; width:auto; object-fit:contain; margin-right:0.7rem; vertical-align:middle; box-shadow:none; background:none; border-radius:0;">
-                Foodidu
+             <img src="Logo-Text.svg" alt="Foodidu Logo"
+                 style="height:120px; width:auto; object-fit:contain; margin-right:0.7rem; vertical-align:middle; box-shadow:0 2px 16px rgba(0,0,0,0.07); background:none; border-radius:32px; border: 3px solid #ffe082; transition: box-shadow 0.2s;">
+                
             </div>
             <ul class="nav-menu">
                 <li><a href="#" onclick="showPage('home')">Home</a></li>
@@ -23,8 +23,8 @@
                 <li><a href="#" onclick="showPage('promo')">Promo Codes</a></li>
                 <li><a href="#" onclick="showPage('vendors')">Vendors</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button class="download-btn" onclick="downloadApp()">Download App</button></li>
             </ul>
-            <button class="download-btn" onclick="downloadApp()">Download App</button>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -33,6 +33,8 @@
         </div>
     </nav>
     <div class="drawer-overlay" onclick="closeDrawer()"></div>
+
+
 
     <!-- Home Page -->
     <div id="home" class="page active">
@@ -505,7 +507,7 @@
 
             <div class="vendor-form">
                 <h2>Apply to Become a Vendor</h2>
-                <form id="vendor-application-form">
+                <form id="vendor-application-form" method="POST" action="https://script.google.com/macros/s/AKfycby64W3NO8W_qvOIWd3RT5jSR-IEZpApQWOyL9T-s_8ouF6lmTVdS3rLtkrCpTenCCg/exec">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="business-name">Business Name *</label>
