@@ -202,23 +202,93 @@ const restaurantsData = [
 const promoCodesData = [
     {
         id: 1,
-        brand: "Pizza Palace",
-        category: "fast-food",
-        code: "PIZZA50",
-        discount: "50% Off Large Pizza",
-        expiry: "Dec 31, 2024",
-        logo: "PP",
-        description: "Valid on all large pizzas"
+        brand: "BreadFast",
+        category: "delivery",
+        code: "SMR",
+        discount: "Free Delivery",
+        expiry: "Dec 31, 2025",
+        logo: "BF",
+        description: "Free Delivery on first order above 350 LE"
     },
     {
         id: 2,
-        brand: "Coffee Central",
+        brand: "Pizza Hut",
+        category: "fast-food",
+        code: "NEW40",
+        discount: "40% Off First Order",
+        expiry: "Dec 31, 2025",
+        logo: "PH",
+        description: "40% Off first order on the Pizza Hut app"
+    },
+    {
+        id: 3,
+        brand: "MINI Berit",
+        category: "bakery",
+        code: "MINI25",
+        discount: "25% Off Lebanese Pastries",
+        expiry: "Oct 31, 2025",
+        logo: "MB",
+        description: "Get 25% off on all Lebanese pastries"
+    },
+    {
+        id: 4,
+        brand: "KFC",
+        category: "fast-food",
+        code: "KFCBOX",
+        discount: "30% Off Family Boxes",
+        expiry: "Nov 15, 2025",
+        logo: "KF",
+        description: "Save 30% on all family meal boxes"
+    },
+    {
+        id: 5,
+        brand: "Gourment",
+        category: "fine-dining",
+        code: "GOURM50",
+        discount: "50% Off Second Main Course",
+        expiry: "Oct 1, 2025",
+        logo: "GM",
+        description: "Buy one main course, get 50% off the second"
+    },
+    {
+        id: 6,
+        brand: "CILANTRO",
         category: "coffee",
-        code: "COFFEE20",
-        discount: "20% Off All Drinks",
-        expiry: "Jan 15, 2025",
-        logo: "CC",
-        description: "Excludes specialty drinks"
+        code: "CILAN2",
+        discount: "Buy 1 Get 1 Free Coffee",
+        expiry: "Dec 15, 2025",
+        logo: "CI",
+        description: "Free coffee with any coffee purchase"
+    },
+    {
+        id: 7,
+        brand: "BURGER KING",
+        category: "fast-food",
+        code: "WHOPPER",
+        discount: "35% Off Whopper Meals",
+        expiry: "Nov 30, 2025",
+        logo: "BK",
+        description: "Save on all Whopper meal combinations"
+    },
+    {
+        id: 8,
+        brand: "BUFFALO BURGER",
+        category: "fast-food",
+        code: "BUFF45",
+        discount: "45% Off First Order",
+        expiry: "Oct 15, 2025",
+        logo: "BB",
+        description: "Save 45% on your first Buffalo Burger order"
+    },
+    {
+        id: 9,
+        brand: "Zumra Food",
+        category: "healthy",
+        code: "HEALTHY",
+        discount: "20% Off Healthy Meals",
+        expiry: "Dec 31, 2025",
+        logo: "ZF",
+        description: "20% discount on all healthy meal plans"
     },
     {
         id: 3,
