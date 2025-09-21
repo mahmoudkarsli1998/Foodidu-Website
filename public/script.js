@@ -992,10 +992,10 @@ function initializeNavbarEffects() {
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 100) {
-            navbar.style.background = "url('BG.svg') center center/cover no-repeat, rgba(255, 255, 255, 0.98)";
+            navbar.style.background = "url('images/BG.svg') center center/cover no-repeat, rgba(255, 255, 255, 0.98)";
             navbar.style.boxShadow = 'none';
         } else {
-            navbar.style.background = "url('BG.svg') center center/cover no-repeat, rgba(255, 255, 255, 0.95)";
+            navbar.style.background = "url('images/BG.svg') center center/cover no-repeat, rgba(255, 255, 255, 0.95)";
             navbar.style.boxShadow = 'none';
         }
     });
