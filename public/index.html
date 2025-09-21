@@ -1,89 +1,773 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover hidden culinary gems and save money with Foodidu. Connect with local restaurants, explore exclusive deals, and enjoy authentic dining experiences across Egypt and Saudi Arabia.">
+    <meta name="keywords" content="Foodidu, restaurant deals, food discovery, dining experiences, local restaurants, food savings, Egyptian restaurants, Saudi Arabian restaurants, culinary exploration, food vendors, authentic dining">
+    <meta name="author" content="Foodidu">
+    <meta property="og:title" content="Foodidu - Discover Hidden Gems & Save Money">
+    <meta property="og:description" content="Connect with local restaurants, explore exclusive deals, and discover authentic dining experiences across Egypt and Saudi Arabia.">
+    <meta property="og:image" content="Logo.svg">
+    <meta property="og:url" content="https://foodidu.com">
+    
+    <title>Foodidu - Discover Hidden Gems & Save Money</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="Logo.svg">
+    <link rel="apple-touch-icon" href="Logo.svg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+             <img src="Logo-Text.svg" alt="Foodidu Logo"
+                 style="height:120px; width:auto; object-fit:contain; margin-right:0.7rem; vertical-align:middle; box-shadow:0 2px 16px rgba(0,0,0,0.07); background:none; border-radius:32px; border: 3px solid #ffe082; transition: box-shadow 0.2s;">
+                
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('discover')">Discover</a></li>
+                <li><a href="#" onclick="showPage('deals')">Deals</a></li>
+                <li><a href="#" onclick="showPage('promo')">Promo Codes</a></li>
+                <li><a href="#" onclick="showPage('vendors')">Vendors</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="download-btn" onclick="downloadApp()">Download App</button></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <div class="drawer-overlay" onclick="closeDrawer()"></div>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.3.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.3.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.3.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.3.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.3.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.3.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.3.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.3.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.3.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.3.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Carousel Section -->
+        <section class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active" data-slide="0">
+                    <div class="slide-content">
+                        <div class="slide-text">
+                            <h1>Discover Hidden Culinary Gems</h1>
+                            <p>Find amazing local restaurants, authentic cafes, and exclusive food deals near you in Egypt and Saudi Arabia. Save money with exclusive promo codes and discover local dining experiences.</p>
+                            <button class="hero-cta" onclick="downloadApp()">Download Now</button>
+                        </div>
+                        <div class="slide-image">
+                            <div class="food-icon">🍕</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide="1">
+                    <div class="slide-content">
+                        <div class="slide-text">
+                            <h1>Save with Promo Codes</h1>
+                            <p>Access exclusive promo codes and special discounts that you won't find anywhere else. Save up to 50% on every order!</p>
+                            <button class="hero-cta" onclick="showPage('promo')">Get Promo Codes</button>
+                        </div>
+                        <div class="slide-image">
+                            <div class="food-icon">🎫</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide" data-slide="2">
+                    <div class="slide-content">
+                        <div class="slide-text">
+                            <h1>Explore Local Restaurants</h1>
+                            <p>Uncover authentic dining experiences and hidden culinary treasures in Egyptian and Saudi Arabian restaurants. Connect with the best local food vendors for unforgettable meals.</p>
+                            <button class="hero-cta" onclick="showPage('discover')">Start Exploring</button>
+                        </div>
+                        <div class="slide-image">
+                            <div class="food-icon">🍽️</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <div class="carousel-nav">
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="goToSlide(0)"></span>
+                <span class="indicator" onclick="goToSlide(1)"></span>
+                <span class="indicator" onclick="goToSlide(2)"></span>
+            </div>
+        </section>
+
+        <!-- Hot Promo Codes Section -->
+        <section class="hot-promos">
+            <div class="container">
+                <h2 class="section-title">Trending Promo Codes 🔥</h2>
+                <div class="promo-grid">
+                    <!-- Promo Card 1 -->
+                    <div class="promo-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="promo-header">
+                            <div class="promo-logo">BF</div>
+                            <div class="promo-brand">BreadFast</div>
+                        </div>
+                        <div class="promo-code-section">
+                            <div class="promo-discount">Free Delivery</div>
+                            <div class="promo-code">SMR</div>
+                            <button class="copy-btn" onclick="copyPromoCode('SMR', 1)">Copy Code</button>
+                        </div>
+                        <div class="promo-expiry">First order above 350 LE</div>
+                    </div>
+
+                    <!-- Promo Card 2 -->
+                    <div class="promo-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="promo-header">
+                            <div class="promo-logo">PH</div>
+                            <div class="promo-brand">Pizza Hut</div>
+                        </div>
+                        <div class="promo-code-section">
+                            <div class="promo-discount">40% Off First Order</div>
+                            <div class="promo-code">NEW40</div>
+                            <button class="copy-btn" onclick="copyPromoCode('NEW40', 2)">Copy Code</button>
+                        </div>
+                        <div class="promo-expiry">Valid for app orders</div>
+                    </div>
+                    
+                    <!-- Promo Card 3 -->
+                    <div class="promo-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="promo-header">
+                            <div class="promo-logo">BB</div>
+                            <div class="promo-brand">BUFFALO BURGER</div>
+                        </div>
+                        <div class="promo-code-section">
+                            <div class="promo-discount">45% Off First Order</div>
+                            <div class="promo-code">BUFF45</div>
+                            <button class="copy-btn" onclick="copyPromoCode('BUFF45', 8)">Copy Code</button>
+                        </div>
+                        <div class="promo-expiry">Valid until Oct 15, 2025</div>
+                    </div>
+
+                    <!-- Promo Card 4 -->
+                    <div class="promo-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="promo-header">
+                            <div class="promo-logo">KF</div>
+                            <div class="promo-brand">KFC</div>
+                        </div>
+                        <div class="promo-code-section">
+                            <div class="promo-discount">30% Off Family Boxes</div>
+                            <div class="promo-code">KFCBOX</div>
+                            <button class="copy-btn" onclick="copyPromoCode('KFCBOX', 4)">Copy Code</button>
+                        </div>
+                        <div class="promo-expiry">Valid until Nov 15, 2025</div>
+                    </div>
+                    <div class="promo-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="promo-header">
+                            <div class="promo-logo">PP</div>
+                            <div class="promo-brand">Pizza Palace</div>
+                        </div>
+                        <div class="promo-code-section">
+                            <div class="promo-discount">50% Off Large Pizza</div>
+                            <div class="promo-code">PIZZA50</div>
+                            <button class="copy-btn" onclick="copyPromoCode('PIZZA50', 1)">Copy Code</button>
+                        </div>
+                        <div class="promo-expiry">Valid until Dec 31, 2024</div>
+                    </div>
+
+                    <!-- Promo Card 3 -->
+                    <div class="promo-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="promo-header">
+                            <div class="promo-logo">DD</div>
+                            <div class="promo-brand">DoorDash</div>
+                        </div>
+                        <div class="promo-code-section">
+                            <div class="promo-discount">$4 Off Orders Over $20</div>
+                            <div class="promo-code">DASH40</div>
+                            <button class="copy-btn" onclick="copyPromoCode('DASH40', 8)">Copy Code</button>
+                        </div>
+                        <div class="promo-expiry">Valid until Jan 31, 2025</div>
+                    </div>
+
+                    <!-- Promo Card 4 -->
+                    <div class="promo-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="promo-header">
+                            <div class="promo-logo">BK</div>
+                            <div class="promo-brand">Burger King</div>
+                        </div>
+                        <div class="promo-code-section">
+                            <div class="promo-discount">15% Off Whopper Meal</div>
+                            <div class="promo-code">WHOPPER15</div>
+                            <button class="copy-btn" onclick="copyPromoCode('WHOPPER15', 5)">Copy Code</button>
+                        </div>
+                        <div class="promo-expiry">Valid until Dec 28, 2024</div>
+                    </div>
+
+                    <!-- View All Button -->
+                    <div class="view-all-promos" data-aos="fade-up" data-aos-delay="500">
+                        <button class="view-all-btn" onclick="showPage('promo')">
+                            <i class="fas fa-tags"></i>
+                            View All Promo Codes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Foodidu?</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Explore Restaurants</h3>
+                        <p>Discover new dining experiences with our comprehensive restaurant directory featuring local gems and popular chains.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <h3>Exclusive Promo Codes</h3>
+                        <p>Access verified promo codes and special discounts that you won't find anywhere else. Save on every order!</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Hidden Gems Near You</h3>
+                        <p>Uncover local favorites and hidden culinary treasures in your neighborhood that others haven't discovered yet.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <h3>Save Money Every Day</h3>
+                        <p>Our smart deals algorithm ensures you always get the best prices and never miss out on great savings opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps">
+                    <div class="step" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">🔍</div>
+                        <h3>Search</h3>
+                        <p>Browse through thousands of restaurants, cafes, and food outlets in your area. Use filters to find exactly what you're craving.</p>
+                    </div>
+                    <div class="step" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">💰</div>
+                        <h3>Save</h3>
+                        <p>Apply exclusive promo codes and take advantage of special deals to maximize your savings on every order.</p>
+                    </div>
+                    <div class="step" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">😋</div>
+                        <h3>Enjoy</h3>
+                        <p>Enjoy delicious food at unbeatable prices while discovering new favorite spots in your neighborhood.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vendor Invitation -->
+        <section class="vendor-invitation">
+            <div class="container">
+                <h2>Are you a Restaurant Owner?</h2>
+                <p>Partner with Foodidu to reach more customers and grow your business with our targeted marketing platform.</p>
+                <button class="vendor-btn" onclick="showPage('vendors')">Apply Now</button>
+            </div>
+        </section>
+
+        <!-- App Screenshots -->
+        <section class="app-screenshots">
+            <div class="container">
+                <h2 class="section-title">See Our App in Action</h2>
+                <div class="screenshots-carousel">
+                    <div class="screenshot active">
+                        <div class="screenshot-content">
+                            <i class="fas fa-mobile-alt" style="font-size: 3rem; margin-bottom: 1rem; color: #eab308;"></i>
+                            <h4>Discover Screen</h4>
+                            <p>Find restaurants and cafes near you</p>
+                        </div>
+                    </div>
+                    <div class="screenshot">
+                        <div class="screenshot-content">
+                            <i class="fas fa-percent" style="font-size: 3rem; margin-bottom: 1rem; color: #eab308;"></i>
+                            <h4>Deals & Offers</h4>
+                            <p>Browse exclusive deals and discounts</p>
+                        </div>
+                    </div>
+                    <div class="screenshot">
+                        <div class="screenshot-content">
+                            <i class="fas fa-ticket-alt" style="font-size: 3rem; margin-bottom: 1rem; color: #eab308;"></i>
+                            <h4>Promo Codes</h4>
+                            <p>Access verified promo codes</p>
+                        </div>
+                    </div>
+                    <div class="screenshot">
+                        <div class="screenshot-content">
+                            <i class="fas fa-chart-bar" style="font-size: 3rem; margin-bottom: 1rem; color: #eab308;"></i>
+                            <h4>Price Comparison</h4>
+                            <p>Compare prices across platforms</p>
+                        </div>
+                    </div>
+                    <div class="screenshot">
+                        <div class="screenshot-content">
+                            <i class="fas fa-heart" style="font-size: 3rem; margin-bottom: 1rem; color: #eab308;"></i>
+                            <h4>Favorites</h4>
+                            <p>Save your favorite restaurants</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Users Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Foodidu helped me discover amazing local restaurants I never knew existed. The promo codes saved me so much money!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SJ</div>
+                            <div class="author-info">
+                                <strong>Sarah Johnson</strong>
+                                <span>Food Enthusiast</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"As a restaurant owner, partnering with Foodidu brought us 40% more customers. Their platform is incredible!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MC</div>
+                            <div class="author-info">
+                                <strong>Mike Chen</strong>
+                                <span>Spice Garden Owner</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"The app is so user-friendly and the deals are always updated. I save at least $50 every month on food!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ER</div>
+                            <div class="author-info">
+                                <strong>Emily Rodriguez</strong>
+                                <span>Regular User</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Partner Logos -->
+                <div class="partner-logos">
+                    <h3>Trusted by Leading Restaurants</h3>
+                    <div class="logos-grid">
+                        <div class="partner-logo">🍕 Mario's</div>
+                        <div class="partner-logo">☕ Coffee Central</div>
+                        <div class="partner-logo">🍔 Burger King</div>
+                        <div class="partner-logo">🍜 Noodle House</div>
+                        <div class="partner-logo">🥗 Fresh & Fit</div>
+                        <div class="partner-logo">🍰 Sweet Treats</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Start Saving?</h2>
+                <p>Join thousands of food lovers who are already discovering amazing deals and hidden gems with Foodidu.</p>
+                <div class="app-buttons">
+                    <button class="app-btn ios" onclick="downloadApp()">
+                        <i class="fab fa-apple"></i>
+                        <div>
+                            <span>Download on the</span>
+                            <strong>App Store</strong>
+                        </div>
+                    </button>
+                    <button class="app-btn android" onclick="downloadApp()">
+                        <i class="fab fa-google-play"></i>
+                        <div>
+                            <span>Get it on</span>
+                            <strong>Google Play</strong>
+                        </div>
+                    </button>
+                </div>
+                <button class="vendor-btn secondary" onclick="showPage('vendors')">Become a Vendor</button>
+            </div>
+        </section>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- Deals Page -->
+    <div id="deals" class="page">
+        <section class="deals-hero">
+            <div class="container">
+                <h1>Today's Hot Deals 🔥</h1>
+                <p>Discover amazing discounts and special offers from your favorite restaurants</p>
+                <div class="deals-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="active-deals">150+</span>
+                        <span class="stat-label">Active Deals</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="avg-savings">35%</span>
+                        <span class="stat-label">Average Savings</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="happy-customers">10K+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+        <section class="filters">
+            <div class="container">
+                <div class="filter-row">
+                    <select class="filter-select" onchange="filterDeals(this.value, 'cuisine')">
+                        <option value="">All Cuisines</option>
+                        <option value="pizza">Pizza</option>
+                        <option value="burger">Burger</option>
+                        <option value="coffee">Coffee</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="indian">Indian</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="italian">Italian</option>
+                    </select>
+                    <select class="filter-select" onchange="filterDeals(this.value, 'price')">
+                        <option value="">Sort by Price</option>
+                        <option value="low">Lowest First</option>
+                        <option value="high">Highest First</option>
+                    </select>
+                    <select class="filter-select" onchange="filterDeals(this.value, 'discount')">
+                        <option value="">Sort by Discount</option>
+                        <option value="highest">Highest Discount</option>
+                        <option value="lowest">Lowest Discount</option>
+                    </select>
+                    <input type="text" class="filter-input" placeholder="Search location..." onkeyup="filterDeals(this.value, 'location')">
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="deals-grid" id="deals-grid">
+                <!-- Deals will be populated by JavaScript -->
+            </div>
+            <div class="load-more-container">
+                <button class="load-more-btn" onclick="loadMoreDeals()">Load More Deals</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Discovery Page -->
+    <div id="discover" class="page">
+        <section class="search-section">
+            <div class="container">
+                <h1>Discover Amazing Places</h1>
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Find food, café, or restaurant..." id="search-input">
+                    <button class="search-btn" onclick="searchRestaurants()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="category-filters">
+                    <div class="category-chip active" onclick="filterCategory(this, 'all')">All</div>
+                    <div class="category-chip" onclick="filterCategory(this, 'fast-food')">Fast Food</div>
+                    <div class="category-chip" onclick="filterCategory(this, 'local-gems')">Local Gems</div>
+                    <div class="category-chip" onclick="filterCategory(this, 'coffee')">Coffee</div>
+                    <div class="category-chip" onclick="filterCategory(this, 'dessert')">Dessert</div>
+                    <div class="category-chip" onclick="filterCategory(this, 'healthy')">Healthy</div>
+                    <div class="category-chip" onclick="filterCategory(this, 'fine-dining')">Fine Dining</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hidden Gems Carousel -->
+        <section class="hidden-gems">
+            <div class="container">
+                <h2 class="section-title">Hidden Gems of the Week</h2>
+                <div class="gems-carousel">
+                    <div class="gem-card">
+                        <div class="gem-image">🏮</div>
+                        <h3>Secret Ramen Bar</h3>
+                        <p>Authentic Japanese ramen in a hidden alley</p>
+                        <div class="gem-rating">★★★★★ 4.9</div>
+                    </div>
+                    <div class="gem-card">
+                        <div class="gem-image">🌮</div>
+                        <h3>Abuela's Kitchen</h3>
+                        <p>Family recipes passed down for generations</p>
+                        <div class="gem-rating">★★★★★ 4.8</div>
+                    </div>
+                    <div class="gem-card">
+                        <div class="gem-image">🧁</div>
+                        <h3>Midnight Bakery</h3>
+                        <p>Fresh pastries baked at 3 AM daily</p>
+                        <div class="gem-rating">★★★★★ 4.7</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="restaurants-grid" id="restaurants-grid">
+                <!-- Restaurants will be populated by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Promo Codes Page -->
+    <div id="promo" class="page">
+        <section class="promo-hero">
+            <div class="container">
+                <h1>Save More with Verified Promo Codes 💸</h1>
+                <p>Get the best deals with our exclusive and verified promo codes</p>
+                <div class="promo-stats">
+                    <div class="promo-stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Active Codes</span>
+                    </div>
+                    <div class="promo-stat">
+                        <span class="stat-number">$2M+</span>
+                        <span class="stat-label">Total Savings</span>
+                    </div>
+                </div>
+                <div class="promo-categories">
+                    <div class="promo-category active" onclick="filterPromos(this, 'all')">All Categories</div>
+                    <div class="promo-category" onclick="filterPromos(this, 'fast-food')">Fast Food</div>
+                    <div class="promo-category" onclick="filterPromos(this, 'coffee')">Coffee & Drinks</div>
+                    <div class="promo-category" onclick="filterPromos(this, 'delivery')">Delivery Services</div>
+                    <div class="promo-category" onclick="filterPromos(this, 'fine-dining')">Fine Dining</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="promo-grid" id="promo-grid">
+                <!-- Promo codes will be populated by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Vendor Application Page -->
+    <div id="vendors" class="page">
+        <section class="vendor-hero">
+            <div class="container">
+                <h1>Partner with Foodidu 🚀</h1>
+                <p>Join thousands of successful restaurants and grow your business with us</p>
+                <div class="vendor-stats">
+                    <div class="vendor-stat">
+                        <span class="stat-number">2000+</span>
+                        <span class="stat-label">Partner Restaurants</span>
+                    </div>
+                    <div class="vendor-stat">
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">Average Growth</span>
+                    </div>
+                    <div class="vendor-stat">
+                        <span class="stat-number">24h</span>
+                        <span class="stat-label">Quick Approval</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon">📈</div>
+                    <h3>More Customers</h3>
+                    <p>Reach thousands of hungry customers looking for great food deals in your area</p>
+                    <ul>
+                        <li>Increased visibility</li>
+                        <li>Targeted marketing</li>
+                        <li>Customer analytics</li>
+                    </ul>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Targeted Marketing</h3>
+                    <p>Our smart algorithm connects you with customers who love your type of cuisine</p>
+                    <ul>
+                        <li>AI-powered matching</li>
+                        <li>Location-based promotion</li>
+                        <li>Demographic targeting</li>
+                    </ul>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">💸</div>
+                    <h3>Flexible Plans</h3>
+                    <p>Choose from various partnership plans that fit your business needs and budget</p>
+                    <ul>
+                        <li>No setup fees</li>
+                        <li>Flexible commission</li>
+                        <li>Monthly reporting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="vendor-form">
+                <h2>Apply to Become a Vendor</h2>
+                <form id="vendor-application-form" method="POST" action="https://script.google.com/macros/s/AKfycby64W3NO8W_qvOIWd3RT5jSR-IEZpApQWOyL9T-s_8ouF6lmTVdS3rLtkrCpTenCCg/exec">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="business-name">Business Name *</label>
+                            <input type="text" id="business-name" name="businessName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-person">Contact Person *</label>
+                            <input type="text" id="contact-person" name="contactPerson" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="location">Business Location *</label>
+                            <input type="text" id="location" name="location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-type">Business Type *</label>
+                            <select id="business-type" name="businessType" required>
+                                <option value="">Select Business Type</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="cafe">Café</option>
+                                <option value="cloud-kitchen">Cloud Kitchen</option>
+                                <option value="food-truck">Food Truck</option>
+                                <option value="bakery">Bakery</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Tell us about your business</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Describe your cuisine, specialties, and what makes your business unique..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Website (Optional)</label>
+                        <input type="url" id="website" name="website" placeholder="https://yourrestaurant.com">
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="Logo.svg" alt="Foodidu Logo" style="height:60px; width:auto;">
+                        <h3>Foodidu</h3>
+                    </div>
+                    <p>Discover hidden gems, save money, and enjoy amazing food experiences in your neighborhood.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/Foodidu.EG" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/foodidu_official" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@foodidu_" target="_blank" rel="noopener noreferrer" title="Follow us on TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/foodidu/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="Follow us on LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('discover')">Discover</a></li>
+                        <li><a href="#" onclick="showPage('deals')">Deals</a></li>
+                        <li><a href="#" onclick="showPage('promo')">Promo Codes</a></li>
+                        <li><a href="#" onclick="showPage('vendors')">For Restaurants</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Download App</h3>
+                    <div class="footer-app-buttons">
+                        <button class="footer-app-btn" onclick="downloadApp()">
+                            <i class="fab fa-apple"></i>
+                            <span>iOS App</span>
+                        </button>
+                        <button class="footer-app-btn" onclick="downloadApp()">
+                            <i class="fab fa-google-play"></i>
+                            <span>Android App</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Foodidu. All rights reserved. | Made with ❤️ for food lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading delicious content...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
+
