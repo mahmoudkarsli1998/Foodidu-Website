@@ -207,7 +207,7 @@ const promoCodesData = [
         code: "SMR",
         discount: "Free Delivery",
         expiry: "Dec 31, 2025",
-        logo: "BF",
+        logo: "images/Breadfast.svg",
         description: "Free Delivery on first order above 350 LE"
     },
     {
@@ -217,7 +217,7 @@ const promoCodesData = [
         code: "NEW40",
         discount: "40% Off First Order",
         expiry: "Dec 31, 2025",
-        logo: "PH",
+        logo: "images/Pizza Hut.svg",
         description: "40% Off first order on the Pizza Hut app"
     },
     {
@@ -237,7 +237,7 @@ const promoCodesData = [
         code: "KFCBOX",
         discount: "30% Off Family Boxes",
         expiry: "Nov 15, 2025",
-        logo: "KF",
+        logo: "images/KFC.svg",
         description: "Save 30% on all family meal boxes"
     },
     {
@@ -257,7 +257,7 @@ const promoCodesData = [
         code: "CILAN2",
         discount: "Buy 1 Get 1 Free Coffee",
         expiry: "Dec 15, 2025",
-        logo: "CI",
+        logo: "images/CILANTRO.png",
         description: "Free coffee with any coffee purchase"
     },
     {
@@ -267,7 +267,7 @@ const promoCodesData = [
         code: "WHOPPER",
         discount: "35% Off Whopper Meals",
         expiry: "Nov 30, 2025",
-        logo: "BK",
+        logo: "images/Burger King.svg",
         description: "Save on all Whopper meal combinations"
     },
     {
@@ -277,7 +277,7 @@ const promoCodesData = [
         code: "BUFF45",
         discount: "45% Off First Order",
         expiry: "Oct 15, 2025",
-        logo: "BB",
+        logo: "images/BUFFALO BURGER.png",
         description: "Save 45% on your first Buffalo Burger order"
     },
     {
@@ -287,8 +287,18 @@ const promoCodesData = [
         code: "HEALTHY",
         discount: "20% Off Healthy Meals",
         expiry: "Dec 31, 2025",
-        logo: "ZF",
+        logo: "images/zumrafood.png",
         description: "20% discount on all healthy meal plans"
+    },
+    {
+        id: 10,
+        brand: "Starbucks",
+        category: "coffee",
+        code: "STARBUCKS",
+        discount: "Buy 1 Get 1 Free Coffee",
+        expiry: "Dec 31, 2025",
+        logo: "images/starbucks.png",
+        description: "Free coffee with any coffee purchase"
     },
     {
         id: 3,
@@ -716,7 +726,12 @@ function loadPromoCodes() {
     promoGrid.innerHTML = filteredPromos.map(promo => `
         <div class="promo-card" data-aos="fade-up">
             <div class="promo-header">
-                <div class="promo-logo">${promo.logo}</div>
+                <div class="promo-logo">
+                    ${promo.logo.includes('images/') ? 
+                        `<img src="${promo.logo}" alt="${promo.brand} Logo" class="vendor-logo">` : 
+                        promo.logo
+                    }
+                </div>
                 <div class="promo-brand">${promo.brand}</div>
             </div>
             <div class="promo-code-section">
