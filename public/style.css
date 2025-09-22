@@ -1252,18 +1252,24 @@ html {
     transition: all 0.3s ease;
 }
 
+.promo-logo.has-image {
+    background: transparent;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .promo-logo:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 8px 20px rgba(234, 179, 8, 0.4);
 }
 
 .vendor-logo {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     border-radius: 8px;
     transition: all 0.3s ease;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    background: transparent;
 }
 
 .vendor-logo:hover {
