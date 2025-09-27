@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Cookie consent collection - allow read/write for visitor tracking
+    match /cookieConsent/{visitorId} {
+      allow read, write: if true;
+    }
+    
+    // User sessions collection - for analytics data
+    match /userSessions/{sessionId} {
+      allow create: if true;
+      allow read: if false; // Only allow creation, not reading for privacy
+    }
+    
+    // User profiles collection (if you want to store user data separately)
+    match /userProfiles/{userId} {
+      allow read, write: if true;
+    }
+    
+    // Analytics events collection (for custom event tracking)
+    match /analyticsEvents/{eventId} {
+      allow create: if true;
+      allow read: if false;
+    }
+    
+    // Location data collection (separate collection for location tracking)
+    match /locationData/{visitorId} {
+      allow read, write: if true;
+    }
+    
+    // Device fingerprints collection
+    match /deviceFingerprints/{fingerprintId} {
+      allow read, write: if true;
+    }
+    
+    // Keep other collections secure by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

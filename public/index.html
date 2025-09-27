@@ -20,8 +20,27 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
 </head>
 <body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-logo">
+                <img src="images/Logo-Text.svg" alt="Foodidu Logo">
+            </div>
+            <p>We use cookies to enhance your experience and track visits. By continuing to use this site, you agree to our cookie policy.</p>
+            <div class="cookie-actions">
+                <button id="accept-cookies" class="cookie-btn primary">Accept</button>
+                <button id="reject-cookies" class="cookie-btn secondary">Decline</button>
+            </div>
+        </div>
+    </div>
+    
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -326,7 +345,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+</section>
 
         <!-- Features Section -->
         <section class="features">
@@ -1040,6 +1059,7 @@
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">FAQ</a></li>
+                        <li><a href="#" id="cookie-settings-link">Cookie Settings</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1079,6 +1099,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="cookie-consent.js"></script>
 </body>
 </html>
 
