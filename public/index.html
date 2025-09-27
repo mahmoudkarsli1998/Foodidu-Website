@@ -942,8 +942,18 @@
                         </div>
                         <div class="form-group">
                             <label for="contact-person">Contact Person *</label>
-                            <input type="text" id="contact-person" name="contactPerson" required>
-                        </div>
+                            <input 
+                              type="text" 
+                              id="contact-person" 
+                              name="contactPerson" 
+                              required 
+                              pattern="^[\p{L}\s\-]+$" 
+                              title="Please enter a valid name (Arabic or English letters only).">
+                            <small class="form-text text-muted">
+                              Enter a valid name (Arabic or English letters only).
+                            </small>
+                          </div>
+                          
                     </div>
                     <div class="form-row">
                         <div class="form-group">

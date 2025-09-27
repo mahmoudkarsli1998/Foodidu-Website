@@ -784,8 +784,63 @@ function copyPromoCode(code, promoId) {
 
 // Vendor Application Functions
 function initializeVendorForm() {
-    // No JS needed for direct HTML POST to Google Apps Script
-    // Remove event listener to allow default form submission
+    console.log('Initializing vendor form...');
+    const form = document.getElementById('vendor-application-form');
+    if (form) {
+        console.log('Found vendor form, adding submit handler');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Form submit triggered');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+            }
+            
+            const formData = new FormData(form);
+            const loadingMessage = document.createElement('div');
+            loadingMessage.textContent = 'Submitting your application...';
+            loadingMessage.style.color = '#eab308';
+            loadingMessage.style.marginTop = '1rem';
+            loadingMessage.style.textAlign = 'center';
+            form.appendChild(loadingMessage);
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyxKza22srkcMWv5bFGp4ZzQ0ulZaVc29RV_8brZ6l_Zih_rxz0tdMCHrM_CDvQ84-d/exec';
+
+            // Convert FormData to URLSearchParams for proper submission
+            const params = new URLSearchParams();
+            for (let [key, value] of formData) {
+                params.append(key, value);
+            }
+
+            fetch(scriptURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: params.toString()
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log('Success:', result);
+                showNotification('🎉 Thank you! Your vendor application has been submitted successfully. We\'ll contact you within 24 hours.');
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                showNotification('Submission failed. Please try again later.', 'error');
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Application';
+                }
+                if (loadingMessage) loadingMessage.remove();
+            });
+        });
+    } else {
+        console.error('Vendor form not found in the DOM');
+    }
 }
 
 function handleVendorSubmission(e) {
@@ -798,6 +853,52 @@ function handleVendorSubmission(e) {
 
     const scriptURL = 'https://script.google.com/macros/s/AKfycby64W3NO8W_qvOIWd3RT5jSR-IEZpApQWOyL9T-s_8ouF6lmTVdS3rLtkrCpTenCCg/exec';
 
+// function initializeVendorForm() {
+//     console.log('Initializing vendor form...');
+//     const form = document.getElementById('vendor-application-form');
+//     if (form) {
+//         console.log('Found vendor form, adding submit handler');
+//         form.addEventListener('submit', function(e) {
+//             e.preventDefault();
+//             console.log('Form submit triggered');
+//             const submitBtn = form.querySelector('button[type="submit"]');
+//             if (submitBtn) submitBtn.disabled = true;
+            
+//             const formData = new FormData(form);
+//             const loadingMessage = document.createElement('div');
+//             loadingMessage.textContent = 'Submitting...';
+//             loadingMessage.style.color = '#eab308';
+//             form.appendChild(loadingMessage);
+
+//             fetch(scriptURL, {
+//                 method: 'POST',
+//                 body: formData,
+//                 mode: 'cors',
+//                 headers: {
+//                     'Accept': 'application/json'
+//                 }
+//             })
+//             .then(response => {
+//                 if (response.ok) {
+//                     alert('Success! Your application has been submitted.');
+//                     form.reset();
+//                 } else {
+//                     throw new Error('Network response was not ok: ' + response.status);
+//                 }
+//             })
+//             .catch(error => {
+//                 console.error('Error!', error.message);
+//                 alert('Error! Something went wrong. Please try again.');
+//             })
+//             .finally(() => {
+//                 if (submitBtn) submitBtn.disabled = false;
+//                 if (loadingMessage) loadingMessage.remove();
+//             });
+//         });
+//     } else {
+//         console.error('Vendor form not found in the DOM');
+//     }
+// }
 function initializeVendorForm() {
     console.log('Initializing vendor form...');
     const form = document.getElementById('vendor-application-form');
@@ -807,36 +908,49 @@ function initializeVendorForm() {
             e.preventDefault();
             console.log('Form submit triggered');
             const submitBtn = form.querySelector('button[type="submit"]');
-            if (submitBtn) submitBtn.disabled = true;
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+            }
             
             const formData = new FormData(form);
             const loadingMessage = document.createElement('div');
-            loadingMessage.textContent = 'Submitting...';
+            loadingMessage.textContent = 'Submitting your application...';
             loadingMessage.style.color = '#eab308';
+            loadingMessage.style.marginTop = '1rem';
+            loadingMessage.style.textAlign = 'center';
             form.appendChild(loadingMessage);
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyxKza22srkcMWv5bFGp4ZzQ0ulZaVc29RV_8brZ6l_Zih_rxz0tdMCHrM_CDvQ84-d/exec';
+
+            // Convert FormData to URLSearchParams for proper submission
+            const params = new URLSearchParams();
+            for (let [key, value] of formData) {
+                params.append(key, value);
+            }
 
             fetch(scriptURL, {
                 method: 'POST',
-                body: formData,
-                mode: 'cors',
                 headers: {
-                    'Accept': 'application/json'
-                }
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: params.toString()
             })
-            .then(response => {
-                if (response.ok) {
-                    alert('Success! Your application has been submitted.');
-                    form.reset();
-                } else {
-                    throw new Error('Network response was not ok: ' + response.status);
-                }
+            .then(response => response.text())
+            .then(result => {
+                console.log('Success:', result);
+                showNotification('🎉 Thank you! Your vendor application has been submitted successfully. We\'ll contact you within 24 hours.');
+                form.reset();
             })
             .catch(error => {
                 console.error('Error!', error.message);
-                alert('Error! Something went wrong. Please try again.');
+                showNotification('Submission failed. Please try again later.', 'error');
             })
             .finally(() => {
-                if (submitBtn) submitBtn.disabled = false;
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Application';
+                }
                 if (loadingMessage) loadingMessage.remove();
             });
         });
