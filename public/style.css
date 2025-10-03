@@ -1,3 +1,5 @@
+/* Rabbit Navigation Link Styling - REMOVED */
+
 @media (min-width: 900px) {
     .nav-menu .download-btn {
         display: none !important;
@@ -2132,3 +2134,370 @@ html {
     height: 300px;
 }
 
+
+/* Rabbit Highlight Section */
+.rabbit-highlight {
+    padding: 40px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.rabbit-banner {
+    background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(255, 204, 2, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.rabbit-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rabbitShimmer 4s infinite;
+}
+
+@keyframes rabbitShimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.rabbit-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.rabbit-logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 15px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rabbit-info {
+    flex: 1;
+}
+
+.rabbit-info h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 10px 0;
+}
+
+.rabbit-info p {
+    font-size: 1.2rem;
+    color: #1a202c;
+    margin: 0 0 15px 0;
+}
+
+.rabbit-code {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.rabbit-code .code {
+    background: white;
+    color: #1a202c;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border: 2px dashed #1a202c;
+}
+
+.quick-copy {
+    background: #1a202c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-copy:hover {
+    background: #2d3748;
+    transform: translateY(-2px);
+}
+
+.quick-copy.copied {
+    background: #059669;
+    animation: quickCopySuccess 0.5s ease;
+}
+
+@keyframes quickCopySuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.rabbit-cta {
+    display: flex;
+    align-items: center;
+}
+
+.rabbit-btn {
+    background: #1a202c;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.rabbit-btn:hover {
+    background: #2d3748;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-decoration: none;
+}
+
+/* Mobile Responsive for Rabbit Section */
+@media (max-width: 768px) {
+    .rabbit-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .rabbit-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .rabbit-code {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .rabbit-btn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .rabbit-banner {
+        padding: 25px 20px;
+    }
+    
+    .rabbit-code {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .rabbit-code .code {
+        font-size: 1.1rem;
+        padding: 8px 15px;
+    }
+}/* Feature
+d Rabbit Promo Card Styling */
+.rabbit-featured-card {
+    position: relative;
+    background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 204, 2, 0.4);
+    overflow: hidden;
+}
+
+.rabbit-featured-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    animation: rabbitCardShimmer 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes rabbitCardShimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.featured-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #dc2626;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 0 15px 0 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 3;
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.rabbit-featured-card .promo-header {
+    position: relative;
+    z-index: 2;
+}
+
+.rabbit-featured-card .promo-logo {
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rabbit-featured-card .vendor-logo {
+    border-radius: 10px;
+}
+
+.rabbit-featured-card .promo-brand {
+    color: #1a202c;
+    font-weight: 800;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.rabbit-featured-card .promo-code-section {
+    position: relative;
+    z-index: 2;
+}
+
+.rabbit-featured-card .promo-discount {
+    color: #1a202c;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.rabbit-featured-card .promo-code {
+    background: white;
+    color: #1a202c;
+    font-weight: 900;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rabbit-featured-card .promo-description,
+.rabbit-featured-card .promo-expiry {
+    color: #1a202c;
+    font-weight: 600;
+}
+
+.rabbit-copy-btn {
+    background: #1a202c !important;
+    color: white !important;
+    font-weight: 700;
+    border: 2px solid #1a202c;
+    position: relative;
+    z-index: 2;
+}
+
+.rabbit-copy-btn:hover {
+    background: #2d3748 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(26, 32, 44, 0.3);
+}
+
+.featured-cta {
+    margin-top: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.view-details-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1a202c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background: #2d3748;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 32, 44, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+/* Mobile adjustments for featured card */
+@media (max-width: 768px) {
+    .rabbit-featured-card {
+        transform: scale(1);
+        margin-bottom: 20px;
+    }
+}
+
+/* Vendor Logo Improvements - No Background/Container */
+.vendor-logo {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+.promo-logo {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Exception for Rabbit featured card logo */
+.rabbit-featured-card .promo-logo {
+    background: white !important;
+    border-radius: 15px !important;
+    padding: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Badge and Logo Styling - Reverted to Emoji *//*
+ Rabbit Image Styling */
+.badge-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.inline-rabbit-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.featured-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}

@@ -1407,3 +1407,162 @@ window.filterPromos = filterPromos;
 window.copyPromoCode = copyPromoCode;
 window.downloadApp = downloadApp;
 
+
+// Enhanced Promo Code Copy Function
+function copyPromoCode(code, vendor) {
+    navigator.clipboard.writeText(code).then(function() {
+        // Find the specific copy button
+        let copyBtn;
+        if (vendor === 'rabbit') {
+            copyBtn = document.querySelector('.rabbit-copy-btn');
+        } else {
+            copyBtn = event.target;
+        }
+        
+        const originalText = copyBtn.innerHTML;
+        
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyBtn.classList.add('copied');
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+            copyBtn.classList.remove('copied');
+        }, 2000);
+        
+        // Show notification with vendor-specific message
+        const vendorName = vendor === 'rabbit' ? 'Rabbit' : 'Vendor';
+        showRabbitNotification(`${vendorName} promo code copied! 🎉`, 'success');
+        
+        // Track the copy event
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'promo_code_copied', {
+                'event_category': 'engagement',
+                'event_label': code,
+                'vendor': vendor || 'unknown'
+            });
+        }
+    }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+        showRabbitNotification('Failed to copy code. Please try again.', 'error');
+    });
+}
+
+// Rabbit Quick Copy Function (for banner)
+function copyRabbitCode() {
+    const code = 'RABBIT25';
+    
+    navigator.clipboard.writeText(code).then(function() {
+        // Update button to show success
+        const copyBtn = document.querySelector('.quick-copy');
+        const originalText = copyBtn.innerHTML;
+        
+        copyBtn.innerHTML = '✓ Copied!';
+        copyBtn.classList.add('copied');
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+            copyBtn.classList.remove('copied');
+        }, 2000);
+        
+        // Show notification
+        showRabbitNotification('Rabbit promo code copied! 🎉', 'success');
+        
+        // Track the copy event (if analytics is available)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'rabbit_promo_copied', {
+                'event_category': 'engagement',
+                'event_label': 'homepage_banner',
+                'value': 1
+            });
+        }
+    }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+        showRabbitNotification('Failed to copy code. Please try again.', 'error');
+    });
+}
+
+// Rabbit Notification Function
+function showRabbitNotification(message, type = 'info') {
+    // Remove existing notification if any
+    const existingNotification = document.querySelector('.rabbit-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `rabbit-notification ${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    // Add styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#059669' : type === 'error' ? '#dc2626' : '#3b82f6'};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        animation: slideInRight 0.3s ease;
+        max-width: 300px;
+        font-weight: 600;
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// Add CSS animations for notifications (if not already added)
+if (!document.querySelector('#rabbit-notification-styles')) {
+    const style = document.createElement('style');
+    style.id = 'rabbit-notification-styles';
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        .rabbit-notification .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    `;
+    document.head.appendChild(style);
+}

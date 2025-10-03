@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get exclusive Starbucks promo codes and discounts with Foodidu. Save money on your favorite food orders.">
+    <meta name="keywords" content="Starbucks promo codes, Starbucks discounts, food delivery deals, Foodidu">
+    <meta name="author" content="Foodidu">
+    <meta property="og:title" content="Starbucks Promo Codes - Foodidu">
+    <meta property="og:description" content="Exclusive Starbucks promo codes and deals. Save money on your food orders with verified discount codes.">
+    <meta property="og:image" content="../images/starbucks.png">
+    <meta property="og:url" content="https://foodidu.com/starbucks">
+    
+    <title>Starbucks Promo Codes - Foodidu</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../images/Logo.svg">
+    <link rel="apple-touch-icon" href="../images/Logo.svg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Rabbit-PromoCode/vendor-page.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/Logo-Text.svg" alt="Foodidu Logo"
+                         style="height:80px; width:auto; object-fit:contain; margin-right:0.7rem; vertical-align:middle; box-shadow:0 2px 16px rgba(0,0,0,0.07); background:none; border-radius:32px; border: 3px solid #ffe082; transition: box-shadow 0.2s;">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#discover">Discover</a></li>
+                <li><a href="../index.html#deals">Deals</a></li>
+                <li><a href="../index.html#promo">Promo Codes</a></li>
+                <li><a href="../index.html#vendors">Vendors</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Vendor Page Content -->
+    <main class="vendor-page">
+        <div class="container">
+            <!-- Vendor Logo Section -->
+            <section class="vendor-header">
+                <div class="vendor-logo-container">
+                    <img src="../images/starbucks.png" alt="Starbucks Logo" class="vendor-logo clean-logo">
+                </div>
+                <h1 class="vendor-name">Starbucks</h1>
+                <p class="vendor-description">Get exclusive promo codes and save on your Starbucks orders</p>
+            </section>
+
+            <!-- Promo Code Section -->
+            <section class="promo-section">
+                <div class="promo-card-large">
+                    <div class="promo-header">
+                        <h2>Exclusive Promo Code</h2>
+                        <div class="promo-badge">BOGO Deal</div>
+                    </div>
+                    <div class="promo-code-display">
+                        <span class="promo-code" id="promoCode">STARBUCKS</span>
+                        <button class="copy-btn" onclick="copyPromoCode('STARBUCKS')">
+                            <i class="fas fa-copy"></i>
+                            Copy Code
+                        </button>
+                    </div>
+                    <p class="promo-instruction">Use this code on Starbucks App or Website</p>
+                    <div class="promo-details">
+                        <div class="promo-discount">Buy 1 Get 1 Free Coffee</div>
+                        <div class="promo-expiry">Expires: Dec 31, 2025</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download Buttons Section -->
+            <section class="download-section">
+                <h2>Download Apps</h2>
+                
+                <!-- Foodidu App -->
+                <div class="app-group">
+                    <h3>Foodidu App</h3>
+                    <p>Get more promo codes and discover hidden gems</p>
+                    <div class="download-buttons">
+                        <a href="#" class="download-btn app-store" onclick="downloadApp('ios')">
+                            <i class="fab fa-apple"></i>
+                            <div class="btn-text">
+                                <span class="small">Download on the</span>
+                                <span class="large">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="download-btn google-play" onclick="downloadApp('android')">
+                            <i class="fab fa-google-play"></i>
+                            <div class="btn-text">
+                                <span class="small">Get it on</span>
+                                <span class="large">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Vendor App & Website -->
+                <div class="app-group">
+                    <h3>Starbucks App & Website</h3>
+                    <p>Order directly from Starbucks</p>
+                    <div class="download-buttons">
+                        <a href="#" class="download-btn app-store" onclick="openVendorApp('starbucks', 'ios')">
+                            <i class="fab fa-apple"></i>
+                            <div class="btn-text">
+                                <span class="small">Download on the</span>
+                                <span class="large">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="download-btn google-play" onclick="openVendorApp('starbucks', 'android')">
+                            <i class="fab fa-google-play"></i>
+                            <div class="btn-text">
+                                <span class="small">Get it on</span>
+                                <span class="large">Google Play</span>
+                            </div>
+                        </a>
+                        <a href="#" class="download-btn website" onclick="openVendorWebsite('starbucks')">
+                            <i class="fas fa-globe"></i>
+                            <div class="btn-text">
+                                <span class="small">Visit</span>
+                                <span class="large">Website</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Back to Home -->
+            <section class="back-section">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Foodidu
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../images/Logo-Text.svg" alt="Foodidu Logo" style="height: 40px;">
+                </div>
+                <p>&copy; 2024 Foodidu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../script.js"></script>
+    <script>
+        // Starbucks specific JavaScript
+        function copyPromoCode(code) {
+            navigator.clipboard.writeText(code).then(function() {
+                const copyBtn = document.querySelector('.copy-btn');
+                const originalText = copyBtn.innerHTML;
+                
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyBtn.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+                
+                showNotification('Promo code copied to clipboard!', 'success');
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                showNotification('Failed to copy code. Please try again.', 'error');
+            });
+        }
+
+        function downloadApp(platform) {
+            let url = '';
+            if (platform === 'ios') {
+                url = 'https://apps.apple.com/app/foodidu';
+            } else if (platform === 'android') {
+                url = 'https://play.google.com/store/apps/details?id=com.foodidu';
+            }
+            if (url) window.open(url, '_blank');
+        }
+
+        function openVendorApp(vendor, platform) {
+            const vendorApps = {
+                'starbucks': {
+                    ios: 'https://apps.apple.com/app/starbucks',
+                    android: 'https://play.google.com/store/apps/details?id=com.starbucks'
+                }
+            };
+            
+            const url = vendorApps[vendor] && vendorApps[vendor][platform];
+            if (url) window.open(url, '_blank');
+        }
+
+        function openVendorWebsite(vendor) {
+            const vendorWebsites = {
+                'starbucks': 'https://starbucks.com'
+            };
+            
+            const url = vendorWebsites[vendor];
+            if (url) window.open(url, '_blank');
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            notification.style.cssText = `
+                position: fixed; top: 20px; right: 20px;
+                background: ${type === 'success' ? '#059669' : type === 'error' ? '#dc2626' : '#3b82f6'};
+                color: white; padding: 15px 20px; border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); z-index: 10000;
+                animation: slideInRight 0.3s ease; max-width: 300px;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+            .notification-content { display: flex; align-items: center; gap: 10px; }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
