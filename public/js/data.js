@@ -128,6 +128,28 @@ export const restaurantsData = [
 export const promoCodesData = [
     {
         id: 1,
+        brand: "Rabbit",
+        category: "delivery",
+        code: "RabbitFood4",
+        discount: "30% OFF upto 150 EGP",
+        expiry: "Dec 31, 2025",
+        logo: "images/Rabbit.png",
+        description: "Get 30% OFF upto 150 EGP on your first order on Rabbit",
+        featured: true
+    },
+    {
+        id: 2,
+        brand: "Senem",
+        category: "delivery",
+        code: "FOODIDU10",
+        discount: "10% Off Your Order",
+        expiry: "Dec 31, 2025",
+        logo: "images/senem.webp",
+        description: "Premium grocery delivery with exclusive discount",
+        featured: true
+    },
+    {
+        id: 3,
         brand: "BreadFast",
         category: "delivery",
         code: "SMR",
@@ -137,7 +159,7 @@ export const promoCodesData = [
         description: "Free Delivery on first order above 350 LE"
     },
     {
-        id: 2,
+        id: 4,
         brand: "Pizza Hut",
         category: "fast-food",
         code: "NEW40",
@@ -147,7 +169,7 @@ export const promoCodesData = [
         description: "40% Off first order on the Pizza Hut app"
     },
     {
-        id: 3,
+        id: 5,
         brand: "MINI Berit",
         category: "bakery",
         code: "MINI25",
@@ -157,7 +179,7 @@ export const promoCodesData = [
         description: "Get 25% off on all Lebanese pastries"
     },
     {
-        id: 4,
+        id: 6,
         brand: "KFC",
         category: "fast-food",
         code: "KFCBOX",
@@ -167,7 +189,7 @@ export const promoCodesData = [
         description: "Save 30% on all family meal boxes"
     },
     {
-        id: 5,
+        id: 7,
         brand: "Gourment",
         category: "fine-dining",
         code: "GOURM50",
@@ -177,7 +199,7 @@ export const promoCodesData = [
         description: "Buy one main course, get 50% off the second"
     },
     {
-        id: 6,
+        id: 8,
         brand: "CILANTRO",
         category: "coffee",
         code: "CILAN2",
@@ -187,7 +209,7 @@ export const promoCodesData = [
         description: "Free coffee with any coffee purchase"
     },
     {
-        id: 7,
+        id: 9,
         brand: "BURGER KING",
         category: "fast-food",
         code: "WHOPPER",
@@ -197,7 +219,7 @@ export const promoCodesData = [
         description: "Save on all Whopper meal combinations"
     },
     {
-        id: 8,
+        id: 10,
         brand: "BUFFALO BURGER",
         category: "fast-food",
         code: "BUFF45",
@@ -207,7 +229,7 @@ export const promoCodesData = [
         description: "Save 45% on your first Buffalo Burger order"
     },
     {
-        id: 9,
+        id: 11,
         brand: "Zumra Food",
         category: "healthy",
         code: "HEALTHY",
@@ -217,7 +239,7 @@ export const promoCodesData = [
         description: "20% discount on all healthy meal plans"
     },
     {
-        id: 10,
+        id: 12,
         brand: "Starbucks",
         category: "coffee",
         code: "STARBUCKS",

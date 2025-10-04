@@ -15,8 +15,20 @@ export function loadPromoCodes() {
         );
     }
     
+    // Sort to ensure featured cards always appear first
+    filteredPromos.sort((a, b) => {
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
+        return 0;
+    });
+    
     promoGrid.innerHTML = filteredPromos.map(promo => `
-        <div class="promo-card" data-aos="fade-up">
+        <div class="promo-card ${promo.featured ? (promo.brand.toLowerCase() === 'rabbit' ? 'rabbit-featured-card' : promo.brand.toLowerCase() === 'senem' ? 'senem-featured-card' : '') : ''}" data-aos="fade-up">
+            ${promo.featured ? `
+                <div class="featured-badge">
+                    <img src="${promo.logo}" alt="${promo.brand}" class="badge-logo"> FEATURED
+                </div>
+            ` : ''}
             <div class="promo-header">
                 <div class="promo-logo">
                     ${promo.logo.includes('images/') ? 
@@ -31,8 +43,16 @@ export function loadPromoCodes() {
                 <div class="promo-code" id="code-${promo.id}">${promo.code}</div>
                 <div class="promo-description">${promo.description}</div>
                 <div class="promo-expiry">Expires: ${promo.expiry}</div>
-                <button class="copy-btn" onclick="window.copyPromoCode('${promo.code}', ${promo.id})">Copy Code</button>
+                <button class="copy-btn ${promo.brand.toLowerCase() === 'rabbit' ? 'rabbit-copy-btn' : promo.brand.toLowerCase() === 'senem' ? 'senem-copy-btn' : ''}" onclick="window.copyPromoCode('${promo.code}', ${promo.id})">Copy Code</button>
             </div>
+            ${promo.featured ? `
+                <div class="featured-cta">
+                    <a href="${promo.brand}-PromoCode/index.html" class="view-details-btn">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Full Details
+                    </a>
+                </div>
+            ` : ''}
         </div>
     `).join('');
 }
