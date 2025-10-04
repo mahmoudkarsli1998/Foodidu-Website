@@ -2,29 +2,29 @@
 
 /* Senem Card Styling */
 .senem-card {
-    border: 2px solid #059669;
-    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #eab308;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
 }
 
 .senem-card .promo-brand {
-    color: #059669;
+    color: #eab308;
     font-weight: 700;
 }
 
 .senem-card .promo-discount {
-    color: #059669;
+    color: #eab308;
     font-weight: 700;
 }
 
 .senem-card .copy-btn {
-    background: #059669;
-    border-color: #059669;
+    background: #eab308;
+    border-color: #eab308;
 }
 
 .senem-card .copy-btn:hover {
-    background: #047857;
+    background: #facc15;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+    box-shadow: 0 8px 25px rgba(234, 179, 8, 0.3);
 }
 
 .senem-cta {
@@ -33,13 +33,36 @@
 }
 
 .senem-card .view-details-btn {
-    background: #059669;
+    background: #eab308;
     color: white;
 }
 
 .senem-card .view-details-btn:hover {
-    background: #047857;
+    background: #facc15;
     color: white;
+}
+
+/* Breadfast Card Styling */
+.breadfast-copy-btn {
+    background: #eab308;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.breadfast-copy-btn:hover {
+    background: #facc15;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(234, 179, 8, 0.3);
 }
 
 /* Hot Promos Section on Home Page */

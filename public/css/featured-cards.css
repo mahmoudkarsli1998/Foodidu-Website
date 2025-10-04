@@ -143,9 +143,9 @@
 /* Featured Senem Promo Card Styling */
 .senem-featured-card {
     position: relative;
-    background: linear-gradient(135deg, #f0fdf4 0%, #059669 100%);
+    background: linear-gradient(135deg, #fef3c7 0%, #eab308 100%);
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(5, 150, 105, 0.4);
+    box-shadow: 0 20px 40px rgba(234, 179, 8, 0.4);
     overflow: hidden;
 }
 
@@ -183,9 +183,9 @@
 }
 
 .senem-featured-card .promo-brand {
-    color: #059669;
-    font-weight: 800;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    color: #1a202c;
+    font-weight: 900;
+    text-shadow: none;
 }
 
 .senem-featured-card .promo-code-section {
@@ -201,11 +201,12 @@
 
 .senem-featured-card .promo-code {
     background: white;
-    color: #059669;
+    color: #1a202c;
     font-weight: 900;
     text-shadow: none;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border: 2px dashed #eab308;
 }
 
 .senem-featured-card .promo-description,
