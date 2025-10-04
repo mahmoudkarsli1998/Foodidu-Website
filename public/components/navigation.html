@@ -1,0 +1,61 @@
+<!-- Navigation Component -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <img
+        src="images/Logo-Text.svg"
+        alt="Foodidu Logo"
+        style="
+          height: 120px;
+          width: auto;
+          object-fit: contain;
+          margin-right: 0.7rem;
+          vertical-align: middle;
+          box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+          background: none;
+          border-radius: 32px;
+          border: 3px solid #ffe082;
+          transition: box-shadow 0.2s;
+        "
+      />
+    </div>
+    <ul class="nav-menu">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('discover')">Discover</a></li>
+      <li><a href="#" onclick="showPage('deals')">Deals</a></li>
+      <li><a href="#" onclick="showPage('promo')">Promo Codes</a></li>
+      <li><a href="#" onclick="showPage('vendors')">Vendors</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <button class="download-btn" onclick="downloadApp()">
+          Download App
+        </button>
+      </li>
+      <!-- Quick Action Buttons -->
+      <li class="nav-action-buttons">
+        <button class="nav-action-btn" onclick="showPage('discover')">
+          <i class="fas fa-compass"></i>
+          Start Exploring
+        </button>
+      </li>
+      <li class="nav-action-buttons">
+        <button class="nav-action-btn" onclick="downloadApp()">
+          <i class="fas fa-download"></i>
+          Download Now
+        </button>
+      </li>
+      <li class="nav-action-buttons">
+        <button class="nav-action-btn" onclick="showPage('promo')">
+          <i class="fas fa-tags"></i>
+          Get Promo Codes
+        </button>
+      </li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+<div class="drawer-overlay" onclick="closeDrawer()"></div>

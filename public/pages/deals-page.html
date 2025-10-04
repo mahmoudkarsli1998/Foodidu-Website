@@ -1,0 +1,79 @@
+<!-- Deals Page Component -->
+<div id="deals" class="page">
+  <section class="deals-hero">
+    <div class="container">
+      <h1>Today's Hot Deals 🔥</h1>
+      <p>
+        Discover amazing discounts and special offers from your favorite
+        restaurants
+      </p>
+      <div class="deals-stats">
+        <div class="stat">
+          <span class="stat-number" id="active-deals">150+</span>
+          <span class="stat-label">Active Deals</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" id="avg-savings">35%</span>
+          <span class="stat-label">Average Savings</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" id="happy-customers">10K+</span>
+          <span class="stat-label">Happy Customers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="filters">
+    <div class="container">
+      <div class="filter-row">
+        <select
+          class="filter-select"
+          onchange="filterDeals(this.value, 'cuisine')"
+        >
+          <option value="">All Cuisines</option>
+          <option value="pizza">Pizza</option>
+          <option value="burger">Burger</option>
+          <option value="coffee">Coffee</option>
+          <option value="chinese">Chinese</option>
+          <option value="indian">Indian</option>
+          <option value="mexican">Mexican</option>
+          <option value="italian">Italian</option>
+        </select>
+        <select
+          class="filter-select"
+          onchange="filterDeals(this.value, 'price')"
+        >
+          <option value="">Sort by Price</option>
+          <option value="low">Lowest First</option>
+          <option value="high">Highest First</option>
+        </select>
+        <select
+          class="filter-select"
+          onchange="filterDeals(this.value, 'discount')"
+        >
+          <option value="">Sort by Discount</option>
+          <option value="highest">Highest Discount</option>
+          <option value="lowest">Lowest Discount</option>
+        </select>
+        <input
+          type="text"
+          class="filter-input"
+          placeholder="Search location..."
+          onkeyup="filterDeals(this.value, 'location')"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="deals-grid" id="deals-grid">
+      <!-- Deals will be populated by JavaScript -->
+    </div>
+    <div class="load-more-container">
+      <button class="load-more-btn" onclick="loadMoreDeals()">
+        Load More Deals
+      </button>
+    </div>
+  </section>
+</div>""
