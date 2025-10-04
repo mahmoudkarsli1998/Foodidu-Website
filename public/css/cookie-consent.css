@@ -1,7 +1,7 @@
 /* Cookie Consent Banner Styles */
 .cookie-banner {
     position: fixed;
-    bottom: 20px;
+    bottom: -100%;
     left: 50%;
     transform: translateX(-50%);
     width: auto;
@@ -9,15 +9,21 @@
     background-color: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     z-index: 9999;
-    display: none;
     font-family: inherit;
     border-radius: 10px;
     overflow: hidden;
+    transition: bottom 0.5s ease-in-out;
+    opacity: 0;
 }
 
 .cookie-banner.show {
-    display: block;
-    animation: slideUp 0.5s forwards;
+    bottom: 20px;
+    opacity: 1;
+}
+
+.cookie-banner.hide {
+    bottom: -100%;
+    opacity: 0;
 }
 
 .cookie-content {

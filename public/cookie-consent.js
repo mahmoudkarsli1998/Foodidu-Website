@@ -432,18 +432,17 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     console.log('User profile initialized:', userProfile);
     
-    // Check if user has already made a choice
-    const cookieConsent = localStorage.getItem('cookieConsent');
+    // Always show the banner and track the event
+    trackEnhancedEvent('cookie_banner_shown');
     
-    if (!cookieConsent) {
-        // Track banner shown event
-        trackEnhancedEvent('cookie_banner_shown');
-        
-        if (cookieBanner) {
-            cookieBanner.style.display = 'block';
-            cookieBanner.style.animation = 'slideUp 0.5s forwards';
-        }
-    } else {
+    if (cookieBanner) {
+        cookieBanner.style.display = 'block';
+        cookieBanner.style.animation = 'slideUp 0.5s forwards';
+    }
+    
+    // Apply any existing preferences
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    if (cookieConsent) {
         applyStoredPreferences();
     }
     
@@ -493,10 +492,24 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (cookieSettingsLink) {
         cookieSettingsLink.addEventListener('click', function(e) {
             e.preventDefault();
+            console.log('Cookie settings clicked');
+            
+            // Remove existing consent to allow fresh choice
+            localStorage.removeItem('cookieConsent');
+            
             trackEnhancedEvent('cookie_settings_opened');
+            
             if (cookieBanner) {
-                cookieBanner.style.display = 'block';
-                cookieBanner.style.animation = 'slideUp 0.5s forwards';
+                // Remove any existing classes
+                cookieBanner.classList.remove('hide');
+                // Force a reflow
+                cookieBanner.offsetHeight;
+                // Add the show class to trigger animation
+                cookieBanner.classList.add('show');
+                
+                console.log('Cookie banner display triggered');
+            } else {
+                console.error('Cookie banner element not found');
             }
         });
     }
@@ -555,10 +568,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     function hideBanner() {
         if (cookieBanner) {
-            cookieBanner.style.animation = 'slideDown 0.5s forwards';
-            setTimeout(() => {
-                cookieBanner.style.display = 'none';
-            }, 500);
+            cookieBanner.classList.add('hide');
+            cookieBanner.classList.remove('show');
+            console.log('Cookie banner hidden');
         }
     }
     
