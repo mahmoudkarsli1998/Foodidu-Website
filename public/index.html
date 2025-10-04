@@ -184,36 +184,82 @@
         </div>
       </section>
 
-      <!-- Rabbit Special Highlight Section -->
-      <section class="rabbit-highlight">
+      <!-- Exclusive Deals Auto-Sliding Section -->
+      <section class="exclusive-deals">
         <div class="container">
-          <div class="rabbit-banner">
-            <div class="rabbit-content">
-              <div class="rabbit-logo">
-                <img src="images/Rabbit.png" alt="Rabbit Logo" />
-              </div>
-              <div class="rabbit-info">
-                <h3>
-                  <img
-                    src="images/rabbitt.jpeg"
-                    alt="Rabbit"
-                    class="inline-rabbit-logo"
-                  />
-                  Exclusive Rabbit Deal!
-                </h3>
-                <p>Get <strong>25% OFF</strong> your first Rabbit order</p>
-                <div class="rabbit-code">
-                  <span class="code">RABBIT25</span>
-                  <button class="quick-copy" onclick="copyRabbitCode()">
-                    Copy
-                  </button>
+          <div class="exclusive-carousel">
+            <!-- Rabbit Exclusive Deal -->
+            <div class="exclusive-slide active" data-slide="0">
+              <div class="exclusive-banner rabbit-banner">
+                <div class="exclusive-content">
+                  <div class="exclusive-logo">
+                    <img src="images/Rabbit.png" alt="Rabbit Logo" />
+                  </div>
+                  <div class="exclusive-info">
+                    <h3>
+                      <img
+                        src="images/rabbitt.jpeg"
+                        alt="Rabbit"
+                        class="inline-logo"
+                      />
+                      Exclusive Rabbit Deal!
+                    </h3>
+                    <p>Get <strong>30% OFF upto 150 EGP</strong> on your first order on Rabbit</p>
+                    <div class="exclusive-code">
+                      <span class="code">RabbitFood4</span>
+                      <button class="quick-copy" onclick="copyExclusiveCode('RabbitFood4', 'rabbit')">
+                        Copy
+                      </button>
+                    </div>
+                  </div>
+                  <div class="exclusive-cta">
+                    <a href="Rabbit-PromoCode/index.html" class="exclusive-btn">
+                      Get Full Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div class="rabbit-cta">
-                <a href="Rabbit-PromoCode/index.html" class="rabbit-btn">
-                  Get Full Details <i class="fas fa-arrow-right"></i>
-                </a>
+            </div>
+
+            <!-- Senem Exclusive Deal -->
+            <div class="exclusive-slide" data-slide="1">
+              <div class="exclusive-banner senem-banner">
+                <div class="exclusive-content">
+                  <div class="exclusive-logo">
+                    <img src="images/senem.webp" alt="Senem Logo" />
+                  </div>
+                  <div class="exclusive-info">
+                    <h3>
+                      <img
+                        src="images/senem.webp"
+                        alt="Senem"
+                        class="inline-logo"
+                      />
+                      Exclusive Senem Deal!
+                    </h3>
+                    <p>Get <strong>10% OFF</strong> on premium groceries</p>
+                    <div class="exclusive-code">
+                      <span class="code">FOODIDU10</span>
+                      <button class="quick-copy" onclick="copyExclusiveCode('FOODIDU10', 'senem')">
+                        Copy
+                      </button>
+                    </div>
+                  </div>
+                  <div class="exclusive-cta">
+                    <a href="Senem-PromoCode/index.html" class="exclusive-btn">
+                      Get Full Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
               </div>
+            </div>
+
+
+
+            <!-- Carousel Indicators -->
+            <div class="exclusive-indicators">
+              <span class="exclusive-indicator active" onclick="goToExclusiveSlide(0)"></span>
+              <span class="exclusive-indicator" onclick="goToExclusiveSlide(1)"></span>
             </div>
           </div>
         </div>
@@ -249,21 +295,47 @@
                 <div class="promo-brand">Rabbit</div>
               </div>
               <div class="promo-code-section">
-                <div class="promo-discount">25% Off First Order</div>
-                <div class="promo-code">RABBIT25</div>
+                <div class="promo-discount">30% OFF upto 150 EGP</div>
+                <div class="promo-code">RabbitFood4</div>
                 <div class="promo-description">
-                  Use this code on Rabbit App or Website
+                  Get 30% OFF upto 150 EGP on your first order on Rabbit
                 </div>
                 <div class="promo-expiry">Expires: Dec 31, 2025</div>
                 <button
                   class="copy-btn rabbit-copy-btn"
-                  onclick="copyPromoCode('RABBIT25', 'rabbit')"
+                  onclick="copyPromoCode('RabbitFood4', 'rabbit')"
                 >
                   Copy Code
                 </button>
               </div>
               <div class="featured-cta">
                 <a href="Rabbit-PromoCode/index.html" class="view-details-btn">
+                  <i class="fas fa-external-link-alt"></i>
+                  View Full Details
+                </a>
+              </div>
+            </div>
+
+            <!-- Featured Senem Promo Card -->
+            <div class="promo-card senem-featured-card" data-aos="fade-up" data-aos-delay="75">
+              <div class="featured-badge">
+                <img src="images/senem.webp" alt="Senem" class="badge-logo"> FEATURED
+              </div>
+              <div class="promo-header">
+                <div class="promo-logo">
+                  <img src="images/senem.webp" alt="Senem Logo" class="vendor-logo">
+                </div>
+                <div class="promo-brand">Senem</div>
+              </div>
+              <div class="promo-code-section">
+                <div class="promo-discount">10% Off Your Order</div>
+                <div class="promo-code">FOODIDU10</div>
+                <div class="promo-description">Premium grocery delivery with exclusive discount</div>
+                <div class="promo-expiry">Expires: Dec 31, 2025</div>
+                <button class="copy-btn senem-copy-btn" onclick="copyPromoCode('FOODIDU10', 'senem')">Copy Code</button>
+              </div>
+              <div class="featured-cta">
+                <a href="Senem-PromoCode/index.html" class="view-details-btn">
                   <i class="fas fa-external-link-alt"></i>
                   View Full Details
                 </a>
@@ -1598,7 +1670,7 @@
       <p>Loading delicious content...</p>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="js/main.js"></script>
     <script src="cookie-consent.js"></script>
   </body>
 </html>

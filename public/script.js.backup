@@ -1,79 +1,79 @@
-// Global Variables
-let currentPage = 'home';
-let currentSlide = 0;
-let slideInterval;
-let currentDealsFilter = { cuisine: '', price: '', discount: '', location: '' };
-let currentCategory = 'all';
-let currentPromoCategory = 'all';
-let dealsPage = 1;
-let isLoading = false;
+// Global State Management
+const AppState = {
+    currentPage: 'home',
+    currentSlide: 0,
+    slideInterval: null,
+    currentDealsFilter: { cuisine: '', price: '', discount: '', location: '' },
+    currentCategory: 'all',
+    currentPromoCategory: 'all',
+    dealsPage: 1,
+    isLoading: false,
+    currentExclusiveSlide: 0,
+    exclusiveSlideInterval: null
+};
 
-// Enhanced Sample Data
-const dealsData = [
-    {
-        id: 1,
-        restaurant: "Mario's Pizza Palace",
-        cuisine: "pizza",
-        title: "Buy 1 Get 1 Free Pizza",
-        description: "Get a free pizza of equal or lesser value with any large pizza purchase",
-        discount: "50%",
-        validity: "Valid until Dec 31, 2024",
-        location: "Downtown",
-        price: 15.99,
-        icon: "🍕",
-        featured: true
-    },
-    {
-        id: 2,
-        restaurant: "Burger Junction",
-        cuisine: "burger",
-        title: "20% Off All Burgers",
-        description: "Discount on all premium burger combos and family meals",
-        discount: "20%",
-        validity: "Valid until Dec 25, 2024",
-        location: "Midtown",
-        price: 12.99,
-        icon: "🍔",
-        featured: false
-    },
-    {
-        id: 3,
-        restaurant: "Coffee Corner",
-        cuisine: "coffee",
-        title: "Free Coffee with Pastry",
-        description: "Buy any pastry and get coffee for free - perfect morning combo",
-        discount: "Buy1Get1",
-        validity: "Valid until Jan 15, 2025",
-        location: "Uptown",
-        price: 8.99,
-        icon: "☕",
-        featured: true
-    },
-    {
-        id: 4,
-        restaurant: "Dragon Palace",
-        cuisine: "chinese",
-        title: "30% Off Family Meals",
-        description: "Perfect for family dinners and gatherings - serves 4-6 people",
-        discount: "30%",
-        validity: "Valid until Jan 10, 2025",
-        location: "Chinatown",
-        price: 25.99,
-        icon: "🥡",
-        featured: false
-    },
-    {
-        id: 5,
-        restaurant: "Spice Garden",
-        cuisine: "indian",
-        title: "15% Off Lunch Buffet",
-        description: "All-you-can-eat lunch buffet with authentic Indian cuisine",
-        discount: "15%",
-        validity: "Valid until Dec 28, 2024",
-        location: "Little India",
-        price: 18.99,
-        icon: "🍛",
-        featured: true
+// Configuration
+const CONFIG = {
+    CAROUSEL_INTERVAL: 5000,
+    EXCLUSIVE_CAROUSEL_INTERVAL: 10000,
+    DEALS_PER_PAGE: 6,
+    NOTIFICATION_DURATION: 4000,
+    VENDOR_FORM_URL: 'https://script.google.com/macros/s/AKfycbyxKza22srkcMWv5bFGp4ZzQ0ulZaVc29RV_8brZ6l_Zih_rxz0tdMCHrM_CDvQ84-d/exec'
+};
+
+// Sample Data
+const DATA = {
+    deals: [
+        {
+            id: 1, restaurant: "Mario's Pizza Palace", cuisine: "pizza", title: "Buy 1 Get 1 Free Pizza",
+            description: "Get a free pizza of equal or lesser value with any large pizza purchase",
+            discount: "50%", validity: "Valid until Dec 31, 2024", location: "Downtown", price: 15.99, icon: "🍕", featured: true
+        },
+        {
+            id: 2, restaurant: "Burger Junction", cuisine: "burger", title: "20% Off All Burgers",
+            description: "Discount on all premium burger combos and family meals",
+            discount: "20%", validity: "Valid until Dec 25, 2024", location: "Midtown", price: 12.99, icon: "🍔", featured: false
+        },
+        {
+            id: 3, restaurant: "Coffee Corner", cuisine: "coffee", title: "Free Coffee with Pastry",
+            description: "Buy any pastry and get coffee for free - perfect morning combo",
+            discount: "Buy1Get1", validity: "Valid until Jan 15, 2025", location: "Uptown", price: 8.99, icon: "☕", featured: true
+        },
+        {
+            id: 4, restaurant: "Dragon Palace", cuisine: "chinese", title: "30% Off Family Meals",
+            description: "Perfect for family dinners and gatherings - serves 4-6 people",
+            discount: "30%", validity: "Valid until Jan 10, 2025", location: "Chinatown", price: 25.99, icon: "🥡", featured: false
+        },
+        {
+            id: 5, restaurant: "Spice Garden", cuisine: "indian", title: "15% Off Lunch Buffet",
+            description: "All-you-can-eat lunch buffet with authentic Indian cuisine",
+            discount: "15%", validity: "Valid until Dec 28, 2024", location: "Little India", price: 18.99, icon: "🍛", featured: true
+        },
+        {
+            id: 6, restaurant: "Taco Fiesta", cuisine: "mexican", title: "Taco Tuesday Special",
+            description: "Buy 2 tacos get 1 free every Tuesday",
+            discount: "33%", validity: "Every Tuesday", location: "South Side", price: 9.99, icon: "🌮", featured: false
+        },
+        {
+            id: 7, restaurant: "Pasta Paradise", cuisine: "italian", title: "Wine & Dine Combo",
+            description: "Free glass of wine with any pasta dish",
+            discount: "25%", validity: "Valid until Jan 5, 2025", location: "Little Italy", price: 22.99, icon: "🍝", featured: true
+        },
+        {
+            id: 8, restaurant: "Sushi Zen", cuisine: "japanese", title: "Happy Hour Sushi",
+            description: "50% off all sushi rolls from 3-6 PM",
+            discount: "50%", validity: "Daily 3-6 PM", location: "Downtown", price: 16.99, icon: "🍣", featured: false
+        }
+    ],
+    
+    restaurants: [
+        { id: 1, name: "Mario's Pizza Palace", cuisine: "Italian • Pizza", category: "fast-food", rating: 4.5, location: "Downtown", icon: "🍕", specialties: ["Wood-fired pizza", "Fresh ingredients", "Family recipes"] },
+        { id: 2, name: "Hidden Gem Café", cuisine: "Café • Local", category: "local-gems", rating: 4.8, location: "Old Quarter", icon: "☕", specialties: ["Artisan coffee", "Homemade pastries", "Cozy atmosphere"] },
+        { id: 3, name: "Fresh & Fit", cuisine: "Healthy • Salads", category: "healthy", rating: 4.6, location: "Health District", icon: "🥗", specialties: ["Organic ingredients", "Custom bowls", "Protein options"] },
+        { id: 4, name: "Sweet Treats", cuisine: "Desserts • Bakery", category: "dessert", rating: 4.7, location: "Market Street", icon: "🧁", specialties: ["Custom cakes", "Fresh daily", "Sugar-free options"] },
+        { id: 5, name: "Burger Junction", cuisine: "American • Burgers", category: "fast-food", rating: 4.3, location: "Midtown", icon: "🍔", specialties: ["Gourmet burgers", "Hand-cut fries", "Craft beer"] },
+        { id: 6, name: "Coffee Corner", cuisine: "Coffee • Café", category: "coffee", rating: 4.4, location: "Uptown", icon: "☕", specialties: ["Single origin", "Latte art", "Free WiFi"] },
+        { id: 7, name: "Le Petit Bistro", c
     },
     {
         id: 6,
@@ -1565,4 +1565,273 @@ if (!document.querySelector('#rabbit-notification-styles')) {
         }
     `;
     document.head.appendChild(style);
+}// Ex
+// //clusive Deals Carousel Functionality
+let currentExclusiveSlide = 0;
+let exclusiveSlideInterval;
+
+// Initialize exclusive carousel
+function initExclusiveCarousel() {
+    startExclusiveAutoSlide();
 }
+
+// Start auto-sliding
+function startExclusiveAutoSlide() {
+    exclusiveSlideInterval = setInterval(() => {
+        changeExclusiveSlide(1);
+    }, 10000); // Change slide every 5 seconds
+}
+
+// Stop auto-sliding
+function stopExclusiveAutoSlide() {
+    clearInterval(exclusiveSlideInterval);
+}
+
+// Change slide function
+function changeExclusiveSlide(direction) {
+    const slides = document.querySelectorAll('.exclusive-slide');
+    const indicators = document.querySelectorAll('.exclusive-indicator');
+    
+    if (slides.length === 0) return;
+    
+    // Remove active class from current slide and indicator
+    slides[currentExclusiveSlide].classList.remove('active');
+    indicators[currentExclusiveSlide].classList.remove('active');
+    
+    // Calculate next slide
+    currentExclusiveSlide += direction;
+    
+    if (currentExclusiveSlide >= slides.length) {
+        currentExclusiveSlide = 0;
+    } else if (currentExclusiveSlide < 0) {
+        currentExclusiveSlide = slides.length - 1;
+    }
+    
+    // Add active class to new slide and indicator
+    slides[currentExclusiveSlide].classList.add('active');
+    indicators[currentExclusiveSlide].classList.add('active');
+    
+    // Restart auto-slide timer
+    stopExclusiveAutoSlide();
+    startExclusiveAutoSlide();
+}
+
+// Go to specific slide
+function goToExclusiveSlide(slideIndex) {
+    const slides = document.querySelectorAll('.exclusive-slide');
+    const indicators = document.querySelectorAll('.exclusive-indicator');
+    
+    if (slideIndex < 0 || slideIndex >= slides.length) return;
+    
+    // Remove active class from current slide and indicator
+    slides[currentExclusiveSlide].classList.remove('active');
+    indicators[currentExclusiveSlide].classList.remove('active');
+    
+    // Set new slide
+    currentExclusiveSlide = slideIndex;
+    
+    // Add active class to new slide and indicator
+    slides[currentExclusiveSlide].classList.add('active');
+    indicators[currentExclusiveSlide].classList.add('active');
+    
+    // Restart auto-slide timer
+    stopExclusiveAutoSlide();
+    startExclusiveAutoSlide();
+}
+
+// Copy exclusive code function
+function copyExclusiveCode(code, vendor) {
+    navigator.clipboard.writeText(code).then(function() {
+        // Find the specific copy button
+        const copyBtn = event.target;
+        const originalText = copyBtn.innerHTML;
+        
+        copyBtn.innerHTML = '✓ Copied!';
+        copyBtn.classList.add('copied');
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+            copyBtn.classList.remove('copied');
+        }, 2000);
+        
+        // Show notification with vendor-specific message
+        const vendorName = vendor === 'rabbit' ? 'Rabbit' : vendor === 'senem' ? 'Senem' : 'Vendor';
+        showRabbitNotification(`${vendorName} promo code copied! 🎉`, 'success');
+        
+        // Track the copy event
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'exclusive_promo_copied', {
+                'event_category': 'engagement',
+                'event_label': code,
+                'vendor': vendor
+            });
+        }
+    }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+        showRabbitNotification('Failed to copy code. Please try again.', 'error');
+    });
+}
+
+// Pause auto-slide on hover
+document.addEventListener('DOMContentLoaded', function() {
+    const exclusiveCarousel = document.querySelector('.exclusive-carousel');
+    
+    if (exclusiveCarousel) {
+        // Initialize carousel
+        initExclusiveCarousel();
+        
+        // Pause on hover
+        exclusiveCarousel.addEventListener('mouseenter', stopExclusiveAutoSlide);
+        exclusiveCarousel.addEventListener('mouseleave', startExclusiveAutoSlide);
+        
+        // Pause on touch (mobile)
+        exclusiveCarousel.addEventListener('touchstart', stopExclusiveAutoSlide);
+        exclusiveCarousel.addEventListener('touchend', () => {
+            setTimeout(startExclusiveAutoSlide, 3000); // Resume after 3 seconds
+        });
+    }
+});// Fixed
+// // Exclusive Deals Carousel Functionality
+// let currentExclusiveSlide = 0;
+// let exclusiveSlideInterval;
+
+// Initialize exclusive carousel
+function initExclusiveCarousel() {
+    console.log('Initializing exclusive carousel...');
+    const slides = document.querySelectorAll('.exclusive-slide');
+    const indicators = document.querySelectorAll('.exclusive-indicator');
+    
+    if (slides.length > 0) {
+        console.log(`Found ${slides.length} slides`);
+        // Ensure first slide is active
+        slides[0].classList.add('active');
+        if (indicators.length > 0) {
+            indicators[0].classList.add('active');
+        }
+        startExclusiveAutoSlide();
+    } else {
+        console.log('No exclusive slides found');
+    }
+}
+
+// Start auto-sliding
+function startExclusiveAutoSlide() {
+    console.log('Starting auto-slide...');
+    exclusiveSlideInterval = setInterval(() => {
+        changeExclusiveSlide(1);
+    }, 4000); // Change slide every 4 seconds
+}
+
+// Stop auto-sliding
+function stopExclusiveAutoSlide() {
+    console.log('Stopping auto-slide...');
+    if (exclusiveSlideInterval) {
+        clearInterval(exclusiveSlideInterval);
+    }
+}
+
+// Change slide function
+function changeExclusiveSlide(direction) {
+    const slides = document.querySelectorAll('.exclusive-slide');
+    const indicators = document.querySelectorAll('.exclusive-indicator');
+    
+    if (slides.length === 0) {
+        console.log('No slides found for changing');
+        return;
+    }
+    
+    console.log(`Changing slide from ${currentExclusiveSlide} with direction ${direction}`);
+    
+    // Remove active class from current slide and indicator
+    slides[currentExclusiveSlide].classList.remove('active');
+    if (indicators[currentExclusiveSlide]) {
+        indicators[currentExclusiveSlide].classList.remove('active');
+    }
+    
+    // Calculate next slide
+    currentExclusiveSlide += direction;
+    
+    if (currentExclusiveSlide >= slides.length) {
+        currentExclusiveSlide = 0;
+    } else if (currentExclusiveSlide < 0) {
+        currentExclusiveSlide = slides.length - 1;
+    }
+    
+    console.log(`New slide index: ${currentExclusiveSlide}`);
+    
+    // Add active class to new slide and indicator
+    slides[currentExclusiveSlide].classList.add('active');
+    if (indicators[currentExclusiveSlide]) {
+        indicators[currentExclusiveSlide].classList.add('active');
+    }
+}
+
+// Go to specific slide (for indicator clicks)
+function goToExclusiveSlide(slideIndex) {
+    const slides = document.querySelectorAll('.exclusive-slide');
+    const indicators = document.querySelectorAll('.exclusive-indicator');
+    
+    if (slideIndex < 0 || slideIndex >= slides.length) return;
+    
+    console.log(`Going to slide ${slideIndex}`);
+    
+    // Remove active class from current slide and indicator
+    slides[currentExclusiveSlide].classList.remove('active');
+    if (indicators[currentExclusiveSlide]) {
+        indicators[currentExclusiveSlide].classList.remove('active');
+    }
+    
+    // Set new slide
+    currentExclusiveSlide = slideIndex;
+    
+    // Add active class to new slide and indicator
+    slides[currentExclusiveSlide].classList.add('active');
+    if (indicators[currentExclusiveSlide]) {
+        indicators[currentExclusiveSlide].classList.add('active');
+    }
+    
+    // Restart auto-slide timer
+    stopExclusiveAutoSlide();
+    setTimeout(startExclusiveAutoSlide, 1000); // Restart after 1 second
+}
+
+// Initialize when DOM is loaded - Fixed version
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, setting up exclusive carousel...');
+    
+    // Wait a bit for all elements to be rendered
+    setTimeout(() => {
+        initExclusiveCarousel();
+        
+        const exclusiveCarousel = document.querySelector('.exclusive-carousel');
+        
+        if (exclusiveCarousel) {
+            console.log('Exclusive carousel found, adding event listeners...');
+            
+            // Pause on hover
+            exclusiveCarousel.addEventListener('mouseenter', () => {
+                console.log('Mouse entered, pausing auto-slide');
+                stopExclusiveAutoSlide();
+            });
+            
+            exclusiveCarousel.addEventListener('mouseleave', () => {
+                console.log('Mouse left, resuming auto-slide');
+                startExclusiveAutoSlide();
+            });
+            
+            // Pause on touch (mobile)
+            exclusiveCarousel.addEventListener('touchstart', () => {
+                console.log('Touch started, pausing auto-slide');
+                stopExclusiveAutoSlide();
+            });
+            
+            exclusiveCarousel.addEventListener('touchend', () => {
+                console.log('Touch ended, will resume auto-slide in 3 seconds');
+                setTimeout(startExclusiveAutoSlide, 3000);
+            });
+        } else {
+            console.log('Exclusive carousel not found');
+        }
+    }, 500);
+});

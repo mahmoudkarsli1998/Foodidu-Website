@@ -1,0 +1,150 @@
+// Promo Codes Page Functions
+import { AppState } from './state.js';
+import { promoCodesData } from './data.js';
+import { showNotification, showRabbitNotification } from './utils.js';
+
+export function loadPromoCodes() {
+    const promoGrid = document.getElementById('promo-grid');
+    if (!promoGrid) return;
+    
+    let filteredPromos = promoCodesData;
+    
+    if (AppState.currentPromoCategory !== 'all') {
+        filteredPromos = filteredPromos.filter(promo => 
+            promo.category === AppState.currentPromoCategory
+        );
+    }
+    
+    promoGrid.innerHTML = filteredPromos.map(promo => `
+        <div class="promo-card" data-aos="fade-up">
+            <div class="promo-header">
+                <div class="promo-logo">
+                    ${promo.logo.includes('images/') ? 
+                        `<img src="${promo.logo}" alt="${promo.brand} Logo" class="vendor-logo">` : 
+                        promo.logo
+                    }
+                </div>
+                <div class="promo-brand">${promo.brand}</div>
+            </div>
+            <div class="promo-code-section">
+                <div class="promo-discount">${promo.discount}</div>
+                <div class="promo-code" id="code-${promo.id}">${promo.code}</div>
+                <div class="promo-description">${promo.description}</div>
+                <div class="promo-expiry">Expires: ${promo.expiry}</div>
+                <button class="copy-btn" onclick="window.copyPromoCode('${promo.code}', ${promo.id})">Copy Code</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+export function filterPromos(element, category) {
+    // Remove active class from all categories
+    document.querySelectorAll('.promo-category').forEach(cat => {
+        cat.classList.remove('active');
+    });
+    
+    // Add active class to clicked category
+    element.classList.add('active');
+    
+    AppState.currentPromoCategory = category;
+    loadPromoCodes();
+}
+
+export function copyPromoCode(code, promoId) {
+    // Create a temporary text area to copy the code
+    const textArea = document.createElement('textarea');
+    textArea.value = code;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    
+    // Show success message
+    showNotification(`Promo code "${code}" copied to clipboard! 🎉`);
+    
+    // Update button text temporarily
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    button.style.background = '#10b981';
+    
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.background = '#eab308';
+    }, 2000);
+}
+
+// Enhanced Promo Code Copy Function
+export function copyPromoCodeEnhanced(code, vendor) {
+    navigator.clipboard.writeText(code).then(function() {
+        // Find the specific copy button
+        let copyBtn;
+        if (vendor === 'rabbit') {
+            copyBtn = document.querySelector('.rabbit-copy-btn');
+        } else {
+            copyBtn = event.target;
+        }
+        
+        const originalText = copyBtn.innerHTML;
+        
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyBtn.classList.add('copied');
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+            copyBtn.classList.remove('copied');
+        }, 2000);
+        
+        // Show notification with vendor-specific message
+        const vendorName = vendor === 'rabbit' ? 'Rabbit' : 'Vendor';
+        showRabbitNotification(`${vendorName} promo code copied! 🎉`, 'success');
+        
+        // Track the copy event
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'promo_code_copied', {
+                'event_category': 'engagement',
+                'event_label': code,
+                'vendor': vendor || 'unknown'
+            });
+        }
+    }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+        showRabbitNotification('Failed to copy code. Please try again.', 'error');
+    });
+}
+
+// Rabbit Quick Copy Function (for banner)
+export function copyRabbitCode() {
+    const code = 'RABBIT25';
+    
+    navigator.clipboard.writeText(code).then(function() {
+        // Update button to show success
+        const copyBtn = document.querySelector('.quick-copy');
+        const originalText = copyBtn.innerHTML;
+        
+        copyBtn.innerHTML = '✓ Copied!';
+        copyBtn.classList.add('copied');
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+            copyBtn.classList.remove('copied');
+        }, 2000);
+        
+        // Show notification
+        showRabbitNotification('Rabbit promo code copied! 🎉', 'success');
+        
+        // Track the copy event (if analytics is available)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'rabbit_promo_copied', {
+                'event_category': 'engagement',
+                'event_label': 'homepage_banner',
+                'value': 1
+            });
+        }
+    }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+        showRabbitNotification('Failed to copy code. Please try again.', 'error');
+    });
+}

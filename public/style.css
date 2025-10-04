@@ -2500,4 +2500,438 @@ d Rabbit Promo Card Styling */
     align-items: center;
     justify-content: center;
     gap: 5px;
+}/
+* Senem Card Styling */
+.senem-card {
+    border: 2px solid #059669;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.senem-card .promo-brand {
+    color: #059669;
+    font-weight: 700;
+}
+
+.senem-card .promo-discount {
+    color: #059669;
+    font-weight: 700;
+}
+
+.senem-card .copy-btn {
+    background: #059669;
+    border-color: #059669;
+}
+
+.senem-card .copy-btn:hover {
+    background: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+}
+
+.senem-cta {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.senem-card .view-details-btn {
+    background: #059669;
+    color: white;
+}
+
+.senem-card .view-details-btn:hover {
+    background: #047857;
+    color: white;
+}/* Exc
+lusive Deals Auto-Sliding Section */
+.exclusive-deals {
+    padding: 40px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.exclusive-carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.exclusive-slide {
+    display: none;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.exclusive-slide.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.exclusive-slide.prev {
+    transform: translateX(-100%);
+}
+
+.exclusive-banner {
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.rabbit-banner {
+    background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
+}
+
+.senem-banner {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+}
+
+.exclusive-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: exclusiveShimmer 4s infinite;
+}
+
+@keyframes exclusiveShimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.exclusive-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.exclusive-logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 15px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.exclusive-info {
+    flex: 1;
+}
+
+.exclusive-info h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 10px 0;
+}
+
+.exclusive-info p {
+    font-size: 1.2rem;
+    color: #1a202c;
+    margin: 0 0 15px 0;
+}
+
+.exclusive-code {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.exclusive-code .code {
+    background: white;
+    color: #1a202c;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border: 2px dashed #1a202c;
+}
+
+.quick-copy {
+    background: #1a202c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-copy:hover {
+    background: #2d3748;
+    transform: translateY(-2px);
+}
+
+.quick-copy.copied {
+    background: #059669;
+    animation: quickCopySuccess 0.5s ease;
+}
+
+@keyframes quickCopySuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.exclusive-cta {
+    display: flex;
+    align-items: center;
+}
+
+.exclusive-btn {
+    background: #1a202c;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.exclusive-btn:hover {
+    background: #2d3748;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-decoration: none;
+}
+
+/* Senem-specific styling */
+.senem-banner .exclusive-btn {
+    background: #059669;
+}
+
+.senem-banner .exclusive-btn:hover {
+    background: #047857;
+}
+
+/* Carousel Navigation - Removed arrows, only indicators */
+
+/* Carousel Indicators */
+.exclusive-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.exclusive-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(26, 32, 44, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.exclusive-indicator.active {
+    background: #1a202c;
+    transform: scale(1.2);
+}
+
+.exclusive-indicator:hover {
+    background: rgba(26, 32, 44, 0.6);
+}
+
+/* Inline Logo Styling */
+.inline-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Mobile Responsive for Exclusive Section */
+@media (max-width: 768px) {
+    .exclusive-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .exclusive-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .exclusive-code {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .exclusive-btn {
+        justify-content: center;
+    }
+    
+
+}
+
+@media (max-width: 480px) {
+    .exclusive-banner {
+        padding: 25px 20px;
+    }
+    
+    .exclusive-code {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .exclusive-code .code {
+        font-size: 1.1rem;
+        padding: 8px 15px;
+        letter-spacing: 1px;
+    }
+}/
+* Featured Senem Promo Card Styling */
+.senem-featured-card {
+    position: relative;
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(5, 150, 105, 0.4);
+    overflow: hidden;
+}
+
+.senem-featured-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    animation: senemCardShimmer 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes senemCardShimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.senem-featured-card .promo-header {
+    position: relative;
+    z-index: 2;
+}
+
+.senem-featured-card .promo-logo {
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.senem-featured-card .vendor-logo {
+    border-radius: 10px;
+}
+
+.senem-featured-card .promo-brand {
+    color: #1a202c;
+    font-weight: 800;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.senem-featured-card .promo-code-section {
+    position: relative;
+    z-index: 2;
+}
+
+.senem-featured-card .promo-discount {
+    color: #1a202c;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.senem-featured-card .promo-code {
+    background: white;
+    color: #1a202c;
+    font-weight: 900;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.senem-featured-card .promo-description,
+.senem-featured-card .promo-expiry {
+    color: #1a202c;
+    font-weight: 600;
+}
+
+.senem-copy-btn {
+    background: #059669 !important;
+    color: white !important;
+    font-weight: 700;
+    border: 2px solid #059669;
+    position: relative;
+    z-index: 2;
+}
+
+.senem-copy-btn:hover {
+    background: #047857 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+}
+
+.senem-featured-card .view-details-btn {
+    background: #059669;
+    color: white;
+}
+
+.senem-featured-card .view-details-btn:hover {
+    background: #047857;
+    color: white;
+}
+
+/* Mobile adjustments for featured Senem card */
+@media (max-width: 768px) {
+    .senem-featured-card {
+        transform: scale(1);
+        margin-bottom: 20px;
+    }
+}/* Ensure
+ Featured Cards Have Same Size */
+.rabbit-featured-card,
+.senem-featured-card {
+    min-height: 400px;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rabbit-featured-card .promo-code-section,
+.senem-featured-card .promo-code-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rabbit-featured-card .featured-cta,
+.senem-featured-card .featured-cta {
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+/* Mobile adjustments for consistent sizing */
+@media (max-width: 768px) {
+    .rabbit-featured-card,
+    .senem-featured-card {
+        min-height: 350px;
+        max-width: 100%;
+        transform: scale(1);
+    }
 }
