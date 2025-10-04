@@ -12,13 +12,15 @@
     font-family: inherit;
     border-radius: 10px;
     overflow: hidden;
-    transition: bottom 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     opacity: 0;
+    display: none;
 }
 
 .cookie-banner.show {
     bottom: 20px;
     opacity: 1;
+    display: block;
 }
 
 .cookie-banner.hide {

@@ -1,204 +1,4 @@
-// // Initialize Firebase
-// const firebaseConfig = {
-//     apiKey: "AIzaSyCvKDqPjERac1yh0O4BcARsuag6hNN9_1A",
-//     authDomain: "foodidu-website.firebaseapp.com",
-//     projectId: "foodidu-website",
-//     storageBucket: "foodidu-website.appspot.com",
-//     messagingSenderId: "515131692962",
-//     appId: "1:515131692962:web:5d81b9e165181ec80bc4fb"
-// };
 
-// // Initialize Firebase with error handling
-// let db;
-// let isFirebaseReady = false;
-
-// try {
-//     console.log("Initializing Firebase...");
-//     firebase.initializeApp(firebaseConfig);
-//     db = firebase.firestore();
-//     isFirebaseReady = true;
-//     console.log("Firebase initialized successfully");
-// } catch (error) {
-//     console.error("Failed to initialize Firebase:", error);
-//     isFirebaseReady = false;
-// }
-
-// // Generate a unique visitor ID if not already set
-// function getVisitorId() {
-//     let visitorId = localStorage.getItem('visitorId');
-//     if (!visitorId) {
-//         visitorId = 'visitor_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-//         localStorage.setItem('visitorId', visitorId);
-//     }
-//     return visitorId;
-// }
-
-// // Cookie consent functions
-// document.addEventListener('DOMContentLoaded', function() {
-//     const cookieBanner = document.getElementById('cookie-consent-banner');
-//     const acceptButton = document.getElementById('accept-cookies');
-//     const rejectButton = document.getElementById('reject-cookies');
-//     const cookieSettingsLink = document.getElementById('cookie-settings-link');
-    
-//     // Check if user has already made a choice
-//     const cookieConsent = localStorage.getItem('cookieConsent');
-    
-//     if (!cookieConsent) {
-//         // Show the banner if no choice has been made
-//         if (cookieBanner) {
-//             cookieBanner.style.display = 'block';
-//             cookieBanner.style.animation = 'slideUp 0.5s forwards';
-//         }
-//     } else {
-//         // Apply stored preferences
-//         applyStoredPreferences();
-//     }
-    
-//     // Accept cookies
-//     if (acceptButton) {
-//         acceptButton.addEventListener('click', function() {
-//             const consent = {
-//                 essential: true,
-//                 analytics: true,
-//                 marketing: true,
-//                 timestamp: new Date().toISOString()
-//             };
-            
-//             saveConsent(consent);
-//             hideBanner();
-//             applyPreferences(consent);
-//         });
-//     }
-    
-//     // Reject cookies
-//     if (rejectButton) {
-//         rejectButton.addEventListener('click', function() {
-//             const consent = {
-//                 essential: true, // Essential cookies are always accepted
-//                 analytics: false,
-//                 marketing: false,
-//                 timestamp: new Date().toISOString()
-//             };
-            
-//             saveConsent(consent);
-//             hideBanner();
-//             applyPreferences(consent);
-//         });
-//     }
-    
-//     // Open cookie settings from footer link
-//     if (cookieSettingsLink) {
-//         cookieSettingsLink.addEventListener('click', function(e) {
-//             e.preventDefault();
-//             if (cookieBanner) {
-//                 cookieBanner.style.display = 'block';
-//                 cookieBanner.style.animation = 'slideUp 0.5s forwards';
-//             }
-//         });
-//     }
-    
-//     // Save consent to localStorage and optionally to Firestore
-//     function saveConsent(consent) {
-//         // Always save to localStorage
-//         localStorage.setItem('cookieConsent', JSON.stringify(consent));
-//         console.log("Cookie consent saved to localStorage");
-        
-//         // Only attempt Firestore if Firebase is ready and we have permissions
-//         if (isFirebaseReady && db) {
-//             const visitorId = getVisitorId();
-            
-//             // Use a more defensive approach with better error handling
-//             const consentData = {
-//                 visitorId: visitorId,
-//                 essential: consent.essential,
-//                 analytics: consent.analytics,
-//                 marketing: consent.marketing,
-//                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-//                 userAgent: navigator.userAgent,
-//                 language: navigator.language,
-//                 referrer: document.referrer || 'direct',
-//                 path: window.location.pathname,
-//                 created: new Date().toISOString()
-//             };
-            
-//             // Try to save to Firestore with better error handling
-//             db.collection('cookieConsent').doc(visitorId).set(consentData, { merge: true })
-//                 .then(() => {
-//                     console.log("Cookie consent saved to Firestore");
-//                 })
-//                 .catch((error) => {
-//                     console.warn("Could not save to Firestore (this is okay, data is saved locally):", error.message);
-//                     // Don't throw an error - the app should continue working even without Firestore
-//                 });
-//         } else {
-//             console.log("Firestore not available, consent saved locally only");
-//         }
-//     }
-    
-//     // Hide the banner
-//     function hideBanner() {
-//         if (cookieBanner) {
-//             cookieBanner.style.animation = 'slideDown 0.5s forwards';
-//             setTimeout(() => {
-//                 cookieBanner.style.display = 'none';
-//             }, 500);
-//         }
-//     }
-    
-//     // Apply stored preferences
-//     function applyStoredPreferences() {
-//         const storedConsent = localStorage.getItem('cookieConsent');
-//         if (storedConsent) {
-//             try {
-//                 const consent = JSON.parse(storedConsent);
-//                 applyPreferences(consent);
-//             } catch (error) {
-//                 console.error("Error parsing stored consent:", error);
-//             }
-//         }
-//     }
-    
-//     // Apply preferences
-//     function applyPreferences(consent) {
-//         // Initialize analytics only if consent is given and Firebase is ready
-//         if (consent.analytics && isFirebaseReady) {
-//             try {
-//                 firebase.analytics();
-//                 console.log("Analytics initialized");
-//             } catch (error) {
-//                 console.warn("Could not initialize analytics:", error);
-//             }
-//         }
-        
-//         // Additional code for marketing cookies if needed
-//         if (consent.marketing) {
-//             console.log("Marketing cookies enabled");
-//             // Add marketing scripts here
-//         }
-//     }
-// });
-
-// // Track page views for consented users
-// function trackPageView() {
-//     const storedConsent = localStorage.getItem('cookieConsent');
-//     if (storedConsent && isFirebaseReady) {
-//         try {
-//             const consent = JSON.parse(storedConsent);
-//             if (consent.analytics) {
-//                 const analytics = firebase.analytics();
-//                 analytics.logEvent('page_view', {
-//                     page_title: document.title,
-//                     page_location: window.location.href,
-//                     page_path: window.location.pathname
-//                 });
-//             }
-//         } catch (error) {
-//             console.warn("Could not track page view:", error);
-//         }
-//     }
-// }
-
-// // Call trackPageView when page loads
 // window.addEventListener('load', trackPageView);
 // Initialize Firebase with Analytics
 const firebaseConfig = {
@@ -417,10 +217,37 @@ function setUserProperties() {
 
 // Cookie consent functions with enhanced tracking
 document.addEventListener('DOMContentLoaded', async function() {
-    const cookieBanner = document.getElementById('cookie-consent-banner');
-    const acceptButton = document.getElementById('accept-cookies');
-    const rejectButton = document.getElementById('reject-cookies');
-    const cookieSettingsLink = document.getElementById('cookie-settings-link');
+    let cookieBanner = document.getElementById('cookie-consent-banner');
+    let acceptButton = document.getElementById('accept-cookies');
+    let rejectButton = document.getElementById('reject-cookies');
+    let cookieSettingsLink = document.getElementById('cookie-settings-link');
+    
+    // If elements aren't found immediately, wait for them to load
+    if (!cookieBanner) {
+        console.log('Cookie banner not found immediately, waiting for components to load...');
+        
+        // Wait for components to load
+        const waitForElements = () => {
+            return new Promise((resolve) => {
+                const checkElements = () => {
+                    cookieBanner = document.getElementById('cookie-consent-banner');
+                    acceptButton = document.getElementById('accept-cookies');
+                    rejectButton = document.getElementById('reject-cookies');
+                    cookieSettingsLink = document.getElementById('cookie-settings-link');
+                    
+                    if (cookieBanner && acceptButton && rejectButton) {
+                        resolve();
+                    } else {
+                        setTimeout(checkElements, 100);
+                    }
+                };
+                checkElements();
+            });
+        };
+        
+        await waitForElements();
+        console.log('Cookie elements found after waiting');
+    }
     
     // Initialize user profile
     console.log('Initializing user profile...');
@@ -432,18 +259,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     console.log('User profile initialized:', userProfile);
     
-    // Always show the banner and track the event
-    trackEnhancedEvent('cookie_banner_shown');
-    
-    if (cookieBanner) {
-        cookieBanner.style.display = 'block';
-        cookieBanner.style.animation = 'slideUp 0.5s forwards';
-    }
-    
-    // Apply any existing preferences
+    // Check if user has already made a choice
     const cookieConsent = localStorage.getItem('cookieConsent');
-    if (cookieConsent) {
+    
+    if (!cookieConsent) {
+        // Show the banner if no choice has been made
+        trackEnhancedEvent('cookie_banner_shown');
+        showBanner();
+    } else {
+        // Apply stored preferences and hide banner
         applyStoredPreferences();
+        if (cookieBanner) {
+            cookieBanner.style.display = 'none';
+        }
     }
     
     // Accept cookies
@@ -488,31 +316,75 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
     
-    // Open cookie settings
-    if (cookieSettingsLink) {
-        cookieSettingsLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Cookie settings clicked');
-            
-            // Remove existing consent to allow fresh choice
-            localStorage.removeItem('cookieConsent');
-            
-            trackEnhancedEvent('cookie_settings_opened');
-            
-            if (cookieBanner) {
-                // Remove any existing classes
-                cookieBanner.classList.remove('hide');
-                // Force a reflow
-                cookieBanner.offsetHeight;
-                // Add the show class to trigger animation
-                cookieBanner.classList.add('show');
+    // Open cookie settings - handle multiple links
+    function setupCookieSettingsLinks() {
+        const cookieSettingsLinks = document.querySelectorAll('#cookie-settings-link, [data-cookie-settings]');
+        
+        cookieSettingsLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Cookie settings clicked');
                 
-                console.log('Cookie banner display triggered');
-            } else {
-                console.error('Cookie banner element not found');
+                // Remove existing consent to allow fresh choice
+                localStorage.removeItem('cookieConsent');
+                
+                trackEnhancedEvent('cookie_settings_opened');
+                
+                // Show the banner
+                showBanner();
+            });
+        });
+        
+        console.log(`Set up ${cookieSettingsLinks.length} cookie settings links`);
+    }
+    
+    // Set up cookie settings links initially
+    setupCookieSettingsLinks();
+    
+    // Log current state for debugging
+    console.log('Cookie consent initialization complete');
+    console.log('Banner element found:', !!cookieBanner);
+    console.log('Accept button found:', !!acceptButton);
+    console.log('Reject button found:', !!rejectButton);
+    console.log('Current consent status:', localStorage.getItem('cookieConsent'));
+    
+    // Also set up a global function for cookie settings
+    window.openCookieSettings = function() {
+        localStorage.removeItem('cookieConsent');
+        trackEnhancedEvent('cookie_settings_opened');
+        showBanner();
+    };
+    
+    // Add event delegation for cookie settings links
+    document.addEventListener('click', function(e) {
+        if (e.target.id === 'cookie-settings-link' || e.target.hasAttribute('data-cookie-settings')) {
+            e.preventDefault();
+            console.log('Cookie settings clicked (event delegation)');
+            localStorage.removeItem('cookieConsent');
+            trackEnhancedEvent('cookie_settings_opened');
+            showBanner();
+        }
+    });
+    
+    // Set up mutation observer to handle dynamically loaded content
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                // Check if any new cookie settings links were added
+                const newLinks = document.querySelectorAll('#cookie-settings-link:not([data-cookie-listener])');
+                newLinks.forEach(link => {
+                    link.setAttribute('data-cookie-listener', 'true');
+                    console.log('New cookie settings link detected and set up');
+                });
             }
         });
-    }
+    });
+    
+    // Start observing
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
     
     // Enhanced consent saving
     async function saveConsent(consent) {
@@ -566,11 +438,45 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
     
+    // Show the banner with proper animation
+    function showBanner() {
+        // Try to find the banner element if not already found
+        if (!cookieBanner) {
+            cookieBanner = document.getElementById('cookie-consent-banner');
+        }
+        
+        if (cookieBanner) {
+            cookieBanner.style.display = 'block';
+            cookieBanner.classList.remove('hide');
+            cookieBanner.classList.add('show');
+            console.log('Cookie banner shown');
+        } else {
+            console.error('Cookie banner element not found');
+            // Retry after a short delay in case it's still loading
+            setTimeout(() => {
+                cookieBanner = document.getElementById('cookie-consent-banner');
+                if (cookieBanner) {
+                    cookieBanner.style.display = 'block';
+                    cookieBanner.classList.remove('hide');
+                    cookieBanner.classList.add('show');
+                    console.log('Cookie banner shown (retry)');
+                }
+            }, 100);
+        }
+    }
+    
     function hideBanner() {
         if (cookieBanner) {
             cookieBanner.classList.add('hide');
             cookieBanner.classList.remove('show');
             console.log('Cookie banner hidden');
+            
+            // Hide the element after animation completes
+            setTimeout(() => {
+                if (cookieBanner.classList.contains('hide')) {
+                    cookieBanner.style.display = 'none';
+                }
+            }, 500);
         }
     }
     
@@ -752,5 +658,41 @@ window.foodiduAnalytics = {
         userProfile.userData.userName = name;
         localStorage.setItem('userData', JSON.stringify(userProfile.userData));
         setUserProperties();
+    }
+};
+
+// Debug functions for testing
+window.cookieDebug = {
+    showBanner: () => {
+        const banner = document.getElementById('cookie-consent-banner');
+        if (banner) {
+            banner.style.display = 'block';
+            banner.classList.remove('hide');
+            banner.classList.add('show');
+            console.log('Debug: Banner shown');
+        } else {
+            console.log('Debug: Banner element not found');
+        }
+    },
+    hideBanner: () => {
+        const banner = document.getElementById('cookie-consent-banner');
+        if (banner) {
+            banner.classList.add('hide');
+            banner.classList.remove('show');
+            console.log('Debug: Banner hidden');
+        }
+    },
+    resetConsent: () => {
+        localStorage.removeItem('cookieConsent');
+        console.log('Debug: Consent reset');
+    },
+    checkElements: () => {
+        const banner = document.getElementById('cookie-consent-banner');
+        const settingsLink = document.getElementById('cookie-settings-link');
+        const settingsLinks = document.querySelectorAll('#cookie-settings-link');
+        console.log('Debug: Banner found:', !!banner);
+        console.log('Debug: Settings link found:', !!settingsLink);
+        console.log('Debug: Total settings links:', settingsLinks.length);
+        return { banner: !!banner, settingsLink: !!settingsLink, totalLinks: settingsLinks.length };
     }
 };
