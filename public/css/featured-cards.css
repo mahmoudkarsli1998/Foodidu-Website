@@ -1,0 +1,293 @@
+/* Featured Promo Cards Styling */
+
+/* Featured Rabbit Promo Card Styling */
+.rabbit-featured-card {
+    position: relative;
+    background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 204, 2, 0.4);
+    overflow: hidden;
+}
+
+.rabbit-featured-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    animation: rabbitCardShimmer 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes rabbitCardShimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.featured-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #dc2626;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 0 15px 0 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 3;
+    animation: badgePulse 2s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.rabbit-featured-card .promo-header {
+    position: relative;
+    z-index: 2;
+}
+
+.rabbit-featured-card .promo-logo {
+    background: white !important;
+    border-radius: 15px !important;
+    padding: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.rabbit-featured-card .vendor-logo {
+    border-radius: 10px;
+}
+
+.rabbit-featured-card .promo-brand {
+    color: #1a202c;
+    font-weight: 800;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.rabbit-featured-card .promo-code-section {
+    position: relative;
+    z-index: 2;
+}
+
+.rabbit-featured-card .promo-discount {
+    color: #1a202c;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.rabbit-featured-card .promo-code {
+    background: white;
+    color: #1a202c;
+    font-weight: 900;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rabbit-featured-card .promo-description,
+.rabbit-featured-card .promo-expiry {
+    color: #1a202c;
+    font-weight: 600;
+}
+
+.rabbit-copy-btn {
+    background: #1a202c !important;
+    color: white !important;
+    font-weight: 700;
+    border: 2px solid #1a202c;
+    position: relative;
+    z-index: 2;
+}
+
+.rabbit-copy-btn:hover {
+    background: #2d3748 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(26, 32, 44, 0.3);
+}
+
+.featured-cta {
+    margin-top: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.view-details-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1a202c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background: #2d3748;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 32, 44, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+/* Featured Senem Promo Card Styling */
+.senem-featured-card {
+    position: relative;
+    background: linear-gradient(135deg, #f0fdf4 0%, #059669 100%);
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(5, 150, 105, 0.4);
+    overflow: hidden;
+}
+
+.senem-featured-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    animation: senemCardShimmer 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes senemCardShimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.senem-featured-card .promo-header {
+    position: relative;
+    z-index: 2;
+}
+
+.senem-featured-card .promo-logo {
+    background: white !important;
+    border-radius: 15px !important;
+    padding: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.senem-featured-card .vendor-logo {
+    border-radius: 10px;
+}
+
+.senem-featured-card .promo-brand {
+    color: #059669;
+    font-weight: 800;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.senem-featured-card .promo-code-section {
+    position: relative;
+    z-index: 2;
+}
+
+.senem-featured-card .promo-discount {
+    color: #1a202c;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.senem-featured-card .promo-code {
+    background: white;
+    color: #059669;
+    font-weight: 900;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.senem-featured-card .promo-description,
+.senem-featured-card .promo-expiry {
+    color: #1a202c;
+    font-weight: 600;
+}
+
+.senem-copy-btn {
+    background: #1a202c !important;
+    color: white !important;
+    font-weight: 700;
+    border: 2px solid #1a202c;
+    position: relative;
+    z-index: 2;
+}
+
+.senem-copy-btn:hover {
+    background: #2d3748 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(26, 32, 44, 0.3);
+}
+
+.senem-featured-card .view-details-btn {
+    background: #1a202c;
+    color: white;
+}
+
+.senem-featured-card .view-details-btn:hover {
+    background: #2d3748;
+    color: white;
+}
+
+/* Ensure Featured Cards Have Same Size */
+.rabbit-featured-card,
+.senem-featured-card {
+    min-height: 400px;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rabbit-featured-card .promo-code-section,
+.senem-featured-card .promo-code-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rabbit-featured-card .featured-cta,
+.senem-featured-card .featured-cta {
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+/* Badge and Logo Styling */
+.badge-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.inline-rabbit-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Mobile adjustments for featured cards */
+@media (max-width: 768px) {
+    .rabbit-featured-card,
+    .senem-featured-card {
+        transform: scale(1);
+        margin-bottom: 20px;
+        min-height: 350px;
+        max-width: 100%;
+    }
+}
