@@ -143,6 +143,45 @@
 .nav-menu .download-btn:hover {
     background: linear-gradient(90deg, #facc15 60%, #eab308 100%);
 }
+
+/* Navigation Action Buttons */
+.nav-action-buttons {
+    margin-top: 10px;
+}
+
+.nav-action-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.nav-action-btn:hover {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26, 32, 44, 0.3);
+}
+
+.nav-action-btn i {
+    font-size: 0.9rem;
+}
+
+/* Hide action buttons on desktop - only show in mobile drawer */
+@media (min-width: 901px) {
+    .nav-action-buttons {
+        display: none;
+    }
+}
 /* Mobile Drawer Styles */
 .mobile-drawer {
     position: fixed;
@@ -2546,29 +2585,90 @@ lusive Deals Auto-Sliding Section */
 .exclusive-deals {
     padding: 40px 0;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    position: relative;
 }
 
 .exclusive-carousel {
     position: relative;
     overflow: hidden;
     border-radius: 25px;
+    min-height: 200px;
+}
+
+/* Exclusive Carousel Navigation - positioned outside container */
+.exclusive-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.exclusive-btn-nav {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #eab308;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.exclusive-btn-nav:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* Mobile responsive for exclusive navigation */
+@media (max-width: 768px) {
+    .exclusive-nav {
+        padding: 0 1rem;
+    }
+    
+    .exclusive-btn-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
 }
 
 .exclusive-slide {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     opacity: 0;
-    transform: translateX(100%);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(100%) scale(0.95);
+    transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+    visibility: hidden;
 }
 
 .exclusive-slide.active {
-    display: block;
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
+    position: relative;
+    visibility: visible;
 }
 
 .exclusive-slide.prev {
-    transform: translateX(-100%);
+    transform: translateX(-100%) scale(0.95);
+    opacity: 0;
+}
+
+.exclusive-slide.next {
+    transform: translateX(100%) scale(0.95);
+    opacity: 0;
 }
 
 .exclusive-banner {
@@ -2584,7 +2684,7 @@ lusive Deals Auto-Sliding Section */
 }
 
 .senem-banner {
-    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
 }
 
 .exclusive-banner::before {
@@ -2709,13 +2809,25 @@ lusive Deals Auto-Sliding Section */
     text-decoration: none;
 }
 
-/* Senem-specific styling */
+/* Senem-specific styling - now using yellow theme like Rabbit */
 .senem-banner .exclusive-btn {
-    background: #059669;
+    background: #1a202c;
 }
 
 .senem-banner .exclusive-btn:hover {
-    background: #047857;
+    background: #2d3748;
+}
+
+.senem-banner .quick-copy {
+    background: #1a202c;
+}
+
+.senem-banner .quick-copy:hover {
+    background: #2d3748;
+}
+
+.senem-banner .quick-copy.copied {
+    background: #059669;
 }
 
 /* Carousel Navigation - Removed arrows, only indicators */
@@ -2798,9 +2910,9 @@ lusive Deals Auto-Sliding Section */
 * Featured Senem Promo Card Styling */
 .senem-featured-card {
     position: relative;
-    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(5, 150, 105, 0.4);
+    box-shadow: 0 20px 40px rgba(255, 204, 2, 0.4);
     overflow: hidden;
 }
 
@@ -2870,27 +2982,27 @@ lusive Deals Auto-Sliding Section */
 }
 
 .senem-copy-btn {
-    background: #059669 !important;
+    background: #1a202c !important;
     color: white !important;
     font-weight: 700;
-    border: 2px solid #059669;
+    border: 2px solid #1a202c;
     position: relative;
     z-index: 2;
 }
 
 .senem-copy-btn:hover {
-    background: #047857 !important;
+    background: #2d3748 !important;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+    box-shadow: 0 8px 25px rgba(26, 32, 44, 0.3);
 }
 
 .senem-featured-card .view-details-btn {
-    background: #059669;
+    background: #1a202c;
     color: white;
 }
 
 .senem-featured-card .view-details-btn:hover {
-    background: #047857;
+    background: #2d3748;
     color: white;
 }
 

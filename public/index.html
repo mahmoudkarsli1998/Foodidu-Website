@@ -94,6 +94,25 @@
               Download App
             </button>
           </li>
+          <!-- Quick Action Buttons -->
+          <li class="nav-action-buttons">
+            <button class="nav-action-btn" onclick="showPage('discover')">
+              <i class="fas fa-compass"></i>
+              Start Exploring
+            </button>
+          </li>
+          <li class="nav-action-buttons">
+            <button class="nav-action-btn" onclick="downloadApp()">
+              <i class="fas fa-download"></i>
+              Download Now
+            </button>
+          </li>
+          <li class="nav-action-buttons">
+            <button class="nav-action-btn" onclick="showPage('promo')">
+              <i class="fas fa-tags"></i>
+              Get Promo Codes
+            </button>
+          </li>
         </ul>
         <div class="hamburger" onclick="toggleMenu()">
           <span></span>
@@ -118,9 +137,7 @@
                   food deals near you in Egypt and Saudi Arabia. Save money with
                   exclusive promo codes and discover local dining experiences.
                 </p>
-                <button class="hero-cta" onclick="downloadApp()">
-                  Download Now
-                </button>
+
               </div>
               <div class="slide-image">
                 <div class="food-icon">🍕</div>
@@ -136,9 +153,7 @@
                   Access exclusive promo codes and special discounts that you
                   won't find anywhere else. Save up to 50% on every order!
                 </p>
-                <button class="hero-cta" onclick="showPage('promo')">
-                  Get Promo Codes
-                </button>
+
               </div>
               <div class="slide-image">
                 <div class="food-icon">🎫</div>
@@ -155,9 +170,7 @@
                   treasures in Egyptian and Saudi Arabian restaurants. Connect
                   with the best local food vendors for unforgettable meals.
                 </p>
-                <button class="hero-cta" onclick="showPage('discover')">
-                  Start Exploring
-                </button>
+
               </div>
               <div class="slide-image">
                 <div class="food-icon">🍽️</div>
@@ -186,6 +199,16 @@
 
       <!-- Exclusive Deals Auto-Sliding Section -->
       <section class="exclusive-deals">
+        <!-- Exclusive Carousel Navigation - positioned outside container -->
+        <div class="exclusive-nav">
+          <button class="exclusive-btn-nav prev" onclick="changeExclusiveSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="exclusive-btn-nav next" onclick="changeExclusiveSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        
         <div class="container">
           <div class="exclusive-carousel">
             <!-- Rabbit Exclusive Deal -->
@@ -1124,6 +1147,63 @@
 
       <section class="container">
         <div class="promo-grid" id="promo-grid">
+          <!-- Featured Rabbit Promo Card -->
+          <div class="promo-card rabbit-featured-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="featured-badge">
+              <img src="images/rabbitt.jpeg" alt="Rabbit" class="badge-logo" />
+              FEATURED
+            </div>
+            <div class="promo-header">
+              <div class="promo-logo">
+                <img src="images/Rabbit.png" alt="Rabbit Logo" class="vendor-logo" />
+              </div>
+              <div class="promo-brand">Rabbit</div>
+            </div>
+            <div class="promo-code-section">
+              <div class="promo-discount">30% OFF upto 150 EGP</div>
+              <div class="promo-code">RabbitFood4</div>
+              <div class="promo-description">
+                Get 30% OFF upto 150 EGP on your first order on Rabbit
+              </div>
+              <div class="promo-expiry">Expires: Dec 31, 2025</div>
+              <button class="copy-btn rabbit-copy-btn" onclick="copyPromoCode('RabbitFood4', 'rabbit')">
+                Copy Code
+              </button>
+            </div>
+            <div class="featured-cta">
+              <a href="Rabbit-PromoCode/index.html" class="view-details-btn">
+                <i class="fas fa-external-link-alt"></i>
+                View Full Details
+              </a>
+            </div>
+          </div>
+
+          <!-- Featured Senem Promo Card -->
+          <div class="promo-card senem-featured-card" data-aos="fade-up" data-aos-delay="75">
+            <div class="featured-badge">
+              <img src="images/senem.webp" alt="Senem" class="badge-logo"> FEATURED
+            </div>
+            <div class="promo-header">
+              <div class="promo-logo">
+                <img src="images/senem.webp" alt="Senem Logo" class="vendor-logo">
+              </div>
+              <div class="promo-brand">Senem</div>
+            </div>
+            <div class="promo-code-section">
+              <div class="promo-discount">10% Off Your Order</div>
+              <div class="promo-code">FOODIDU10</div>
+              <div class="promo-description">Premium grocery delivery with exclusive discount</div>
+              <div class="promo-expiry">Expires: Dec 31, 2025</div>
+              <button class="copy-btn senem-copy-btn" onclick="copyPromoCode('FOODIDU10', 'senem')">Copy Code</button>
+            </div>
+            <div class="featured-cta">
+              <a href="Senem-PromoCode/index.html" class="view-details-btn">
+                <i class="fas fa-external-link-alt"></i>
+                View Full Details
+              </a>
+            </div>
+          </div>
+
           <!-- Promo Card 1 - BreadFast -->
           <div class="promo-card" data-aos="fade-up" data-aos-delay="100">
             <div class="promo-header">

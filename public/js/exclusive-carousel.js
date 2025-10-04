@@ -26,7 +26,7 @@ export function startExclusiveAutoSlide() {
     console.log('Starting auto-slide...');
     AppState.exclusiveSlideInterval = setInterval(() => {
         changeExclusiveSlide(1);
-    }, 4000); // Change slide every 4 seconds
+    }, 8000); // Change slide every 8 seconds
 }
 
 // Stop auto-sliding
@@ -39,6 +39,8 @@ export function stopExclusiveAutoSlide() {
 
 // Change slide function
 export function changeExclusiveSlide(direction) {
+    // Pause auto-slide temporarily
+    stopExclusiveAutoSlide();
     const slides = document.querySelectorAll('.exclusive-slide');
     const indicators = document.querySelectorAll('.exclusive-indicator');
     
@@ -49,8 +51,18 @@ export function changeExclusiveSlide(direction) {
     
     console.log(`Changing slide from ${AppState.currentExclusiveSlide} with direction ${direction}`);
     
+    // Add transition classes for smooth animation
+    const currentSlide = slides[AppState.currentExclusiveSlide];
+    
+    // Set current slide to exit
+    if (direction > 0) {
+        currentSlide.classList.add('prev');
+    } else {
+        currentSlide.classList.add('next');
+    }
+    
     // Remove active class from current slide and indicator
-    slides[AppState.currentExclusiveSlide].classList.remove('active');
+    currentSlide.classList.remove('active');
     if (indicators[AppState.currentExclusiveSlide]) {
         indicators[AppState.currentExclusiveSlide].classList.remove('active');
     }
@@ -66,11 +78,21 @@ export function changeExclusiveSlide(direction) {
     
     console.log(`New slide index: ${AppState.currentExclusiveSlide}`);
     
+    // Clean up all slides first
+    slides.forEach(slide => {
+        slide.classList.remove('active', 'prev', 'next');
+    });
+    
     // Add active class to new slide and indicator
-    slides[AppState.currentExclusiveSlide].classList.add('active');
-    if (indicators[AppState.currentExclusiveSlide]) {
-        indicators[AppState.currentExclusiveSlide].classList.add('active');
-    }
+    setTimeout(() => {
+        slides[AppState.currentExclusiveSlide].classList.add('active');
+        if (indicators[AppState.currentExclusiveSlide]) {
+            indicators[AppState.currentExclusiveSlide].classList.add('active');
+        }
+    }, 50);
+    
+    // Restart auto-slide after 3 seconds
+    setTimeout(startExclusiveAutoSlide, 3000);
 }
 
 // Go to specific slide (for indicator clicks)
