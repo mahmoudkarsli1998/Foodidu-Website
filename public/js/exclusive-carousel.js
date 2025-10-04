@@ -26,7 +26,7 @@ export function startExclusiveAutoSlide() {
     console.log('Starting auto-slide...');
     AppState.exclusiveSlideInterval = setInterval(() => {
         changeExclusiveSlide(1);
-    }, 8000); // Change slide every 8 seconds
+    }, 15000); // Change slide every 15 seconds
 }
 
 // Stop auto-sliding
