@@ -1,399 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get exclusive Rabbit promo codes and discounts with Foodidu. Save money on your favorite food orders.">
-    <meta name="keywords" content="Rabbit promo codes, Rabbit discounts, food delivery deals, Foodidu">
-    <meta name="author" content="Foodidu">
-    <meta property="og:title" content="Rabbit Promo Codes - Foodidu">
-    <meta property="og:description" content="Exclusive Rabbit promo codes and deals. Save money on your food orders with verified discount codes.">
-    <meta property="og:image" content="../images/Rabbit.png">
-    <meta property="og:url" content="https://foodidu.com/rabbit">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Get exclusive Rabbit promo codes and discounts with Foodidu. Save money on your favorite food orders."
+    />
+    <meta
+      name="keywords"
+      content="Rabbit promo codes, Rabbit discounts, food delivery deals, Foodidu"
+    />
+    <meta name="author" content="Foodidu" />
+    <meta property="og:title" content="Rabbit Promo Codes - Foodidu" />
+    <meta
+      property="og:description"
+      content="Exclusive Rabbit promo codes and deals. Save money on your food orders with verified discount codes."
+    />
+    <meta property="og:image" content="../images/Rabbit.png" />
+    <meta property="og:url" content="https://foodidu.com/rabbit" />
+
     <title>Rabbit Promo Codes - Foodidu</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="../images/Logo.svg">
-    <link rel="apple-touch-icon" href="../images/Logo.svg">
-    
+    <link rel="icon" type="image/svg+xml" href="../images/Logo.svg" />
+    <link rel="apple-touch-icon" href="../images/Logo.svg" />
+
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="vendor-page.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="vendor-page.css" />
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="../index.html">
-                    <img src="../images/Logo-Text.svg" alt="Foodidu Logo"
-                         style="height:80px; width:auto; object-fit:contain; margin-right:0.7rem; vertical-align:middle; box-shadow:0 2px 16px rgba(0,0,0,0.07); background:none; border-radius:32px; border: 3px solid #ffe082; transition: box-shadow 0.2s;">
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../index.html#discover">Discover</a></li>
-                <li><a href="../index.html#deals">Deals</a></li>
-                <li><a href="../index.html#promo">Promo Codes</a></li>
-                <li><a href="../index.html#vendors">Vendors</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="nav-container">
+        <div class="logo">
+          <a href="../index.html">
+            <img
+              src="../images/Logo-Text.svg"
+              alt="Foodidu Logo"
+              style="
+                height: 80px;
+                width: auto;
+                object-fit: contain;
+                margin-right: 0.7rem;
+                vertical-align: middle;
+                box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+                background: none;
+                border-radius: 32px;
+                border: 3px solid #ffe082;
+                transition: box-shadow 0.2s;
+              "
+            />
+          </a>
         </div>
+        <ul class="nav-menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#discover">Discover</a></li>
+          <li><a href="../index.html#deals">Deals</a></li>
+          <li><a href="../index.html#promo">Promo Codes</a></li>
+          <li><a href="../index.html#vendors">Vendors</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
 
     <!-- Vendor Page Content -->
     <main class="vendor-page">
-        <div class="container">
-            <!-- Vendor Logo Section -->
-            <section class="vendor-header">
-                <div class="vendor-logo-container">
-                    <img src="../images/Rabbit.png" alt="Rabbit Logo" class="vendor-logo clean-logo">
+      <div class="container">
+        <!-- Vendor Logo Section -->
+        <section class="vendor-header">
+          <div class="vendor-logo-container">
+            <img
+              src="../images/Rabbit.png"
+              alt="Rabbit Logo"
+              class="vendor-logo clean-logo"
+            />
+          </div>
+          <h1 class="vendor-name">Rabbit</h1>
+          <p class="vendor-description">
+            Egypt's #1 food delivery platform - Get exclusive 25% off your first
+            order with our special partnership deal!
+          </p>
+        </section>
+
+        <!-- Promo Code Section -->
+        <section class="promo-section">
+          <div class="promo-card-large">
+            <div class="promo-header">
+              <h2>Exclusive Promo Code</h2>
+              <div class="promo-badge">Limited Time</div>
+            </div>
+            <div class="promo-code-display">
+              <span class="promo-code" id="promoCode">RabbitFood4</span>
+            </div>
+            <div class="copy-btn-container">
+              <button class="copy-btn" onclick="copyPromoCode('RabbitFood4')">
+                <i class="fas fa-copy"></i>
+                Copy Code
+              </button>
+            </div>
+            <p class="promo-instruction">
+              Get 30% OFF upto 150 EGP on your first order on Rabbit
+            </p>
+            <div class="promo-details">
+              <div class="promo-discount">30% OFF upto 150 EGP</div>
+              <div class="promo-expiry">Expires: Dec 31, 2025</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About Rabbit Section -->
+        <section class="about-section">
+          <div class="about-card">
+            <div class="about-header">
+              <div class="about-icon">
+                <img
+                  src="../images/rabbitt.jpeg"
+                  alt="Rabbit Logo"
+                  class="about-rabbit-logo"
+                />
+              </div>
+              <h2>About Rabbit</h2>
+            </div>
+            <div class="about-content">
+              <p>
+                Rabbit is Egypt's leading food delivery platform, connecting
+                food lovers with their favorite restaurants and local eateries.
+                With thousands of restaurant partners across Egypt, Rabbit
+                offers fast, reliable delivery service that brings delicious
+                meals right to your doorstep.
+              </p>
+
+              <div class="features-grid">
+                <div class="feature-item">
+                  <i class="fas fa-clock"></i>
+                  <h4>Fast Delivery</h4>
+                  <p>Average delivery time of 30-45 minutes</p>
                 </div>
-                <h1 class="vendor-name">Rabbit</h1>
-                <p class="vendor-description">Egypt's #1 food delivery platform - Get exclusive 25% off your first order with our special partnership deal!</p>
-            </section>
-
-            <!-- Promo Code Section -->
-            <section class="promo-section">
-                <div class="promo-card-large">
-                    <div class="promo-header">
-                        <h2>Exclusive Promo Code</h2>
-                        <div class="promo-badge">Limited Time</div>
-                    </div>
-                    <div class="promo-code-display">
-                        <span class="promo-code" id="promoCode">RabbitFood4</span>
-                    </div>
-                    <div class="copy-btn-container">
-                        <button class="copy-btn" onclick="copyPromoCode('RabbitFood4')">
-                            <i class="fas fa-copy"></i>
-                            Copy Code
-                        </button>
-                    </div>
-                    <p class="promo-instruction">Get 30% OFF upto 150 EGP on your first order on Rabbit</p>
-                    <div class="promo-details">
-                        <div class="promo-discount">30% OFF upto 150 EGP</div>
-                        <div class="promo-expiry">Expires: Dec 31, 2025</div>
-                    </div>
+                <div class="feature-item">
+                  <i class="fas fa-utensils"></i>
+                  <h4>Wide Selection</h4>
+                  <p>Thousands of restaurants and cuisines</p>
                 </div>
-            </section>
-
-            <!-- About Rabbit Section -->
-            <section class="about-section">
-                <div class="about-card">
-                    <div class="about-header">
-                        <div class="about-icon">
-                            <img src="../images/rabbitt.jpeg" alt="Rabbit Logo" class="about-rabbit-logo">
-                        </div>
-                        <h2>About Rabbit</h2>
-                    </div>
-                    <div class="about-content">
-                        <p>Rabbit is Egypt's leading food delivery platform, connecting food lovers with their favorite restaurants and local eateries. With thousands of restaurant partners across Egypt, Rabbit offers fast, reliable delivery service that brings delicious meals right to your doorstep.</p>
-                        
-                        <div class="features-grid">
-                            <div class="feature-item">
-                                <i class="fas fa-clock"></i>
-                                <h4>Fast Delivery</h4>
-                                <p>Average delivery time of 30-45 minutes</p>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-utensils"></i>
-                                <h4>Wide Selection</h4>
-                                <p>Thousands of restaurants and cuisines</p>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <h4>Nationwide Coverage</h4>
-                                <p>Available in major Egyptian cities</p>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-star"></i>
-                                <h4>Quality Service</h4>
-                                <p>Rated 4.5+ stars by millions of users</p>
-                            </div>
-                        </div>
-
-                        <div class="rabbit-highlights">
-                            <h3>Why Choose Rabbit?</h3>
-                            <ul>
-                                <li><i class="fas fa-check-circle"></i> Real-time order tracking</li>
-                                <li><i class="fas fa-check-circle"></i> Multiple payment options</li>
-                                <li><i class="fas fa-check-circle"></i> 24/7 customer support</li>
-                                <li><i class="fas fa-check-circle"></i> Exclusive restaurant partnerships</li>
-                                <li><i class="fas fa-check-circle"></i> Regular promotions and discounts</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="feature-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <h4>Nationwide Coverage</h4>
+                  <p>Available in major Egyptian cities</p>
                 </div>
-            </section>
-
-            <!-- About Foodidu Partnership Section -->
-            <section class="partnership-section">
-                <div class="partnership-card">
-                    <div class="partnership-header">
-                        <div class="partnership-logos">
-                            <img src="../images/Logo.svg" alt="Foodidu Logo" class="foodidu-logo">
-                            <div class="partnership-symbol">🤝</div>
-                            <img src="../images/Rabbit.png" alt="Rabbit Logo" class="rabbit-logo">
-                        </div>
-                        <h2>Foodidu × Rabbit Partnership</h2>
-                    </div>
-                    <div class="partnership-content">
-                        <p>Foodidu has partnered with Rabbit to bring you exclusive deals and promo codes that you won't find anywhere else. Our collaboration ensures you get the best savings on your favorite food orders.</p>
-                        
-                        <div class="partnership-benefits">
-                            <h3>Exclusive Benefits Through Foodidu</h3>
-                            <div class="benefits-grid">
-                                <div class="benefit-item">
-                                    <i class="fas fa-percentage"></i>
-                                    <h4>Exclusive Discounts</h4>
-                                    <p>Special promo codes available only through Foodidu</p>
-                                </div>
-                                <div class="benefit-item">
-                                    <i class="fas fa-bell"></i>
-                                    <h4>Early Access</h4>
-                                    <p>Be the first to know about new Rabbit promotions</p>
-                                </div>
-                                <div class="benefit-item">
-                                    <i class="fas fa-gift"></i>
-                                    <h4>Bonus Offers</h4>
-                                    <p>Additional savings when you use Foodidu codes</p>
-                                </div>
-                                <div class="benefit-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <h4>Verified Codes</h4>
-                                    <p>All promo codes are tested and guaranteed to work</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="how-it-works">
-                            <h3>How to Use Your Rabbit Promo Code</h3>
-                            <div class="steps-container">
-                                <div class="step">
-                                    <div class="step-number">1</div>
-                                    <div class="step-content">
-                                        <h4>Copy the Code</h4>
-                                        <p>Click the "Copy Code" button above to copy RABBIT25</p>
-                                    </div>
-                                </div>
-                                <div class="step">
-                                    <div class="step-number">2</div>
-                                    <div class="step-content">
-                                        <h4>Open Rabbit App</h4>
-                                        <p>Launch the Rabbit app or visit their website</p>
-                                    </div>
-                                </div>
-                                <div class="step">
-                                    <div class="step-number">3</div>
-                                    <div class="step-content">
-                                        <h4>Add Items to Cart</h4>
-                                        <p>Browse restaurants and add your favorite items</p>
-                                    </div>
-                                </div>
-                                <div class="step">
-                                    <div class="step-number">4</div>
-                                    <div class="step-content">
-                                        <h4>Apply Code at Checkout</h4>
-                                        <p>Paste the code in the promo code field and enjoy 25% off!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="feature-item">
+                  <i class="fas fa-star"></i>
+                  <h4>Quality Service</h4>
+                  <p>Rated 4.5+ stars by millions of users</p>
                 </div>
-            </section>
+              </div>
 
-            <!-- Download Buttons Section -->
-            <section class="download-section">
-                <h2>Download Apps</h2>
-                
-                <!-- Foodidu App -->
-                <div class="app-group">
-                    <h3>Foodidu App</h3>
-                    <p>Get more promo codes and discover hidden gems</p>
-                    <div class="download-buttons">
-                        <a href="#" class="download-btn app-store" onclick="downloadApp('ios')">
-                            <i class="fab fa-apple"></i>
-                            <div class="btn-text">
-                                <span class="small">Download on the</span>
-                                <span class="large">App Store</span>
-                            </div>
-                        </a>
-                        <a href="#" class="download-btn google-play" onclick="downloadApp('android')">
-                            <i class="fab fa-google-play"></i>
-                            <div class="btn-text">
-                                <span class="small">Get it on</span>
-                                <span class="large">Google Play</span>
-                            </div>
-                        </a>
-                    </div>
+              <div class="rabbit-highlights">
+                <h3>Why Choose Rabbit?</h3>
+                <ul>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Real-time order tracking
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Multiple payment options
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> 24/7 customer support
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Exclusive restaurant
+                    partnerships
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Regular promotions and
+                    discounts
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About Foodidu Partnership Section -->
+        <section class="partnership-section">
+          <div class="partnership-card">
+            <div class="partnership-header">
+              <div class="partnership-logos">
+                <img
+                  src="../images/Logo.svg"
+                  alt="Foodidu Logo"
+                  class="foodidu-logo"
+                />
+                <div class="partnership-symbol">🤝</div>
+                <img
+                  src="../images/Rabbit.png"
+                  alt="Rabbit Logo"
+                  class="rabbit-logo"
+                />
+              </div>
+              <h2>Foodidu × Rabbit Partnership</h2>
+            </div>
+            <div class="partnership-content">
+              <p>
+                Foodidu has partnered with Rabbit to bring you exclusive deals
+                and promo codes that you won't find anywhere else. Our
+                collaboration ensures you get the best savings on your favorite
+                food orders.
+              </p>
+
+              <div class="partnership-benefits">
+                <h3>Exclusive Benefits Through Foodidu</h3>
+                <div class="benefits-grid">
+                  <div class="benefit-item">
+                    <i class="fas fa-percentage"></i>
+                    <h4>Exclusive Discounts</h4>
+                    <p>Special promo codes available only through Foodidu</p>
+                  </div>
+                  <div class="benefit-item">
+                    <i class="fas fa-bell"></i>
+                    <h4>Early Access</h4>
+                    <p>Be the first to know about new Rabbit promotions</p>
+                  </div>
+                  <div class="benefit-item">
+                    <i class="fas fa-gift"></i>
+                    <h4>Bonus Offers</h4>
+                    <p>Additional savings when you use Foodidu codes</p>
+                  </div>
+                  <div class="benefit-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Verified Codes</h4>
+                    <p>All promo codes are tested and guaranteed to work</p>
+                  </div>
                 </div>
+              </div>
 
-                <!-- Rabbit App & Website -->
-                <div class="app-group">
-                    <h3>Rabbit App & Website</h3>
-                    <p>Order directly from Rabbit</p>
-                    <div class="download-buttons">
-                        <a href="#" class="download-btn app-store" onclick="openVendorApp('rabbit', 'ios')">
-                            <i class="fab fa-apple"></i>
-                            <div class="btn-text">
-                                <span class="small">Download on the</span>
-                                <span class="large">App Store</span>
-                            </div>
-                        </a>
-                        <a href="#" class="download-btn google-play" onclick="openVendorApp('rabbit', 'android')">
-                            <i class="fab fa-google-play"></i>
-                            <div class="btn-text">
-                                <span class="small">Get it on</span>
-                                <span class="large">Google Play</span>
-                            </div>
-                        </a>
-                        <a href="#" class="download-btn website" onclick="openVendorWebsite('rabbit')">
-                            <i class="fas fa-globe"></i>
-                            <div class="btn-text">
-                                <span class="small">Visit</span>
-                                <span class="large">Website</span>
-                            </div>
-                        </a>
+              <div class="how-it-works">
+                <h3>How to Use Your Rabbit Promo Code</h3>
+                <div class="steps-container">
+                  <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                      <h4>Copy the Code</h4>
+                      <p>Click the "Copy Code" button above to copy RABBIT25</p>
                     </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                      <h4>Open Rabbit App</h4>
+                      <p>Launch the Rabbit app or visit their website</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                      <h4>Add Items to Cart</h4>
+                      <p>Browse restaurants and add your favorite items</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                      <h4>Apply Code at Checkout</h4>
+                      <p>
+                        Paste the code in the promo code field and enjoy 25%
+                        off!
+                      </p>
+                    </div>
+                  </div>
                 </div>
-            </section>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <!-- Back to Home -->
-            <section class="back-section">
-                <a href="../index.html" class="back-btn">
-                    <i class="fas fa-arrow-left"></i>
-                    Back to Foodidu
-                </a>
-            </section>
-        </div>
+        <!-- Download Buttons Section -->
+        <section class="download-section">
+          <h2>Download Apps</h2>
+
+          <!-- Foodidu App -->
+          <div class="app-group">
+            <h3>Foodidu App</h3>
+            <p>Get more promo codes and discover hidden gems</p>
+            <div class="download-buttons">
+              <a
+                href="#"
+                class="download-btn app-store"
+                onclick="downloadApp('ios')"
+              >
+                <i class="fab fa-apple"></i>
+                <div class="btn-text">
+                  <span class="small">Download on the</span>
+                  <span class="large">App Store</span>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="download-btn google-play"
+                onclick="downloadApp('android')"
+              >
+                <i class="fab fa-google-play"></i>
+                <div class="btn-text">
+                  <span class="small">Get it on</span>
+                  <span class="large">Google Play</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Rabbit App & Website -->
+          <div class="app-group">
+            <h3>Rabbit App & Website</h3>
+            <p>Order directly from Rabbit</p>
+            <div class="download-buttons">
+              <a
+                href="#"
+                class="download-btn app-store"
+                onclick="openVendorApp('rabbit', 'ios')"
+              >
+                <i class="fab fa-apple"></i>
+                <div class="btn-text">
+                  <span class="small">Download on the</span>
+                  <span class="large">App Store</span>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="download-btn google-play"
+                onclick="openVendorApp('rabbit', 'android')"
+              >
+                <i class="fab fa-google-play"></i>
+                <div class="btn-text">
+                  <span class="small">Get it on</span>
+                  <span class="large">Google Play</span>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="download-btn website"
+                onclick="openVendorWebsite('rabbit')"
+              >
+                <i class="fas fa-globe"></i>
+                <div class="btn-text">
+                  <span class="small">Visit</span>
+                  <span class="large">Website</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Back to Home -->
+        <section class="back-section">
+          <a href="../index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back to Foodidu
+          </a>
+        </section>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer id="contact" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <svg width="60" height="60" viewBox="0 0 592 592" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="90" y="90" width="412" height="412" rx="103" fill="#FFC533"/>
-                            <path d="M311.96 309.7C313.247 309.7 314.369 309.81 315.325 310.031C316.282 310.251 317.072 310.674 317.698 311.3C318.36 311.925 318.856 312.789 319.187 313.892C319.518 314.996 319.684 316.43 319.684 318.196V344.731C319.684 347.49 319.481 350.23 319.077 352.951C318.709 355.673 318.029 358.266 317.036 360.73C316.043 363.194 314.663 365.474 312.898 367.571C311.169 369.704 308.926 371.543 306.168 373.087C303.409 374.632 300.099 375.846 296.237 376.728C292.376 377.611 287.833 378.052 282.611 378.052C276.469 378.052 271.154 377.574 266.668 376.618C262.217 375.699 258.429 374.43 255.303 372.811C252.177 371.23 249.639 369.336 247.69 367.129C245.777 364.959 244.269 362.605 243.166 360.068C242.1 357.567 241.382 354.956 241.015 352.234C240.647 349.549 240.463 346.864 240.463 344.179L240.463 318.196C240.463 316.43 240.628 314.996 240.959 313.892C241.29 312.789 241.769 311.925 242.394 311.3C243.019 310.674 243.81 310.251 244.766 310.031C245.722 309.81 246.844 309.7 248.131 309.7L311.96 309.7ZM281.452 370.274C286.013 370.274 290.169 369.906 293.92 369.17C297.672 368.435 300.871 367.276 303.519 365.695C306.168 364.113 308.227 362.091 309.698 359.626C311.169 357.199 311.923 354.275 311.96 350.855L248.131 350.855C248.168 354.275 249.051 357.217 250.779 359.682C252.545 362.146 254.935 364.15 257.951 365.695C260.967 367.276 264.479 368.435 268.488 369.17C272.534 369.906 276.855 370.274 281.452 370.274Z" fill="#543A14"/>
-                            <path d="M286.951 298.906C284.008 298.906 281.048 298.648 278.069 298.133C275.126 297.618 272.294 296.736 269.573 295.485C266.851 294.235 264.314 292.58 261.96 290.52C259.606 288.424 257.546 285.831 255.781 282.741C254.052 279.615 252.692 275.937 251.699 271.708C250.705 267.442 250.209 262.495 250.209 256.868C250.209 251.278 250.705 246.349 251.699 242.083C252.692 237.817 254.052 234.139 255.781 231.049C257.546 227.923 259.606 225.33 261.96 223.271C264.314 221.211 266.851 219.575 269.573 218.361C272.294 217.11 275.126 216.228 278.069 215.713C281.048 215.198 284.008 214.94 286.951 214.94C289.893 214.94 292.854 215.198 295.833 215.713C298.812 216.228 301.662 217.11 304.384 218.361C307.105 219.575 309.643 221.211 311.997 223.271C314.351 225.33 316.392 227.923 318.12 231.049C319.849 234.139 321.21 237.817 322.203 242.083C323.196 246.349 323.692 251.278 323.692 256.868C323.692 262.458 323.196 267.386 322.203 271.653C321.21 275.919 319.849 279.615 318.12 282.741C316.392 285.831 314.351 288.424 311.997 290.52C309.643 292.58 307.105 294.235 304.384 295.485C301.662 296.736 298.812 297.618 295.833 298.133C292.854 298.648 289.893 298.906 286.951 298.906ZM291.916 256.868C291.916 261.465 292.247 265.308 292.909 268.398C293.608 271.487 294.527 273.97 295.667 275.845C296.807 277.721 298.076 279.064 299.474 279.873C300.908 280.645 302.379 281.031 303.887 281.031C305.395 281.031 306.866 280.645 308.3 279.873C309.735 279.064 311.004 277.721 312.107 275.845C313.247 273.97 314.148 271.487 314.81 268.398C315.509 265.308 315.858 261.465 315.858 256.868C315.858 252.271 315.509 248.427 314.81 245.338C314.148 242.248 313.247 239.766 312.107 237.89C311.004 236.014 309.735 234.69 308.3 233.918C306.866 233.109 305.395 232.704 303.887 232.704C302.379 232.704 300.908 233.109 299.474 233.918C298.076 234.69 296.807 236.014 295.667 237.89C294.527 239.766 293.608 242.248 292.909 245.338C292.247 248.427 291.916 252.271 291.916 256.868Z" fill="#543A14"/>
-                        </svg>
-                        <h3>Foodidu</h3>
-                    </div>
-                    <p>Discover hidden gems, save money, and enjoy amazing food experiences in your neighborhood.</p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/Foodidu.EG" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/foodidu_official" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@foodidu_" target="_blank" rel="noopener noreferrer" title="Follow us on TikTok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/foodidu/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="Follow us on LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../index.html#discover">Discover</a></li>
-                        <li><a href="../index.html#deals">Deals</a></li>
-                        <li><a href="../index.html#promo">Promo Codes</a></li>
-                        <li><a href="../index.html#vendors">For Restaurants</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#" id="cookie-settings-link">Cookie Settings</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Investors</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Download App</h3>
-                    <div class="footer-app-buttons">
-                        <button class="footer-app-btn" onclick="downloadApp()">
-                            <i class="fab fa-apple"></i>
-                            <span>iOS App</span>
-                        </button>
-                        <button class="footer-app-btn" onclick="downloadApp()">
-                            <i class="fab fa-google-play"></i>
-                            <span>Android App</span>
-                        </button>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img
+                src="../images/Logo.svg"
+                alt="Foodidu Logo"
+                style="height: 60px; width: auto"
+              />
+              <h3>Foodidu</h3>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Foodidu. All rights reserved. | Made with ❤️ for food lovers</p>
+            <p>
+              Discover hidden gems, save money, and enjoy amazing food
+              experiences in your neighborhood.
+            </p>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/Foodidu.EG"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/foodidu_official"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.tiktok.com/@foodidu_"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on TikTok"
+              >
+                <i class="fab fa-tiktok"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/foodidu/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
             </div>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li>
+                <a href="../index.html" onclick="showPage('home')">Home</a>
+              </li>
+              <li>
+                <a href="../index.html" onclick="showPage('discover')"
+                  >Discover</a
+                >
+              </li>
+              <li>
+                <a href="../index.html" onclick="showPage('deals')">Deals</a>
+              </li>
+              <li>
+                <a href="../index.html" onclick="showPage('promo')"
+                  >Promo Codes</a
+                >
+              </li>
+              <li>
+                <a href="../index.html" onclick="showPage('vendors')"
+                  >For Restaurants</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li>
+                <a href="javascript:void(0)" id="cookie-settings-link"
+                  >Cookie Settings</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Investors</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Download App</h3>
+            <div class="footer-app-buttons">
+              <button class="footer-app-btn" onclick="downloadApp()">
+                <i class="fab fa-apple"></i>
+                <span>iOS App</span>
+              </button>
+              <button class="footer-app-btn" onclick="downloadApp()">
+                <i class="fab fa-google-play"></i>
+                <span>Android App</span>
+              </button>
+            </div>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Foodidu. All rights reserved. | Made with ❤️ for food
+            lovers
+          </p>
+        </div>
+      </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="../script.js"></script>
     <script src="vendor-page.js"></script>
-</body>
-</html>    <script
->
-        // Ensure navbar background is always visible - Multiple approaches
-        function applyNavbarBackground() {
-            const navbar = document.querySelector('.navbar');
-            const nav = document.querySelector('nav');
-            
-            if (navbar) {
-                // Method 1: Direct style application
-                navbar.style.setProperty('background', '#FFD15C', 'important');
-                navbar.style.setProperty('background-image', 'url("../images/BG.svg")', 'important');
-                navbar.style.setProperty('background-repeat', 'no-repeat', 'important');
-                navbar.style.setProperty('background-position', 'center center', 'important');
-                navbar.style.setProperty('background-size', 'cover', 'important');
-                navbar.style.setProperty('backdrop-filter', 'blur(10px)', 'important');
-                navbar.style.setProperty('-webkit-backdrop-filter', 'blur(10px)', 'important');
-                
-                // Method 2: Add a class for CSS targeting
-                navbar.classList.add('bg-applied');
-            }
-            
-            if (nav) {
-                nav.style.setProperty('background-image', 'url("../images/BG.svg")', 'important');
-                nav.style.setProperty('background-size', 'cover', 'important');
-            }
-        }
-        
-        // Apply immediately when DOM is ready
-        document.addEventListener('DOMContentLoaded', applyNavbarBackground);
-        
-        // Apply on window load as backup
-        window.addEventListener('load', applyNavbarBackground);
-        
-        // Apply with a slight delay as additional backup
-        setTimeout(applyNavbarBackground, 100);
-        setTimeout(applyNavbarBackground, 500);
-    </script>
+  </body>
+</html>
+<script>
+  // Ensure navbar background is always visible - Multiple approaches
+  function applyNavbarBackground() {
+    const navbar = document.querySelector(".navbar");
+    const nav = document.querySelector("nav");
+
+    if (navbar) {
+      // Method 1: Direct style application
+      navbar.style.setProperty("background", "#FFD15C", "important");
+      navbar.style.setProperty(
+        "background-image",
+        'url("../images/BG.svg")',
+        "important"
+      );
+      navbar.style.setProperty("background-repeat", "no-repeat", "important");
+      navbar.style.setProperty(
+        "background-position",
+        "center center",
+        "important"
+      );
+      navbar.style.setProperty("background-size", "cover", "important");
+      navbar.style.setProperty("backdrop-filter", "blur(10px)", "important");
+      navbar.style.setProperty(
+        "-webkit-backdrop-filter",
+        "blur(10px)",
+        "important"
+      );
+
+      // Method 2: Add a class for CSS targeting
+      navbar.classList.add("bg-applied");
+    }
+
+    if (nav) {
+      nav.style.setProperty(
+        "background-image",
+        'url("../images/BG.svg")',
+        "important"
+      );
+      nav.style.setProperty("background-size", "cover", "important");
+    }
+  }
+
+  // Apply immediately when DOM is ready
+  document.addEventListener("DOMContentLoaded", applyNavbarBackground);
+
+  // Apply on window load as backup
+  window.addEventListener("load", applyNavbarBackground);
+
+  // Apply with a slight delay as additional backup
+  setTimeout(applyNavbarBackground, 100);
+  setTimeout(applyNavbarBackground, 500);
+</script>

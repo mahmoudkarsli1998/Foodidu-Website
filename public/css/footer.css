@@ -123,6 +123,11 @@
     color: #ccc;
 }
 
+/* Ensure footer container has enough width for 5 columns */
+.footer .container {
+    max-width: 1200px !important;
+}
+
 /* Mobile Responsive for Footer */
 @media (max-width: 768px) {
     .footer-content {
