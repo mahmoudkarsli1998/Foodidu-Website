@@ -119,10 +119,11 @@
     width: 80px;
     height: 80px;
     object-fit: contain;
-    border-radius: 15px;
-    background: white;
-    padding: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    border: none;
 }
 
 .exclusive-info {
@@ -316,4 +317,29 @@
         padding: 8px 15px;
         letter-spacing: 1px;
     }
+}/*
+ Additional vendor logo protection for exclusive deals */
+.exclusive-logo img.vendor-logo {
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    outline: none !important;
+}
+
+.exclusive-logo img.vendor-logo:hover {
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    transform: none !important;
+    outline: none !important;
 }

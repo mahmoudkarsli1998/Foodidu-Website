@@ -21,6 +21,7 @@
 @import url("footer.css");
 @import url("cookie-consent.css");
 @import url("animations.css");
+@import url("vendor-logo-protection.css");
 
 /* Example selector for width and height */
 .example-class {
