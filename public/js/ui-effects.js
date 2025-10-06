@@ -240,17 +240,7 @@ export function addRippleStyles() {
     }
 }
 
-// Initialize page loading animation
-export function initializePageLoading() {
-    window.addEventListener('load', () => {
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.5s ease';
-        
-        setTimeout(() => {
-            document.body.style.opacity = '1';
-        }, 100);
-    });
-}
+
 
 // Search input enter key support
 export function initializeSearchInput() {

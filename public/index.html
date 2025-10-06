@@ -152,11 +152,7 @@
 
     <!-- Footer will be loaded here -->
 
-    <!-- Loading Spinner -->
-    <div id="loading-spinner" class="loading-spinner">
-      <div class="spinner"></div>
-      <p>Loading delicious content...</p>
-    </div>
+
 
     <!-- Scripts -->
     <script src="js/component-loader.js"></script>
@@ -166,18 +162,8 @@
     <!-- Initialize components loading -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Show loading spinner
-        var loadingSpinner = document.getElementById("loading-spinner");
-        if (loadingSpinner) {
-          loadingSpinner.classList.add("active");
-        }
-
         // Load all components
         componentLoader.loadAllComponents(function () {
-          // Hide loading spinner
-          if (loadingSpinner) {
-            loadingSpinner.classList.remove("active");
-          }
           console.log("All components loaded successfully");
         });
       });

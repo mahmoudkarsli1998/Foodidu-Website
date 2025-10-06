@@ -32,7 +32,6 @@ import {
   initializeFeatureCardEffects,
   initializeTestimonials,
   initializeScreenshotsCarousel,
-  initializePageLoading,
   initializeSearchInput,
   initializeScrollAnimations,
   initializeKeyboardNavigation,
@@ -51,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeFeatureCardEffects();
   initializeTestimonials();
   initializeScreenshotsCarousel();
-  initializePageLoading();
+
   initializeVendorForm();
   initializeScrollAnimations();
   initializeKeyboardNavigation();
