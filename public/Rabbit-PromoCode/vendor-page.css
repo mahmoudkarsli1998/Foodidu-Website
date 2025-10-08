@@ -167,7 +167,7 @@
 }
 
 .copy-btn {
-    background: #1a202c;
+    background: #7EB143;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -184,9 +184,9 @@
 }
 
 .copy-btn:hover {
-    background: #2d3748;
+    background: #6BA037;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
 }
 
 .copy-btn.copied {
@@ -217,10 +217,27 @@
     z-index: 2;
 }
 
+.vendor-promo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.vendor-promo-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    object-fit: cover;
+    background: #ffffff;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .promo-discount {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #dc2626;
+    color: #7EB143;
 }
 
 .promo-expiry {

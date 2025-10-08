@@ -18,8 +18,8 @@ function copyPromoCode(code) {
         copyBtn.classList.remove("copied");
       }, 2000);
 
-      // Show success message
-      showNotification("Promo code copied to clipboard!", "success");
+      // Show success message with same style as home page
+      showRabbitNotification(`Rabbit promo code "${code}" copied to clipboard! 🎉`, "success");
 
       // Track the copy event (if analytics is available)
       if (typeof gtag !== "undefined") {
@@ -32,7 +32,7 @@ function copyPromoCode(code) {
     })
     .catch(function (err) {
       console.error("Failed to copy: ", err);
-      showNotification("Failed to copy code. Please try again.", "error");
+      showRabbitNotification("Failed to copy code. Please try again.", "error");
     });
 }
 
@@ -112,55 +112,52 @@ function openVendorWebsite(vendor) {
   }
 }
 
-// Show notification
-function showNotification(message, type = "info") {
-  // Create notification element
-  const notification = document.createElement("div");
-  notification.className = `notification ${type}`;
-  notification.innerHTML = `
+// Rabbit Notification Function (same as home page)
+function showRabbitNotification(message, type = 'info') {
+    // Remove existing notification if any
+    const existingNotification = document.querySelector('.rabbit-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `rabbit-notification ${type}`;
+    notification.innerHTML = `
         <div class="notification-content">
-            <i class="fas fa-${
-              type === "success"
-                ? "check-circle"
-                : type === "error"
-                ? "exclamation-circle"
-                : "info-circle"
-            }"></i>
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
             <span>${message}</span>
         </div>
     `;
-
-  // Add styles
-  notification.style.cssText = `
+    
+    // Add styles
+    notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${
-          type === "success"
-            ? "#059669"
-            : type === "error"
-            ? "#dc2626"
-            : "#3b82f6"
-        };
+        background: ${type === 'success' ? '#059669' : type === 'error' ? '#dc2626' : '#3b82f6'};
         color: white;
         padding: 15px 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         z-index: 10000;
         animation: slideInRight 0.3s ease;
         max-width: 300px;
+        font-weight: 600;
     `;
-
-  // Add to page
-  document.body.appendChild(notification);
-
-  // Remove after 3 seconds
-  setTimeout(() => {
-    notification.style.animation = "slideOutRight 0.3s ease";
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
     setTimeout(() => {
-      document.body.removeChild(notification);
-    }, 300);
-  }, 3000);
+        notification.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
 }
 
 // Add CSS animations for notifications
