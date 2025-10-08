@@ -98,18 +98,18 @@
 }
 
 .rabbit-copy-btn {
-    background: #1a202c !important;
+    background: #7EB143 !important;
     color: white !important;
     font-weight: 700;
-    border: 2px solid #1a202c;
+    border: 2px solid #7EB143;
     position: relative;
     z-index: 2;
 }
 
 .rabbit-copy-btn:hover {
-    background: #2d3748 !important;
+    background: #6BA037 !important;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(26, 32, 44, 0.3);
+    box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
 }
 
 .featured-cta {
@@ -122,7 +122,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #1a202c;
+    background: #7EB143;
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
@@ -133,9 +133,9 @@
 }
 
 .view-details-btn:hover {
-    background: #2d3748;
+    background: #6BA037;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(26, 32, 44, 0.3);
+    box-shadow: 0 5px 15px rgba(126, 177, 67, 0.3);
     color: white;
     text-decoration: none;
 }
@@ -216,27 +216,27 @@
 }
 
 .senem-copy-btn {
-    background: #1a202c !important;
+    background: #7EB143 !important;
     color: white !important;
     font-weight: 700;
-    border: 2px solid #1a202c;
+    border: 2px solid #7EB143;
     position: relative;
     z-index: 2;
 }
 
 .senem-copy-btn:hover {
-    background: #2d3748 !important;
+    background: #6BA037 !important;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(26, 32, 44, 0.3);
+    box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
 }
 
 .senem-featured-card .view-details-btn {
-    background: #1a202c;
+    background: #7EB143;
     color: white;
 }
 
 .senem-featured-card .view-details-btn:hover {
-    background: #2d3748;
+    background: #6BA037;
     color: white;
 }
 

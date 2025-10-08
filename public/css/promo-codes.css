@@ -196,7 +196,7 @@
 
 .copy-btn {
   width: 100%;
-  background: #eab308;
+  background: #7EB143;
   color: white;
   padding: 0.8rem;
   border: none;
@@ -207,7 +207,7 @@
 }
 
 .copy-btn:hover {
-  background: #facc15;
+  background: #6BA037;
   transform: translateY(-2px);
 }
 
@@ -385,18 +385,18 @@ atured Promo Cards Styling for Promo Codes Page */
 }
 
 .rabbit-copy-btn {
-  background: #1a202c !important;
+  background: #7EB143 !important;
   color: white !important;
   font-weight: 700;
-  border: 2px solid #1a202c;
+  border: 2px solid #7EB143;
   position: relative;
   z-index: 2;
 }
 
 .rabbit-copy-btn:hover {
-  background: #2d3748 !important;
+  background: #6BA037 !important;
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(26, 32, 44, 0.3);
+  box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
 }
 
 .featured-cta {
@@ -518,18 +518,18 @@ atured Promo Cards Styling for Promo Codes Page */
 }
 
 .senem-copy-btn {
-  background: #1a202c !important;
+  background: #7EB143 !important;
   color: white !important;
   font-weight: 700;
-  border: 2px solid #1a202c;
+  border: 2px solid #7EB143;
   position: relative;
   z-index: 2;
 }
 
 .senem-copy-btn:hover {
-  background: #2d3748 !important;
+  background: #6BA037 !important;
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(26, 32, 44, 0.3);
+  box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
 }
 
 .senem-featured-card .view-details-btn {

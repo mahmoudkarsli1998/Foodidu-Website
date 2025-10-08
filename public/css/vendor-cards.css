@@ -17,14 +17,14 @@
 }
 
 .senem-card .copy-btn {
-    background: #eab308;
-    border-color: #eab308;
+    background: #7EB143;
+    border-color: #7EB143;
 }
 
 .senem-card .copy-btn:hover {
-    background: #facc15;
+    background: #6BA037;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(234, 179, 8, 0.3);
+    box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
 }
 
 .senem-cta {
@@ -44,7 +44,7 @@
 
 /* Breadfast Card Styling */
 .breadfast-copy-btn {
-    background: #eab308;
+    background: #7EB143;
     color: white;
     padding: 0.8rem 1.5rem;
     border: none;
@@ -60,9 +60,9 @@
 }
 
 .breadfast-copy-btn:hover {
-    background: #facc15;
+    background: #6BA037;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(234, 179, 8, 0.3);
+    box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
 }
 
 /* Hot Promos Section on Home Page */

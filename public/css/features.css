@@ -5,6 +5,17 @@
     backdrop-filter: blur(10px);
 }
 
+/* White title for features section */
+.features .section-title.white-title {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: white !important;
+    background-clip: unset !important;
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -54,6 +65,17 @@
 .how-it-works {
     padding: 5rem 0;
     background: linear-gradient(135deg, rgba(234, 179, 8, 0.05), rgba(250, 204, 21, 0.05));
+}
+
+/* White title for how it works section */
+.how-it-works .section-title.white-title {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: white !important;
+    background-clip: unset !important;
 }
 
 .steps {

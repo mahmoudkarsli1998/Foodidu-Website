@@ -66,3 +66,24 @@ div.promo-logo:not(:has(img)) {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   border: none !important;
 }
+
+/* VENDOR BUTTONS: Force green background and white text */
+.vendor-btn,
+.vendor-btn.secondary,
+button.vendor-btn,
+button.vendor-btn.secondary {
+  background: #7EB143 !important;
+  background-color: #7EB143 !important;
+  color: white !important;
+  border: 2px solid #7EB143 !important;
+}
+
+.vendor-btn:hover,
+.vendor-btn.secondary:hover,
+button.vendor-btn:hover,
+button.vendor-btn.secondary:hover {
+  background: #6BA037 !important;
+  background-color: #6BA037 !important;
+  color: white !important;
+  border-color: #6BA037 !important;
+}
