@@ -274,10 +274,11 @@
         height: calc(100vh - 100px);
         background: white;
         flex-direction: column;
-        padding: 2rem;
+        padding: 1.5rem;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         z-index: 999;
+        overflow-y: auto;
     }
     
     .nav-menu.active {
@@ -285,6 +286,16 @@
     }
     
     .nav-menu li {
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .nav-menu li:last-child {
+        margin-bottom: 0;
+    }
+    
+    .nav-action-buttons {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e2e8f0;
     }
 }
