@@ -119,11 +119,11 @@
     width: 80px;
     height: 80px;
     object-fit: contain;
-    border-radius: 8px;
-    background: white;
-    padding: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: none;
+    border-radius: 12px;
+    background: white !important;
+    padding: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    border: none !important;
 }
 
 .exclusive-info {
@@ -317,29 +317,24 @@
         padding: 8px 15px;
         letter-spacing: 1px;
     }
-}/*
- Additional vendor logo protection for exclusive deals */
+}/* Additional specificity for exclusive logo backgrounds */
+.exclusive-banner .exclusive-logo img,
+.rabbit-banner .exclusive-logo img,
+.senem-banner .exclusive-logo img,
 .exclusive-logo img.vendor-logo {
-    background: none !important;
-    background-color: transparent !important;
+    background: white !important;
+    background-color: white !important;
+    padding: 12px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
     border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-    outline: none !important;
 }
 
 .exclusive-logo img.vendor-logo:hover {
-    background: none !important;
-    background-color: transparent !important;
+    background: white !important;
+    background-color: white !important;
+    padding: 12px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
     border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-    transform: none !important;
-    outline: none !important;
 }
