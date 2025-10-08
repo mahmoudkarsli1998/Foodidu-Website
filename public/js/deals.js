@@ -103,3 +103,19 @@ export function getDeal(dealId) {
         downloadApp();
     }, 1500);
 }
+
+export function filterDealsChip(element, value, type) {
+    // Remove active class from chips of the same type
+    const parentSection = element.parentElement;
+    parentSection.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.classList.remove('active');
+    });
+    
+    // Add active class to clicked chip
+    element.classList.add('active');
+    
+    // Apply filter
+    AppState.currentDealsFilter[type] = value;
+    AppState.dealsPage = 1;
+    loadDeals();
+}

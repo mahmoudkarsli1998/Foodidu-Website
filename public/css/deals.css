@@ -8,10 +8,13 @@
 .deals-hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #eab308, #facc15);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: white !important;
+    background-clip: unset !important;
 }
 
 .deals-stats {
@@ -30,7 +33,7 @@
     display: block;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #eab308;
+    color: #7EB143;
 }
 
 .stat-label {
@@ -44,26 +47,49 @@
     background: rgba(255, 255, 255, 0.9);
 }
 
-.filter-row {
+.filter-chips {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
-    justify-content: center;
+    margin-bottom: 1rem;
 }
 
-.filter-select, .filter-input {
+.filter-chip {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.filter-chip:hover, .filter-chip.active {
+    background: #7EB143;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.search-input {
     padding: 0.8rem 1rem;
-    border: 2px solid #e5e5e5;
-    border-radius: 10px;
+    border: 2px solid #7EB143;
+    border-radius: 25px;
     font-size: 1rem;
     transition: all 0.3s ease;
-    min-width: 200px;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 1rem auto;
+    display: block;
 }
 
-.filter-select:focus, .filter-input:focus {
+.search-input:focus {
     outline: none;
-    border-color: #eab308;
-    box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.1);
+    border-color: #7EB143;
+    box-shadow: 0 0 0 3px rgba(126, 177, 67, 0.1);
+}
+
+.search-input::placeholder {
+    color: #666;
 }
 
 /* Deals Grid */
@@ -84,12 +110,12 @@
 
 .deal-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(234, 179, 8, 0.2);
+    box-shadow: 0 15px 35px rgba(126, 177, 67, 0.2);
 }
 
 .deal-image {
     height: 120px;
-    background: linear-gradient(135deg, #eab308, #facc15);
+    background: linear-gradient(135deg, #7EB143, #6BA037);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,7 +135,7 @@
 
 .deal-description {
     font-weight: 600;
-    color: #eab308;
+    color: #7EB143;
     margin-bottom: 0.5rem;
 }
 
@@ -127,7 +153,7 @@
 }
 
 .deal-discount {
-    background: #eab308;
+    background: #7EB143;
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -142,7 +168,7 @@
 
 .deal-btn {
     width: 100%;
-    background: linear-gradient(135deg, #eab308, #facc15);
+    background: linear-gradient(135deg, #7EB143, #6BA037);
     color: white;
     padding: 0.8rem;
     border: none;
@@ -154,7 +180,7 @@
 
 .deal-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(234, 179, 8, 0.3);
+    box-shadow: 0 5px 15px rgba(126, 177, 67, 0.3);
 }
 
 .load-more-container {
@@ -164,8 +190,8 @@
 
 .load-more-btn {
     background: transparent;
-    border: 2px solid #eab308;
-    color: #eab308;
+    border: 2px solid #7EB143;
+    color: #7EB143;
     padding: 1rem 2rem;
     border-radius: 50px;
     font-weight: 600;
@@ -174,7 +200,7 @@
 }
 
 .load-more-btn:hover {
-    background: #eab308;
+    background: #7EB143;
     color: white;
 }
 
@@ -189,16 +215,49 @@
         gap: 1rem;
     }
     
-    .filter-row {
-        flex-direction: column;
+    .filter-chips {
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
     }
     
-    .filter-select,
-    .filter-input {
+    .filter-chip {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
         min-width: auto;
+    }
+    
+    .search-input {
+        min-width: 280px;
+        width: 90%;
+        margin: 1rem auto;
     }
     
     .deals-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-chips {
+        gap: 0.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .filter-chip {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+    }
+    
+    .search-input {
+        min-width: 260px;
+        width: 95%;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .filters {
+        padding: 1.5rem 0;
     }
 }

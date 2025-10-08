@@ -8,10 +8,13 @@
 .search-section h1 {
     font-size: 3rem;
     margin-bottom: 2rem;
-    background: linear-gradient(135deg, #eab308, #facc15);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: white !important;
+    background-clip: unset !important;
 }
 
 .search-bar {
@@ -33,7 +36,7 @@
 }
 
 .search-btn {
-    background: linear-gradient(135deg, #eab308, #facc15);
+    background: linear-gradient(135deg, #7EB143, #6BA037);
     color: white;
     border: none;
     padding: 1rem 1.5rem;
@@ -42,7 +45,7 @@
 }
 
 .search-btn:hover {
-    background: linear-gradient(135deg, #facc15, #eab308);
+    background: linear-gradient(135deg, #6BA037, #7EB143);
 }
 
 .category-filters {
@@ -62,7 +65,7 @@
 }
 
 .category-chip:hover, .category-chip.active {
-    background: #eab308;
+    background: #7EB143;
     color: white;
     transform: translateY(-2px);
 }
@@ -92,7 +95,7 @@
 
 .gem-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(234, 179, 8, 0.2);
+    box-shadow: 0 15px 35px rgba(126, 177, 67, 0.2);
 }
 
 .gem-image {
@@ -112,7 +115,7 @@
 }
 
 .gem-rating {
-    color: #eab308;
+    color: #7EB143;
     font-weight: bold;
 }
 
@@ -134,12 +137,12 @@
 
 .restaurant-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(234, 179, 8, 0.2);
+    box-shadow: 0 15px 35px rgba(126, 177, 67, 0.2);
 }
 
 .restaurant-image {
     height: 100px;
-    background: linear-gradient(135deg, #eab308, #facc15);
+    background: linear-gradient(135deg, #7EB143, #6BA037);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,12 +173,12 @@
 }
 
 .restaurant-rating .stars {
-    color: #eab308;
+    color: #7EB143;
 }
 
 .restaurant-btn {
     width: 100%;
-    background: linear-gradient(135deg, #eab308, #facc15);
+    background: linear-gradient(135deg, #7EB143, #6BA037);
     color: white;
     padding: 0.8rem;
     border: none;
@@ -187,7 +190,7 @@
 
 .restaurant-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(234, 179, 8, 0.3);
+    box-shadow: 0 5px 15px rgba(126, 177, 67, 0.3);
 }
 
 /* Mobile Responsive for Discovery */

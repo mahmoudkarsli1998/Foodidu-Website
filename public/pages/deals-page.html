@@ -26,43 +26,66 @@
 
   <section class="filters">
     <div class="container">
-      <div class="filter-row">
-        <select
-          class="filter-select"
-          onchange="filterDeals(this.value, 'cuisine')"
-        >
-          <option value="">All Cuisines</option>
-          <option value="pizza">Pizza</option>
-          <option value="burger">Burger</option>
-          <option value="coffee">Coffee</option>
-          <option value="chinese">Chinese</option>
-          <option value="indian">Indian</option>
-          <option value="mexican">Mexican</option>
-          <option value="italian">Italian</option>
-        </select>
-        <select
-          class="filter-select"
-          onchange="filterDeals(this.value, 'price')"
-        >
-          <option value="">Sort by Price</option>
-          <option value="low">Lowest First</option>
-          <option value="high">Highest First</option>
-        </select>
-        <select
-          class="filter-select"
-          onchange="filterDeals(this.value, 'discount')"
-        >
-          <option value="">Sort by Discount</option>
-          <option value="highest">Highest Discount</option>
-          <option value="lowest">Lowest Discount</option>
-        </select>
-        <input
-          type="text"
-          class="filter-input"
-          placeholder="Search location..."
-          onkeyup="filterDeals(this.value, 'location')"
-        />
+      <div class="filter-chips">
+        <!-- Cuisine Filters -->
+        <div class="filter-chip active" onclick="filterDealsChip(this, '', 'cuisine')">
+          All Cuisines
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'pizza', 'cuisine')">
+          Pizza
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'burger', 'cuisine')">
+          Burger
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'coffee', 'cuisine')">
+          Coffee
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'chinese', 'cuisine')">
+          Chinese
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'indian', 'cuisine')">
+          Indian
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'mexican', 'cuisine')">
+          Mexican
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'italian', 'cuisine')">
+          Italian
+        </div>
       </div>
+      
+      <div class="filter-chips">
+        <!-- Price Sorting -->
+        <div class="filter-chip" onclick="filterDealsChip(this, '', 'price')">
+          Default Price
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'low', 'price')">
+          Lowest First
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'high', 'price')">
+          Highest First
+        </div>
+      </div>
+      
+      <div class="filter-chips">
+        <!-- Discount Sorting -->
+        <div class="filter-chip" onclick="filterDealsChip(this, '', 'discount')">
+          Default Discount
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'highest', 'discount')">
+          Highest Discount
+        </div>
+        <div class="filter-chip" onclick="filterDealsChip(this, 'lowest', 'discount')">
+          Lowest Discount
+        </div>
+      </div>
+      
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search location..."
+        onkeyup="filterDeals(this.value, 'location')"
+      />
     </div>
   </section>
 
