@@ -125,35 +125,74 @@ export function goToExclusiveSlide(slideIndex) {
 }
 
 // Copy exclusive code function
-export function copyExclusiveCode(code, vendor) {
-    navigator.clipboard.writeText(code).then(function() {
-        // Find the specific copy button
-        const copyBtn = event.target;
-        const originalText = copyBtn.innerHTML;
+export function copyExclusiveCode(code, vendor, event) {
+    // Store the button reference
+    const copyBtn = event ? event.target : document.querySelector('.quick-copy');
+    
+    // Try modern clipboard API first
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(function() {
+            handleCopySuccess(code, vendor, copyBtn);
+        }).catch(function(err) {
+            console.error('Clipboard API failed, trying fallback: ', err);
+            fallbackCopy(code, vendor, copyBtn);
+        });
+    } else {
+        // Fallback for older browsers
+        fallbackCopy(code, vendor, copyBtn);
+    }
+}
+
+// Fallback copy method (same as home promo codes)
+function fallbackCopy(code, vendor, copyBtn) {
+    try {
+        // Create a temporary text area to copy the code
+        const textArea = document.createElement('textarea');
+        textArea.value = code;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
         
-        copyBtn.innerHTML = '✓ Copied!';
-        copyBtn.classList.add('copied');
-        
-        // Reset button after 2 seconds
-        setTimeout(() => {
-            copyBtn.innerHTML = originalText;
-            copyBtn.classList.remove('copied');
-        }, 2000);
-        
-        // Show notification with vendor-specific message
-        const vendorName = vendor === 'rabbit' ? 'Rabbit' : vendor === 'senem' ? 'Senem' : 'Vendor';
-        showRabbitNotification(`${vendorName} promo code copied! 🎉`, 'success');
-        
-        // Track the copy event
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'exclusive_promo_copied', {
-                'event_category': 'engagement',
-                'event_label': code,
-                'vendor': vendor
-            });
-        }
-    }).catch(function(err) {
-        console.error('Failed to copy: ', err);
+        handleCopySuccess(code, vendor, copyBtn);
+    } catch (err) {
+        console.error('Fallback copy failed: ', err);
         showRabbitNotification('Failed to copy code. Please try again.', 'error');
-    });
+    }
+}
+
+// Handle successful copy (same styling as home promo codes)
+function handleCopySuccess(code, vendor, copyBtn) {
+    if (!copyBtn) {
+        console.error('Copy button not found');
+        return;
+    }
+    
+    const originalText = copyBtn.textContent;
+    const originalBackground = copyBtn.style.background;
+    
+    // Update button appearance (same as home promo codes)
+    copyBtn.textContent = 'Copied!';
+    copyBtn.style.background = '#10b981'; // Green color like home promo codes
+    copyBtn.classList.add('copied');
+    
+    // Reset button after 2 seconds
+    setTimeout(() => {
+        copyBtn.textContent = originalText;
+        copyBtn.style.background = originalBackground || '#7EB143'; // Reset to green theme
+        copyBtn.classList.remove('copied');
+    }, 2000);
+    
+    // Show notification with vendor-specific message (same as home promo codes)
+    const vendorName = vendor === 'rabbit' ? 'Rabbit' : vendor === 'senem' ? 'Senem' : 'Vendor';
+    showRabbitNotification(`${vendorName} promo code "${code}" copied to clipboard! 🎉`, 'success');
+    
+    // Track the copy event
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'exclusive_promo_copied', {
+            'event_category': 'engagement',
+            'event_label': code,
+            'vendor': vendor
+        });
+    }
 }

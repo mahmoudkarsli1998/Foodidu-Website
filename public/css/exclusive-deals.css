@@ -36,7 +36,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    color: #eab308;
+    color: #7EB143;
     transition: all 0.3s ease;
     pointer-events: all;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -119,10 +119,10 @@
     width: 80px;
     height: 80px;
     object-fit: contain;
-    border-radius: 0;
-    background: none;
-    padding: 0;
-    box-shadow: none;
+    border-radius: 8px;
+    background: white;
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: none;
 }
 
@@ -161,7 +161,7 @@
 }
 
 .quick-copy {
-    background: #1a202c;
+    background: #7EB143;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -172,7 +172,7 @@
 }
 
 .quick-copy:hover {
-    background: #2d3748;
+    background: #6BA037;
     transform: translateY(-2px);
 }
 
@@ -193,7 +193,7 @@
 }
 
 .exclusive-btn {
-    background: #1a202c;
+    background: #7EB143;
     color: white;
     padding: 15px 25px;
     border-radius: 15px;
@@ -207,28 +207,28 @@
 }
 
 .exclusive-btn:hover {
-    background: #2d3748;
+    background: #6BA037;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
     color: white;
     text-decoration: none;
 }
 
-/* Senem-specific styling - now using yellow theme like Rabbit */
+/* Senem-specific styling - now using green theme like Rabbit */
 .senem-banner .exclusive-btn {
-    background: #1a202c;
+    background: #7EB143;
 }
 
 .senem-banner .exclusive-btn:hover {
-    background: #2d3748;
+    background: #6BA037;
 }
 
 .senem-banner .quick-copy {
-    background: #1a202c;
+    background: #7EB143;
 }
 
 .senem-banner .quick-copy:hover {
-    background: #2d3748;
+    background: #6BA037;
 }
 
 .senem-banner .quick-copy.copied {
@@ -253,12 +253,12 @@
 }
 
 .exclusive-indicator.active {
-    background: #1a202c;
+    background: #7EB143;
     transform: scale(1.2);
 }
 
 .exclusive-indicator:hover {
-    background: rgba(26, 32, 44, 0.6);
+    background: rgba(126, 177, 67, 0.6);
 }
 
 /* Inline Logo Styling */

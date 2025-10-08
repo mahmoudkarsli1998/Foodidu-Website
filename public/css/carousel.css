@@ -56,22 +56,21 @@
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #eab308, #facc15);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     line-height: 1.2;
 }
 
 .slide-text p {
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    color: #666;
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     line-height: 1.6;
 }
 
 .hero-cta {
-    background: linear-gradient(135deg, #eab308, #facc15);
+    background: linear-gradient(135deg, #7EB143, #6BA037);
     color: white;
     padding: 1.2rem 2.5rem;
     border: none;
@@ -80,7 +79,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(234, 179, 8, 0.3);
+    box-shadow: 0 5px 20px rgba(126, 177, 67, 0.3);
 }
 
 .hero-cta:hover {
@@ -127,7 +126,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    color: #eab308;
+    color: #7EB143;
     transition: all 0.3s ease;
     pointer-events: all;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -158,7 +157,7 @@
 }
 
 .indicator.active {
-    background: #eab308;
+    background: #7EB143;
     transform: scale(1.2);
 }
 

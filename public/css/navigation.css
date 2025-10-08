@@ -60,7 +60,7 @@
 }
 
 .nav-menu a:hover {
-    color: #eab308;
+    color: #7EB143;
 }
 
 .nav-menu a::after {
@@ -70,7 +70,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #eab308;
+    background: #7EB143;
     transition: width 0.3s ease;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .download-btn {
-    background: linear-gradient(135deg, #eab308, #facc15);
+    background: linear-gradient(135deg, #7EB143, #6BA037);
     color: white;
     padding: 0.8rem 1.5rem;
     border: none;
@@ -91,7 +91,7 @@
 
 .download-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(234, 179, 8, 0.4);
+    box-shadow: 0 5px 15px rgba(126, 177, 67, 0.4);
 }
 
 /* Ensure Download App button in nav-menu aligns visually */
@@ -101,8 +101,8 @@
     padding: 0.6rem 1.2rem;
     margin-left: 0.5rem;
     border-radius: 6px;
-    background: linear-gradient(90deg, #eab308 60%, #facc15 100%);
-    color: #222;
+    background: linear-gradient(90deg, #7EB143 60%, #6BA037 100%);
+    color: white;
     border: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     cursor: pointer;
@@ -110,7 +110,7 @@
 }
 
 .nav-menu .download-btn:hover {
-    background: linear-gradient(90deg, #facc15 60%, #eab308 100%);
+    background: linear-gradient(90deg, #6BA037 60%, #7EB143 100%);
 }
 
 /* Hide Download App in nav-menu except on mobile */
@@ -194,7 +194,7 @@
 }
 
 .drawer-menu li a:hover {
-    color: #eab308;
+    color: #7EB143;
 }
 
 .drawer-overlay {
