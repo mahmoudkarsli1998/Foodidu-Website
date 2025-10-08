@@ -5,14 +5,14 @@
     backdrop-filter: blur(10px);
 }
 
-/* White title for features section */
+/* Green title for features section */
 .features .section-title.white-title {
-    color: white !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+    color: #7EB143 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
     background: none !important;
     background-image: none !important;
     -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: white !important;
+    -webkit-text-fill-color: #7EB143 !important;
     background-clip: unset !important;
 }
 

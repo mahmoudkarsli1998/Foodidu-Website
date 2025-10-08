@@ -186,10 +186,11 @@
 .load-more-container {
     text-align: center;
     padding: 2rem 0;
+    display: block;
 }
 
 .load-more-btn {
-    background: transparent;
+    background: white;
     border: 2px solid #7EB143;
     color: #7EB143;
     padding: 1rem 2rem;

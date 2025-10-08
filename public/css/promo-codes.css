@@ -12,10 +12,13 @@
 .promo-hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #eab308, #facc15);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: white !important;
+  background-clip: unset !important;
 }
 
 .promo-stats {
@@ -49,7 +52,7 @@
 
 .promo-category:hover,
 .promo-category.active {
-  background: #eab308;
+  background: #7EB143;
   color: white;
   transform: translateY(-2px);
 }

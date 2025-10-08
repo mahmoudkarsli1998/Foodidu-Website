@@ -90,7 +90,7 @@ export function copyPromoCode(code, promoId) {
     
     setTimeout(() => {
         button.textContent = originalText;
-        button.style.background = '#eab308';
+        button.style.background = '#7EB143';
     }, 2000);
 }
 
