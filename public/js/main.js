@@ -2,7 +2,7 @@
 import { AppState } from "./state.js";
 import { showPage, toggleMenu, closeDrawer } from "./navigation.js";
 import { changeSlide, goToSlide, initializeCarousel } from "./carousel.js";
-import { filterDeals, getDeal, loadMoreDeals, filterDealsChip } from "./deals.js";
+import { filterDeals, getDeal, loadMoreDeals, filterDealsChip, toggleDropdown, selectFilter } from "./deals.js";
 import {
   filterCategory,
   searchRestaurants,
@@ -133,6 +133,8 @@ window.filterDeals = filterDeals;
 window.filterDealsChip = filterDealsChip;
 window.getDeal = getDeal;
 window.loadMoreDeals = loadMoreDeals;
+window.toggleDropdown = toggleDropdown;
+window.selectFilter = selectFilter;
 window.filterCategory = filterCategory;
 window.searchRestaurants = searchRestaurants;
 window.seeRestaurantDeals = seeRestaurantDeals;

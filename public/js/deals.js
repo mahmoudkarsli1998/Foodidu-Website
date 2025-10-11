@@ -133,3 +133,52 @@ export function filterDealsChip(element, value, type) {
   AppState.dealsPage = 1;
   loadDeals();
 }
+// Dropdown filter functions
+export function toggleDropdown(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  const btn = dropdown.previousElementSibling;
+  
+  // Close all other dropdowns
+  document.querySelectorAll('.dropdown-content').forEach(content => {
+    if (content.id !== dropdownId) {
+      content.classList.remove('show');
+      content.previousElementSibling.classList.remove('active');
+    }
+  });
+  
+  // Toggle current dropdown
+  dropdown.classList.toggle('show');
+  btn.classList.toggle('active');
+}
+
+export function selectFilter(element, value, type, displayText) {
+  // Update the button text
+  const selectedSpan = document.getElementById(type + '-selected');
+  selectedSpan.textContent = displayText;
+  
+  // Update active state
+  const dropdown = element.parentElement;
+  dropdown.querySelectorAll('.dropdown-item').forEach(item => {
+    item.classList.remove('active');
+  });
+  element.classList.add('active');
+  
+  // Close dropdown
+  dropdown.classList.remove('show');
+  dropdown.previousElementSibling.classList.remove('active');
+  
+  // Apply filter
+  AppState.currentDealsFilter[type] = value;
+  AppState.dealsPage = 1;
+  loadDeals();
+}
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.filter-dropdown')) {
+    document.querySelectorAll('.dropdown-content').forEach(content => {
+      content.classList.remove('show');
+      content.previousElementSibling.classList.remove('active');
+    });
+  }
+});

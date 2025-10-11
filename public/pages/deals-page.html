@@ -26,66 +26,62 @@
 
   <section class="filters">
     <div class="container">
-      <div class="filter-chips">
-        <!-- Cuisine Filters -->
-        <div class="filter-chip active" onclick="filterDealsChip(this, '', 'cuisine')">
-          All Cuisines
+      <!-- Search Input - Moved to top -->
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search location..."
+          onkeyup="filterDeals(this.value, 'location')"
+        />
+        <i class="fas fa-search search-icon"></i>
+      </div>
+
+      <div class="filter-dropdowns">
+        <!-- Cuisine Filter Dropdown -->
+        <div class="filter-dropdown">
+          <button class="dropdown-btn" onclick="toggleDropdown('cuisine-dropdown')">
+            <span id="cuisine-selected">All Cuisines</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content" id="cuisine-dropdown">
+            <div class="dropdown-item active" onclick="selectFilter(this, '', 'cuisine', 'All Cuisines')">All Cuisines</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'pizza', 'cuisine', 'Pizza')">Pizza</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'burger', 'cuisine', 'Burger')">Burger</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'coffee', 'cuisine', 'Coffee')">Coffee</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'chinese', 'cuisine', 'Chinese')">Chinese</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'indian', 'cuisine', 'Indian')">Indian</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'mexican', 'cuisine', 'Mexican')">Mexican</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'italian', 'cuisine', 'Italian')">Italian</div>
+          </div>
         </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'pizza', 'cuisine')">
-          Pizza
+
+        <!-- Price Filter Dropdown -->
+        <div class="filter-dropdown">
+          <button class="dropdown-btn" onclick="toggleDropdown('price-dropdown')">
+            <span id="price-selected">Sort by Price</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content" id="price-dropdown">
+            <div class="dropdown-item active" onclick="selectFilter(this, '', 'price', 'Sort by Price')">Default Price</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'low', 'price', 'Lowest First')">Lowest First</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'high', 'price', 'Highest First')">Highest First</div>
+          </div>
         </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'burger', 'cuisine')">
-          Burger
-        </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'coffee', 'cuisine')">
-          Coffee
-        </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'chinese', 'cuisine')">
-          Chinese
-        </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'indian', 'cuisine')">
-          Indian
-        </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'mexican', 'cuisine')">
-          Mexican
-        </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'italian', 'cuisine')">
-          Italian
+
+        <!-- Discount Filter Dropdown -->
+        <div class="filter-dropdown">
+          <button class="dropdown-btn" onclick="toggleDropdown('discount-dropdown')">
+            <span id="discount-selected">Sort by Discount</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content" id="discount-dropdown">
+            <div class="dropdown-item active" onclick="selectFilter(this, '', 'discount', 'Sort by Discount')">Default Discount</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'highest', 'discount', 'Highest Discount')">Highest Discount</div>
+            <div class="dropdown-item" onclick="selectFilter(this, 'lowest', 'discount', 'Lowest Discount')">Lowest Discount</div>
+          </div>
         </div>
       </div>
-      
-      <div class="filter-chips">
-        <!-- Price Sorting -->
-        <div class="filter-chip" onclick="filterDealsChip(this, '', 'price')">
-          Default Price
-        </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'low', 'price')">
-          Lowest First
-        </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'high', 'price')">
-          Highest First
-        </div>
-      </div>
-      
-      <div class="filter-chips">
-        <!-- Discount Sorting -->
-        <div class="filter-chip" onclick="filterDealsChip(this, '', 'discount')">
-          Default Discount
-        </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'highest', 'discount')">
-          Highest Discount
-        </div>
-        <div class="filter-chip" onclick="filterDealsChip(this, 'lowest', 'discount')">
-          Lowest Discount
-        </div>
-      </div>
-      
-      <input
-        type="text"
-        class="search-input"
-        placeholder="Search location..."
-        onkeyup="filterDeals(this.value, 'location')"
-      />
     </div>
   </section>
 
