@@ -96,17 +96,24 @@
 
 /* Ensure Download App button in nav-menu aligns visually */
 .nav-menu .download-btn {
-    font-size: 1.08rem;
-    font-weight: 700;
-    padding: 0.6rem 1.2rem;
-    margin-left: 0.5rem;
-    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.5rem 0.8rem;
+    margin: 0.2rem 1rem;
+    width: calc(100% - 2rem);
+    border-radius: 15px;
     background: linear-gradient(90deg, #7EB143 60%, #6BA037 100%);
     color: white;
     border: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
 }
 
 .nav-menu .download-btn:hover {
@@ -221,20 +228,24 @@
 }
 
 .nav-action-btn {
-    width: 100%;
-    padding: 12px 20px;
+    width: calc(100% - 2rem);
+    margin: 0.2rem 1rem;
+    padding: 0.5rem 0.8rem;
     background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
     color: white;
     border: none;
-    border-radius: 12px;
-    font-size: 1rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .nav-action-btn:hover {
@@ -268,17 +279,20 @@
     
     .nav-menu {
         position: fixed;
-        top: 100px;
+        top: 80px;
         right: -100%;
-        width: 300px;
-        height: calc(100vh - 100px);
-        background: white;
+        width: 280px;
+        height: calc(100vh - 80px);
+        background: #FFD15C url('../images/BG.svg') no-repeat center center;
+        background-size: cover;
         flex-direction: column;
-        padding: 1.5rem;
+        padding: 0;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         z-index: 999;
         overflow-y: auto;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
     }
     
     .nav-menu.active {
@@ -286,16 +300,108 @@
     }
     
     .nav-menu li {
-        margin-bottom: 0.8rem;
+        margin: 0;
+        padding: 0;
     }
     
     .nav-menu li:last-child {
         margin-bottom: 0;
     }
     
+    .nav-menu::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        z-index: -1;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: 0.5rem 1rem;
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #333;
+        position: relative;
+        z-index: 1;
+    }
+    
     .nav-action-buttons {
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid #e2e8f0;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+}/* Ad
+ditional mobile menu spacing optimizations */
+@media (max-width: 480px) {
+    .nav-menu {
+        padding: 0.8rem;
+        width: 280px;
+    }
+    
+    .nav-menu li {
+        margin-bottom: 0.3rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.1rem;
+        padding: 0.3rem 0;
+    }
+    
+    .nav-action-buttons {
+        margin-top: 0.8rem;
+        padding-top: 0.8rem;
+    }
+    
+    .nav-action-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .download-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Ultra-compact mobile menu - minimal spaces */
+@media (max-width: 480px) {
+    .nav-menu {
+        padding: 0;
+        width: 270px;
+        top: 70px;
+        height: calc(100vh - 70px);
+    }
+    
+    .nav-menu a {
+        font-size: 0.95rem;
+        padding: 0.3rem 0.8rem;
+    }
+    
+    .nav-action-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+        margin: 0.1rem 0.8rem;
+        width: calc(100% - 1.6rem);
+        border-radius: 12px;
+        gap: 3px;
+    }
+    
+    .nav-menu .download-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+        margin: 0.1rem 0.8rem;
+        width: calc(100% - 1.6rem);
+        border-radius: 12px;
+        gap: 3px;
     }
 }
