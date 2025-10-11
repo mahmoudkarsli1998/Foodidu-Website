@@ -41,25 +41,26 @@ import { downloadApp } from "./utils.js";
 
 // Initialize all functionality when DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
-  // Add ripple styles
+  // Add ripple styles immediately
   addRippleStyles();
 
-  // Initialize all interactive elements
-  initializeSmoothScrolling();
-  initializeNavbarEffects();
-  initializeFeatureCardEffects();
-  initializeTestimonials();
-  initializeScreenshotsCarousel();
-
-  initializeVendorForm();
-  initializeScrollAnimations();
-  initializeKeyboardNavigation();
-  initializeWindowResize();
-
-  // Initialize carousel on home page
+  // Initialize critical functionality first
   if (AppState.currentPage === "home") {
     initializeCarousel();
   }
+
+  // Initialize other elements with slight delay to prevent blocking
+  setTimeout(() => {
+    initializeSmoothScrolling();
+    initializeNavbarEffects();
+    initializeFeatureCardEffects();
+    initializeTestimonials();
+    initializeScreenshotsCarousel();
+    initializeVendorForm();
+    initializeScrollAnimations();
+    initializeKeyboardNavigation();
+    initializeWindowResize();
+  }, 50);
 
   // Add ripple effects to buttons
   document.querySelectorAll("button, .app-btn").forEach((button) => {

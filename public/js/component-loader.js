@@ -35,63 +35,72 @@ function ComponentLoader() {
     xhr.send();
   };
 
-  // Load multiple components sequentially
+  // Load multiple components in parallel for faster loading
   this.loadMultipleComponents = function (components, callback) {
-    var index = 0;
+    var loadedCount = 0;
+    var totalComponents = components.length;
     var self = this;
 
-    function loadNext() {
-      if (index >= components.length) {
-        if (callback) callback();
-        return;
-      }
-
-      var component = components[index];
-      index++;
-      self.loadComponent(component.path, component.target, loadNext, component.position);
+    if (totalComponents === 0) {
+      if (callback) callback();
+      return;
     }
 
-    loadNext();
+    function onComponentLoaded() {
+      loadedCount++;
+      if (loadedCount === totalComponents) {
+        if (callback) callback();
+      }
+    }
+
+    // Load all components in parallel
+    components.forEach(function(component) {
+      self.loadComponent(component.path, component.target, onComponentLoaded, component.position);
+    });
   };
 
-  // Load all components in sequence
+  // Load all components optimized for speed
   this.loadAllComponents = function (callback) {
     var self = this;
 
-    // First load shared components
-    var sharedComponents = [
-      { path: "components/cookie-consent.html", target: "body" },
+    // Load critical above-the-fold components first
+    var criticalComponents = [
       { path: "components/navigation.html", target: "body" },
+      { path: "components/hero-carousel.html", target: "#home-components" },
     ];
 
-    self.loadMultipleComponents(sharedComponents, function () {
-      // Then load home components
-      var homeComponents = [
-        { path: "components/hero-carousel.html", target: "#home-components" },
+    self.loadMultipleComponents(criticalComponents, function () {
+      // Show the page once critical components are loaded
+      const homePage = document.getElementById('home');
+      if (homePage) {
+        homePage.classList.add('ready');
+      }
+      
+      // Load remaining components in parallel
+      var remainingComponents = [
+        { path: "components/cookie-consent.html", target: "body" },
         { path: "components/exclusive-deals.html", target: "#home-components" },
         { path: "components/hot-promos.html", target: "#home-components" },
         { path: "components/features.html", target: "#home-components" },
         { path: "components/how-it-works.html", target: "#home-components" },
-        {
-          path: "components/vendor-invitation.html",
-          target: "#home-components",
-        },
+        { path: "components/vendor-invitation.html", target: "#home-components" },
         { path: "components/app-screenshots.html", target: "#home-components" },
+        { path: "components/testimonials.html", target: "#home-components" },
+        { path: "components/cta-section.html", target: "#home-components" },
+        { path: "pages/deals-page.html", target: "#pages-container" },
+        { path: "pages/discovery-page.html", target: "#pages-container" },
+        { path: "pages/promo-page.html", target: "#pages-container" },
+        { path: "pages/vendors-page.html", target: "#pages-container" },
+        { path: "components/footer.html", target: "body", position: "beforeend" },
       ];
 
-      self.loadMultipleComponents(homeComponents, function () {
-        // Then load page components
-        var pageComponents = [
-          { path: "pages/deals-page.html", target: "#pages-container" },
-          { path: "pages/discovery-page.html", target: "#pages-container" },
-          { path: "pages/promo-page.html", target: "#pages-container" },
-          { path: "pages/vendors-page.html", target: "#pages-container" },
-        ];
-
-        self.loadMultipleComponents(pageComponents, function () {
-          // Finally load footer at the end of body
-          self.loadComponent("components/footer.html", "body", callback, "beforeend");
-        });
+      self.loadMultipleComponents(remainingComponents, function() {
+        // Show home components once loaded
+        const homeComponents = document.getElementById('home-components');
+        if (homeComponents) {
+          homeComponents.classList.add('loaded');
+        }
+        if (callback) callback();
       });
     });
   };

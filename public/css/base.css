@@ -12,6 +12,8 @@ body {
     overflow-x: hidden;
     background: #FFD15C url('../images/BG.svg') no-repeat center center fixed;
     background-size: cover;
+    opacity: 1;
+    visibility: visible;
 }
 
 html {
@@ -33,6 +35,40 @@ html {
 
 .page.active {
     display: block;
+    visibility: hidden;
+}
+
+.page.active.ready {
+    visibility: visible;
+}
+
+/* Prevent layout shifts during component loading */
+#home-components {
+    min-height: 50vh;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+
+#home-components.loaded {
+    opacity: 1;
+}
+
+/* Smooth content appearance */
+.page {
+    opacity: 1;
+    transition: none;
+}
+
+/* Prevent flash of unstyled content */
+html {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Ensure immediate visibility */
+body, .page.active {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Section Titles */
