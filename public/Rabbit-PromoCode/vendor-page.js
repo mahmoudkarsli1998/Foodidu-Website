@@ -64,11 +64,11 @@ function downloadApp(platform) {
 function openVendorApp(vendor, platform) {
   let url = "";
 
-  // Vendor-specific app URLs (replace with actual URLs)
+  // Vendor-specific app URLs
   const vendorApps = {
     rabbit: {
-      ios: "https://apps.apple.com/app/rabbit",
-      android: "https://play.google.com/store/apps/details?id=com.rabbit",
+      ios: "https://apps.apple.com/eg/app/rabbit-20-mins-delivery/id1588565838",
+      android: "https://play.google.com/store/apps/details?id=com.rabbit.mart&hl=en",
     },
   };
 
@@ -93,7 +93,7 @@ function openVendorApp(vendor, platform) {
 // Open vendor website
 function openVendorWebsite(vendor) {
   const vendorWebsites = {
-    rabbit: "https://rabbit.com", // Replace with actual website URL
+    rabbit: "https://www.rabbitmart.com/us/",
   };
 
   const url = vendorWebsites[vendor];

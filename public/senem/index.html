@@ -1,103 +1,17 @@
-// Vendor Page Generator Script
-// Run this with Node.js to generate new vendor pages
-
-const fs = require("fs");
-const path = require("path");
-
-// Vendor configuration
-const vendors = {
-  "pizza-hut": {
-    name: "Pizza Hut",
-    logo: "Pizza Hut.svg",
-    promoCode: "NEW40",
-    discount: "40% Off First Order",
-    description: "40% Off first order on the Pizza Hut app",
-    expiry: "Dec 31, 2025",
-    badge: "New User",
-    iosApp: "https://apps.apple.com/app/pizza-hut",
-    androidApp: "https://play.google.com/store/apps/details?id=com.pizzahut",
-    website: "https://pizzahut.com",
-  },
-  kfc: {
-    name: "KFC",
-    logo: "KFC.svg",
-    promoCode: "KFCBOX",
-    discount: "30% Off Family Boxes",
-    description: "Save 30% on all family meal boxes",
-    expiry: "Nov 15, 2025",
-    badge: "Family Deal",
-    iosApp: "https://apps.apple.com/app/kfc",
-    androidApp: "https://play.google.com/store/apps/details?id=com.kfc",
-    website: "https://kfc.com",
-  },
-  "burger-king": {
-    name: "Burger King",
-    logo: "Burger King.svg",
-    promoCode: "WHOPPER15",
-    discount: "15% Off Whopper Meal",
-    description: "Save 15% on all Whopper meals",
-    expiry: "Dec 28, 2024",
-    badge: "Limited Time",
-    iosApp: "https://apps.apple.com/app/burger-king",
-    androidApp: "https://play.google.com/store/apps/details?id=com.burgerking",
-    website: "https://burgerking.com",
-  },
-  starbucks: {
-    name: "Starbucks",
-    logo: "starbucks.png",
-    promoCode: "STARBUCKS",
-    discount: "Buy 1 Get 1 Free Coffee",
-    description: "Free coffee with any coffee purchase",
-    expiry: "Dec 31, 2025",
-    badge: "BOGO Deal",
-    iosApp: "https://apps.apple.com/app/starbucks",
-    androidApp: "https://play.google.com/store/apps/details?id=com.starbucks",
-    website: "https://starbucks.com",
-  },
-  rabbit: {
-    name: "Rabbit",
-    logo: "Rabbit.svg",
-    promoCode: "RABBIT25",
-    discount: "25% Off First Order",
-    description: "Save 25% on your first order with Rabbit",
-    expiry: "Dec 31, 2025",
-    badge: "New User",
-    iosApp:
-      "https://apps.apple.com/eg/app/rabbit-20-mins-delivery/id1588565838",
-    androidApp:
-      "https://play.google.com/store/apps/details?id=com.rabbit.mart&hl=en",
-    website: "https://www.rabbitmart.com/us/",
-  },
-  senem: {
-    name: "Senem",
-    logo: "Senem.svg",
-    promoCode: "SENEM20",
-    discount: "20% Off First Order",
-    description: "Save 20% on your first order with Senem",
-    expiry: "Dec 31, 2025",
-    badge: "New User",
-    iosApp: "https://apps.apple.com/app/senem",
-    androidApp: "https://play.google.com/store/apps/details?id=com.senem",
-    website: "https://www.senem-eg.com/",
-  },
-};
-
-// HTML template
-function generateHTML(vendorKey, vendor) {
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get exclusive ${vendor.name} promo codes and discounts with Foodidu. Save money on your favorite food orders.">
-    <meta name="keywords" content="${vendor.name} promo codes, ${vendor.name} discounts, food delivery deals, Foodidu">
+    <meta name="description" content="Get exclusive Senem promo codes and discounts with Foodidu. Save money on your favorite food orders.">
+    <meta name="keywords" content="Senem promo codes, Senem discounts, food delivery deals, Foodidu">
     <meta name="author" content="Foodidu">
-    <meta property="og:title" content="${vendor.name} Promo Codes - Foodidu">
-    <meta property="og:description" content="Exclusive ${vendor.name} promo codes and deals. Save money on your food orders with verified discount codes.">
-    <meta property="og:image" content="../images/${vendor.logo}">
-    <meta property="og:url" content="https://foodidu.com/${vendorKey}">
+    <meta property="og:title" content="Senem Promo Codes - Foodidu">
+    <meta property="og:description" content="Exclusive Senem promo codes and deals. Save money on your food orders with verified discount codes.">
+    <meta property="og:image" content="../images/Senem.svg">
+    <meta property="og:url" content="https://foodidu.com/senem">
     
-    <title>${vendor.name} Promo Codes - Foodidu</title>
+    <title>Senem Promo Codes - Foodidu</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../images/Logo.svg">
@@ -140,10 +54,10 @@ function generateHTML(vendorKey, vendor) {
             <!-- Vendor Logo Section -->
             <section class="vendor-header">
                 <div class="vendor-logo-container">
-                    <img src="../images/${vendor.logo}" alt="${vendor.name} Logo" class="vendor-logo clean-logo">
+                    <img src="../images/Senem.svg" alt="Senem Logo" class="vendor-logo clean-logo">
                 </div>
-                <h1 class="vendor-name">${vendor.name}</h1>
-                <p class="vendor-description">Get exclusive promo codes and save on your ${vendor.name} orders</p>
+                <h1 class="vendor-name">Senem</h1>
+                <p class="vendor-description">Get exclusive promo codes and save on your Senem orders</p>
             </section>
 
             <!-- Promo Code Section -->
@@ -151,19 +65,19 @@ function generateHTML(vendorKey, vendor) {
                 <div class="promo-card-large">
                     <div class="promo-header">
                         <h2>Exclusive Promo Code</h2>
-                        <div class="promo-badge">${vendor.badge}</div>
+                        <div class="promo-badge">New User</div>
                     </div>
                     <div class="promo-code-display">
-                        <span class="promo-code" id="promoCode">${vendor.promoCode}</span>
-                        <button class="copy-btn" onclick="copyPromoCode('${vendor.promoCode}')">
+                        <span class="promo-code" id="promoCode">SENEM20</span>
+                        <button class="copy-btn" onclick="copyPromoCode('SENEM20')">
                             <i class="fas fa-copy"></i>
                             Copy Code
                         </button>
                     </div>
-                    <p class="promo-instruction">Use this code on ${vendor.name} App or Website</p>
+                    <p class="promo-instruction">Use this code on Senem App or Website</p>
                     <div class="promo-details">
-                        <div class="promo-discount">${vendor.discount}</div>
-                        <div class="promo-expiry">Expires: ${vendor.expiry}</div>
+                        <div class="promo-discount">20% Off First Order</div>
+                        <div class="promo-expiry">Expires: Dec 31, 2025</div>
                     </div>
                 </div>
             </section>
@@ -196,24 +110,24 @@ function generateHTML(vendorKey, vendor) {
 
                 <!-- Vendor App & Website -->
                 <div class="app-group">
-                    <h3>${vendor.name} App & Website</h3>
-                    <p>Order directly from ${vendor.name}</p>
+                    <h3>Senem App & Website</h3>
+                    <p>Order directly from Senem</p>
                     <div class="download-buttons">
-                        <a href="#" class="download-btn app-store" onclick="openVendorApp('${vendorKey}', 'ios')">
+                        <a href="#" class="download-btn app-store" onclick="openVendorApp('senem', 'ios')">
                             <i class="fab fa-apple"></i>
                             <div class="btn-text">
                                 <span class="small">Download on the</span>
                                 <span class="large">App Store</span>
                             </div>
                         </a>
-                        <a href="#" class="download-btn google-play" onclick="openVendorApp('${vendorKey}', 'android')">
+                        <a href="#" class="download-btn google-play" onclick="openVendorApp('senem', 'android')">
                             <i class="fab fa-google-play"></i>
                             <div class="btn-text">
                                 <span class="small">Get it on</span>
                                 <span class="large">Google Play</span>
                             </div>
                         </a>
-                        <a href="#" class="download-btn website" onclick="openVendorWebsite('${vendorKey}')">
+                        <a href="#" class="download-btn website" onclick="openVendorWebsite('senem')">
                             <i class="fas fa-globe"></i>
                             <div class="btn-text">
                                 <span class="small">Visit</span>
@@ -249,7 +163,7 @@ function generateHTML(vendorKey, vendor) {
     <!-- JavaScript -->
     <script src="../script.js"></script>
     <script>
-        // ${vendor.name} specific JavaScript
+        // Senem specific JavaScript
         function copyPromoCode(code) {
             navigator.clipboard.writeText(code).then(function() {
                 const copyBtn = document.querySelector('.copy-btn');
@@ -282,9 +196,9 @@ function generateHTML(vendorKey, vendor) {
 
         function openVendorApp(vendor, platform) {
             const vendorApps = {
-                '${vendorKey}': {
-                    ios: '${vendor.iosApp}',
-                    android: '${vendor.androidApp}'
+                'senem': {
+                    ios: 'https://apps.apple.com/app/senem',
+                    android: 'https://play.google.com/store/apps/details?id=com.senem'
                 }
             };
             
@@ -294,7 +208,7 @@ function generateHTML(vendorKey, vendor) {
 
         function openVendorWebsite(vendor) {
             const vendorWebsites = {
-                '${vendorKey}': '${vendor.website}'
+                'senem': 'https://www.senem-eg.com/'
             };
             
             const url = vendorWebsites[vendor];
@@ -303,21 +217,21 @@ function generateHTML(vendorKey, vendor) {
 
         function showNotification(message, type = 'info') {
             const notification = document.createElement('div');
-            notification.className = \`notification \${type}\`;
-            notification.innerHTML = \`
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
                 <div class="notification-content">
-                    <i class="fas fa-\${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                    <span>\${message}</span>
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
                 </div>
-            \`;
+            `;
             
-            notification.style.cssText = \`
+            notification.style.cssText = `
                 position: fixed; top: 20px; right: 20px;
-                background: \${type === 'success' ? '#059669' : type === 'error' ? '#dc2626' : '#3b82f6'};
+                background: ${type === 'success' ? '#059669' : type === 'error' ? '#dc2626' : '#3b82f6'};
                 color: white; padding: 15px 20px; border-radius: 10px;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); z-index: 10000;
                 animation: slideInRight 0.3s ease; max-width: 300px;
-            \`;
+            `;
             
             document.body.appendChild(notification);
             
@@ -336,7 +250,7 @@ function generateHTML(vendorKey, vendor) {
 
         // Add CSS animations
         const style = document.createElement('style');
-        style.textContent = \`
+        style.textContent = `
             @keyframes slideInRight {
                 from { transform: translateX(100%); opacity: 0; }
                 to { transform: translateX(0); opacity: 1; }
@@ -346,43 +260,8 @@ function generateHTML(vendorKey, vendor) {
                 to { transform: translateX(100%); opacity: 0; }
             }
             .notification-content { display: flex; align-items: center; gap: 10px; }
-        \`;
+        `;
         document.head.appendChild(style);
     </script>
 </body>
-</html>`;
-}
-
-// Generate vendor pages
-function generateVendorPages() {
-  const publicDir = path.join(__dirname, "public");
-
-  Object.entries(vendors).forEach(([vendorKey, vendor]) => {
-    const vendorDir = path.join(publicDir, vendorKey);
-
-    // Create vendor directory if it doesn't exist
-    if (!fs.existsSync(vendorDir)) {
-      fs.mkdirSync(vendorDir, { recursive: true });
-    }
-
-    // Generate HTML file
-    const htmlContent = generateHTML(vendorKey, vendor);
-    const htmlPath = path.join(vendorDir, "index.html");
-
-    fs.writeFileSync(htmlPath, htmlContent, "utf8");
-    console.log(`✅ Generated: ${vendorKey}/index.html`);
-  });
-
-  console.log("\\n🎉 All vendor pages generated successfully!");
-  console.log("\\n📁 Generated pages:");
-  Object.keys(vendors).forEach((vendorKey) => {
-    console.log(`   • foodidu.com/${vendorKey}`);
-  });
-}
-
-// Run the generator
-if (require.main === module) {
-  generateVendorPages();
-}
-
-module.exports = { generateVendorPages, vendors };
+</html>

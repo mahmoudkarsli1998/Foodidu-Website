@@ -61,11 +61,11 @@ function downloadApp(platform) {
 function openVendorApp(vendor, platform) {
     let url = '';
     
-    // Vendor-specific app URLs (replace with actual URLs)
+    // Vendor-specific app URLs
     const vendorApps = {
-        rabbit: {
-            ios: 'https://apps.apple.com/app/rabbit',
-            android: 'https://play.google.com/store/apps/details?id=com.rabbit'
+        senem: {
+            ios: 'https://apps.apple.com/app/senem',
+            android: 'https://play.google.com/store/apps/details?id=com.senem'
         }
     };
     
@@ -90,7 +90,7 @@ function openVendorApp(vendor, platform) {
 // Open vendor website
 function openVendorWebsite(vendor) {
     const vendorWebsites = {
-        rabbit: 'https://rabbit.com' // Replace with actual website URL
+        senem: 'https://www.senem-eg.com/'
     };
     
     const url = vendorWebsites[vendor];
