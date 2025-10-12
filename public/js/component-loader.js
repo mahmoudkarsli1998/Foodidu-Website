@@ -3,8 +3,8 @@ function ComponentLoader() {
   this.loadedComponents = new Set();
 
   // Load a single component
-  this.loadComponent = function (componentPath, targetSelector, callback, position) {
-    if (this.loadedComponents.has(componentPath)) {
+  this.loadComponent = function (componentPath, targetSelector, callback, position, forceReload) {
+    if (this.loadedComponents.has(componentPath) && !forceReload) {
       if (callback) callback();
       return;
     }
@@ -21,7 +21,12 @@ function ComponentLoader() {
               var insertPosition = position || "afterbegin";
               targetElement.insertAdjacentHTML(insertPosition, xhr.responseText);
             } else {
-              targetElement.innerHTML += xhr.responseText;
+              if (forceReload) {
+                // For force reload, replace content instead of appending
+                targetElement.innerHTML = xhr.responseText;
+              } else {
+                targetElement.innerHTML += xhr.responseText;
+              }
             }
             this.loadedComponents.add(componentPath);
           }
@@ -104,6 +109,15 @@ function ComponentLoader() {
       });
     });
   };
+
+  // Force reload a component (useful for ensuring components are always visible)
+  this.forceReloadComponent = function(componentPath, targetSelector, callback) {
+    // Remove from loaded components set to force reload
+    this.loadedComponents.delete(componentPath);
+    this.loadComponent(componentPath, targetSelector, callback, null, true);
+  };
+
+
 }
 
 // Initialize component loader
