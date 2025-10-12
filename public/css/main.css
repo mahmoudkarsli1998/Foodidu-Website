@@ -90,3 +90,56 @@ button.vendor-btn.secondary:hover {
   color: white !important;
   border-color: #6BA037 !important;
 }
+
+/* ENSURE HOME COMPONENTS ARE ALWAYS VISIBLE */
+#home.active .hot-promos,
+#home.active .exclusive-deals,
+#home.active .features,
+#home.active .hero-carousel {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Trending Promo Codes Section - Always Visible on Home */
+.hot-promos {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#home-components .hot-promos {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* FORCE ALL HOME COMPONENTS TO BE VISIBLE */
+#home-components > section,
+#home-components .exclusive-deals,
+#home-components .hot-promos,
+#home-components .features,
+#home-components .how-it-works,
+#home-components .vendor-invitation,
+#home-components .app-screenshots,
+#home-components .testimonials,
+#home-components .cta-section {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+}
+
+/* Ensure home components container is always visible */
+#home-components {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Make sure home page is visible when active */
+#home.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

@@ -110,6 +110,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, 500);
 
+  // Set up periodic check to ensure home components stay visible (less frequent)
+  setInterval(() => {
+    if (AppState.currentPage === 'home') {
+      ensureHomePageComponents();
+    }
+  }, 5000); // Check every 5 seconds
+
   console.log(
     "🍕 Foodidu loaded successfully! Ready to discover amazing food deals!"
   );
@@ -121,13 +128,53 @@ document.addEventListener("visibilitychange", function () {
     clearInterval(AppState.slideInterval);
   } else if (AppState.currentPage === "home") {
     initializeCarousel();
+    // Ensure home components are visible when page becomes visible
+    setTimeout(ensureHomePageComponents, 100);
   }
 });
+
+// Add window focus event to ensure components are visible
+window.addEventListener('focus', function() {
+  if (AppState.currentPage === 'home') {
+    setTimeout(ensureHomePageComponents, 100);
+  }
+});
+
+// Function to ensure home page components are always loaded
+function ensureHomePageComponents() {
+  if (AppState.currentPage !== 'home') return;
+  
+  const homeComponents = document.getElementById('home-components');
+  if (!homeComponents) return;
+  
+  // List of critical sections that should always be present
+  const criticalSections = [
+    '.hot-promos',
+    '.exclusive-deals', 
+    '.features',
+    '.how-it-works',
+    '.vendor-invitation',
+    '.app-screenshots',
+    '.testimonials',
+    '.cta-section'
+  ];
+  
+  // Ensure all sections are visible
+  criticalSections.forEach(selector => {
+    const section = homeComponents.querySelector(selector);
+    if (section) {
+      section.style.display = 'block';
+      section.style.opacity = '1';
+      section.style.visibility = 'visible';
+    }
+  });
+}
 
 // Export functions for global access (for onclick handlers in HTML)
 window.showPage = showPage;
 window.toggleMenu = toggleMenu;
 window.closeDrawer = closeDrawer;
+window.ensureHomePageComponents = ensureHomePageComponents;
 window.changeSlide = changeSlide;
 window.goToSlide = goToSlide;
 window.filterDeals = filterDeals;

@@ -32,6 +32,8 @@ export function showPage(pageId) {
         // Initialize page-specific content
         initializePage(pageId);
         
+
+        
         // Scroll to top
         window.scrollTo(0, 0);
         
@@ -42,6 +44,8 @@ export function showPage(pageId) {
 function initializePage(pageId) {
     switch(pageId) {
         case 'home':
+            // Always ensure home components are loaded and visible
+            ensureHomeComponentsLoaded();
             initializeCarousel();
             animateCounters();
             break;
@@ -61,6 +65,47 @@ function initializePage(pageId) {
             break;
     }
 }
+
+// Simple function to ensure home components are loaded
+function ensureHomeComponentsLoaded() {
+    const homeComponents = document.getElementById('home-components');
+    if (!homeComponents) return;
+    
+    // List of required components
+    const requiredComponents = [
+        { path: 'components/exclusive-deals.html', selector: '.exclusive-deals' },
+        { path: 'components/hot-promos.html', selector: '.hot-promos' },
+        { path: 'components/features.html', selector: '.features' },
+        { path: 'components/how-it-works.html', selector: '.how-it-works' },
+        { path: 'components/vendor-invitation.html', selector: '.vendor-invitation' },
+        { path: 'components/app-screenshots.html', selector: '.app-screenshots' },
+        { path: 'components/testimonials.html', selector: '.testimonials' },
+        { path: 'components/cta-section.html', selector: '.cta-section' }
+    ];
+    
+    // Load missing components
+    requiredComponents.forEach(component => {
+        const element = homeComponents.querySelector(component.selector);
+        if (!element) {
+            // Load the missing component
+            fetch(component.path)
+                .then(response => response.text())
+                .then(html => {
+                    homeComponents.insertAdjacentHTML('beforeend', html);
+                })
+                .catch(error => {
+                    console.error('Failed to load component:', component.path);
+                });
+        } else {
+            // Make sure existing component is visible
+            element.style.display = 'block';
+            element.style.opacity = '1';
+            element.style.visibility = 'visible';
+        }
+    });
+}
+
+
 
 // Mobile Navigation
 export function toggleMenu() {
