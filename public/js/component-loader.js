@@ -25,7 +25,8 @@ function ComponentLoader() {
                 // For force reload, replace content instead of appending
                 targetElement.innerHTML = xhr.responseText;
               } else {
-                targetElement.innerHTML += xhr.responseText;
+                // Use insertAdjacentHTML to avoid innerHTML issues
+                targetElement.insertAdjacentHTML('beforeend', xhr.responseText);
               }
             }
             this.loadedComponents.add(componentPath);
@@ -64,26 +65,31 @@ function ComponentLoader() {
     });
   };
 
-  // Load all components optimized for speed
+  // Load all components in the correct order
   this.loadAllComponents = function (callback) {
     var self = this;
+    console.log('Starting loadAllComponents...');
 
-    // Load critical above-the-fold components first
+    // Clear loaded components set to ensure fresh loading
+    self.loadedComponents.clear();
+
+    // Load critical components first
     var criticalComponents = [
       { path: "components/navigation.html", target: "body" },
       { path: "components/hero-carousel.html", target: "#home-components" },
     ];
 
     self.loadMultipleComponents(criticalComponents, function () {
+      console.log('Critical components loaded');
+      
       // Show the page once critical components are loaded
       const homePage = document.getElementById('home');
       if (homePage) {
         homePage.classList.add('ready');
       }
       
-      // Load remaining components in parallel
-      var remainingComponents = [
-        { path: "components/cookie-consent.html", target: "body" },
+      // Load home components in the correct order (sequentially)
+      var homeComponents = [
         { path: "components/exclusive-deals.html", target: "#home-components" },
         { path: "components/hot-promos.html", target: "#home-components" },
         { path: "components/features.html", target: "#home-components" },
@@ -91,23 +97,93 @@ function ComponentLoader() {
         { path: "components/vendor-invitation.html", target: "#home-components" },
         { path: "components/app-screenshots.html", target: "#home-components" },
         { path: "components/testimonials.html", target: "#home-components" },
-        { path: "components/cta-section.html", target: "#home-components" },
-        { path: "pages/deals-page.html", target: "#pages-container" },
-        { path: "pages/discovery-page.html", target: "#pages-container" },
-        { path: "pages/promo-page.html", target: "#pages-container" },
-        { path: "pages/vendors-page.html", target: "#pages-container" },
-        { path: "components/footer.html", target: "body", position: "beforeend" },
+        { path: "components/cta-section.html", target: "#home-components" }
       ];
+      
+      console.log('Loading home components sequentially...');
+      // Load home components sequentially to maintain order
+      self.loadComponentsSequentially(homeComponents, 0, function() {
+        console.log('Home components loaded, loading other components...');
+        
+        // Load other components in parallel
+        var otherComponents = [
+          { path: "components/cookie-consent.html", target: "body" },
+          { path: "pages/deals-page.html", target: "#pages-container" },
+          { path: "pages/discovery-page.html", target: "#pages-container" },
+          { path: "pages/promo-page.html", target: "#pages-container" },
+          { path: "pages/vendors-page.html", target: "#pages-container" },
+          { path: "components/footer.html", target: "body", position: "beforeend" },
+        ];
 
-      self.loadMultipleComponents(remainingComponents, function() {
-        // Show home components once loaded
-        const homeComponents = document.getElementById('home-components');
-        if (homeComponents) {
-          homeComponents.classList.add('loaded');
-        }
-        if (callback) callback();
+        self.loadMultipleComponents(otherComponents, function() {
+          console.log('All components loaded');
+          
+          // Show home components once loaded
+          const homeComponentsContainer = document.getElementById('home-components');
+          if (homeComponentsContainer) {
+            homeComponentsContainer.classList.add('loaded');
+            
+            // Force visibility of all home components
+            setTimeout(function() {
+              self.makeHomeComponentsVisible();
+            }, 100);
+          }
+          
+          if (callback) callback();
+        });
       });
     });
+  };
+
+  // Make home components visible (utility function)
+  this.makeHomeComponentsVisible = function() {
+    const homeComponents = document.getElementById('home-components');
+    if (!homeComponents) return;
+    
+    const allSections = [
+      '.hero-carousel',
+      '.exclusive-deals',
+      '.hot-promos',
+      '.features', 
+      '.how-it-works',
+      '.vendor-invitation',
+      '.app-screenshots',
+      '.testimonials',
+      '.cta-section'
+    ];
+    
+    allSections.forEach(function(selector) {
+      const section = homeComponents.querySelector(selector);
+      if (section) {
+        section.style.display = 'block';
+        section.style.opacity = '1';
+        section.style.visibility = 'visible';
+        console.log('Made visible:', selector);
+      } else {
+        console.log('Missing section:', selector);
+      }
+    });
+  };
+
+  // Load components sequentially to maintain order
+  this.loadComponentsSequentially = function(components, index, callback) {
+    var self = this;
+    
+    if (index >= components.length) {
+      console.log('Sequential loading complete');
+      if (callback) callback();
+      return;
+    }
+    
+    var component = components[index];
+    console.log('Loading component', index + 1, 'of', components.length, ':', component.path);
+    
+    self.loadComponent(component.path, component.target, function() {
+      // Small delay to ensure DOM is updated before loading next component
+      setTimeout(function() {
+        self.loadComponentsSequentially(components, index + 1, callback);
+      }, 50);
+    }, component.position);
   };
 
   // Force reload a component (useful for ensuring components are always visible)

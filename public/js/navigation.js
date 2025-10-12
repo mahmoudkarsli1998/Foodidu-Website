@@ -66,41 +66,120 @@ function initializePage(pageId) {
     }
 }
 
-// Simple function to ensure home components are loaded
+// Ensure home components are loaded in the correct order
 function ensureHomeComponentsLoaded() {
     const homeComponents = document.getElementById('home-components');
     if (!homeComponents) return;
     
-    // List of required components
-    const requiredComponents = [
-        { path: 'components/exclusive-deals.html', selector: '.exclusive-deals' },
-        { path: 'components/hot-promos.html', selector: '.hot-promos' },
-        { path: 'components/features.html', selector: '.features' },
-        { path: 'components/how-it-works.html', selector: '.how-it-works' },
-        { path: 'components/vendor-invitation.html', selector: '.vendor-invitation' },
-        { path: 'components/app-screenshots.html', selector: '.app-screenshots' },
-        { path: 'components/testimonials.html', selector: '.testimonials' },
-        { path: 'components/cta-section.html', selector: '.cta-section' }
+    console.log('Checking home components...');
+    
+    // Check if we need to reload all components
+    const hasExclusiveDeals = homeComponents.querySelector('.exclusive-deals');
+    const hasHotPromos = homeComponents.querySelector('.hot-promos');
+    const hasFeatures = homeComponents.querySelector('.features');
+    
+    console.log('Component check:', {
+        exclusiveDeals: !!hasExclusiveDeals,
+        hotPromos: !!hasHotPromos,
+        features: !!hasFeatures
+    });
+    
+    // If we're missing critical components, reload everything in correct order
+    if (!hasExclusiveDeals || !hasHotPromos || !hasFeatures) {
+        console.log('Missing critical components, reloading...');
+        reloadAllHomeComponentsInOrder();
+    } else {
+        console.log('All components present, making visible...');
+        // Just make sure existing components are visible
+        makeAllHomeComponentsVisible();
+    }
+}
+
+// Reload all home components in the correct order
+function reloadAllHomeComponentsInOrder() {
+    const homeComponents = document.getElementById('home-components');
+    if (!homeComponents) return;
+    
+    // Preserve hero carousel if it exists
+    const heroCarousel = homeComponents.querySelector('.hero-carousel');
+    let heroHTML = '';
+    if (heroCarousel) {
+        heroHTML = heroCarousel.outerHTML;
+    }
+    
+    // Clear the container and add back hero carousel
+    homeComponents.innerHTML = heroHTML;
+    
+    // Load components in the correct order (sequentially to maintain order)
+    const componentsInOrder = [
+        'components/exclusive-deals.html',
+        'components/hot-promos.html', 
+        'components/features.html',
+        'components/how-it-works.html',
+        'components/vendor-invitation.html',
+        'components/app-screenshots.html',
+        'components/testimonials.html',
+        'components/cta-section.html'
     ];
     
-    // Load missing components
-    requiredComponents.forEach(component => {
-        const element = homeComponents.querySelector(component.selector);
-        if (!element) {
-            // Load the missing component
-            fetch(component.path)
-                .then(response => response.text())
-                .then(html => {
-                    homeComponents.insertAdjacentHTML('beforeend', html);
-                })
-                .catch(error => {
-                    console.error('Failed to load component:', component.path);
-                });
-        } else {
-            // Make sure existing component is visible
-            element.style.display = 'block';
-            element.style.opacity = '1';
-            element.style.visibility = 'visible';
+    loadComponentsSequentially(componentsInOrder, 0);
+}
+
+// Load components one by one to maintain order
+function loadComponentsSequentially(components, index) {
+    if (index >= components.length) {
+        // All components loaded, make them visible and initialize features
+        makeAllHomeComponentsVisible();
+        setTimeout(() => {
+            initializeCarousel();
+            if (window.initExclusiveCarousel) {
+                window.initExclusiveCarousel();
+            }
+        }, 100);
+        return;
+    }
+    
+    const componentPath = components[index];
+    fetch(componentPath)
+        .then(response => response.text())
+        .then(html => {
+            const homeComponents = document.getElementById('home-components');
+            if (homeComponents) {
+                homeComponents.insertAdjacentHTML('beforeend', html);
+            }
+            // Load next component
+            loadComponentsSequentially(components, index + 1);
+        })
+        .catch(error => {
+            console.error('Failed to load component:', componentPath, error);
+            // Continue with next component even if one fails
+            loadComponentsSequentially(components, index + 1);
+        });
+}
+
+// Make all home components visible
+function makeAllHomeComponentsVisible() {
+    const homeComponents = document.getElementById('home-components');
+    if (!homeComponents) return;
+    
+    const allSections = [
+        '.hero-carousel',
+        '.exclusive-deals',
+        '.hot-promos',
+        '.features', 
+        '.how-it-works',
+        '.vendor-invitation',
+        '.app-screenshots',
+        '.testimonials',
+        '.cta-section'
+    ];
+    
+    allSections.forEach(selector => {
+        const section = homeComponents.querySelector(selector);
+        if (section) {
+            section.style.display = 'block';
+            section.style.opacity = '1';
+            section.style.visibility = 'visible';
         }
     });
 }
@@ -127,3 +206,6 @@ export function closeDrawer() {
     navMenu.classList.remove('active');
     overlay.classList.remove('active');
 }
+
+// Export the component loading function
+export { ensureHomeComponentsLoaded, makeAllHomeComponentsVisible };
