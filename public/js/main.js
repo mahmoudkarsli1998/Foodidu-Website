@@ -1,6 +1,6 @@
 // Main initialization file
 import { AppState } from "./state.js";
-import { showPage, toggleMenu, closeDrawer } from "./navigation.js";
+import { showPage, toggleMenu, closeDrawer, ensureHomeComponentsLoaded } from "./navigation.js";
 import { changeSlide, goToSlide, initializeCarousel } from "./carousel.js";
 import { filterDeals, getDeal, loadMoreDeals, filterDealsChip, toggleDropdown, selectFilter } from "./deals.js";
 import {
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (AppState.currentPage === 'home') {
       ensureHomePageComponents();
     }
-  }, 5000); // Check every 5 seconds
+  }, 10000); // Check every 10 seconds
 
   console.log(
     "🍕 Foodidu loaded successfully! Ready to discover amazing food deals!"
@@ -147,10 +147,33 @@ function ensureHomePageComponents() {
   const homeComponents = document.getElementById('home-components');
   if (!homeComponents) return;
   
-  // List of critical sections that should always be present
-  const criticalSections = [
+  // Check if critical components are missing
+  const criticalComponents = [
+    '.exclusive-deals',
     '.hot-promos',
-    '.exclusive-deals', 
+    '.features'
+  ];
+  
+  let missingCount = 0;
+  criticalComponents.forEach(selector => {
+    if (!homeComponents.querySelector(selector)) {
+      missingCount++;
+    }
+  });
+  
+  // If too many components are missing, trigger a reload
+  if (missingCount > 1) {
+    console.log('Too many home components missing, triggering reload...');
+    // Use the navigation function to reload components
+    ensureHomeComponentsLoaded();
+    return;
+  }
+  
+  // Otherwise just ensure visibility
+  const allSections = [
+    '.hero-carousel',
+    '.exclusive-deals',
+    '.hot-promos',
     '.features',
     '.how-it-works',
     '.vendor-invitation',
@@ -159,8 +182,7 @@ function ensureHomePageComponents() {
     '.cta-section'
   ];
   
-  // Ensure all sections are visible
-  criticalSections.forEach(selector => {
+  allSections.forEach(selector => {
     const section = homeComponents.querySelector(selector);
     if (section) {
       section.style.display = 'block';
@@ -175,6 +197,7 @@ window.showPage = showPage;
 window.toggleMenu = toggleMenu;
 window.closeDrawer = closeDrawer;
 window.ensureHomePageComponents = ensureHomePageComponents;
+window.ensureHomeComponentsLoaded = ensureHomeComponentsLoaded;
 window.changeSlide = changeSlide;
 window.goToSlide = goToSlide;
 window.filterDeals = filterDeals;
