@@ -191,7 +191,7 @@ function generateAdditionalSEO(vendorKey, vendor) {
     vendor.nameAr
   } فوديدو ${vendor.nameAr} كود ${vendor.nameAr} برومو ${
     vendor.nameAr
-  } كود خصم">
+  } كود خصم, ${vendor.nameAr} خصم, خصومات ${vendor.nameAr}, اكواد ${vendor.nameAr}, اكواد خصم ${vendor.nameAr}, كوبونات ${vendor.nameAr}, عروض خصم ${vendor.nameAr}, تخفيضات ${vendor.nameAr}, خصم ${vendor.nameAr}, كود تخفيض ${vendor.nameAr}, برومو كود ${vendor.nameAr}, كوبون خصم ${vendor.nameAr}, عرض ${vendor.nameAr}, تخفيض ${vendor.nameAr}, خصومات وعروض ${vendor.nameAr}, اكواد وخصومات ${vendor.nameAr}, كوبونات وعروض ${vendor.nameAr}, اكواد, اكواد خصم, كوبونات خصم, عروض وخصومات, تخفيضات وعروض, كوبونات وتخفيضات, اكواد وكوبونات, كوبونات وأكواد, خصومات وتخفيضات, عروض وتخفيضات, اكواد وعروض">
     
     <!-- Mobile App Deep Links -->
     <meta name="apple-itunes-app" content="app-id=123456789">
