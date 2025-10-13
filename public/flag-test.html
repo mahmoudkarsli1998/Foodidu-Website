@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Function Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+        .flag-display { font-size: 4rem; margin: 20px; }
+        .test-result { background: #f0f0f0; padding: 15px; margin: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Flag Function Test</h1>
+    
+    <div id="results"></div>
+    
+    <script>
+        // Generate flag emoji from country code
+        function getFlagEmoji(countryCode) {
+            const codePoints = countryCode.toUpperCase().split('').map(char => 127397 + char.charCodeAt(0));
+            return String.fromCodePoint(...codePoints);
+        }
+        
+        // Test the function
+        const countryCodes = ['EG', 'AE', 'QA', 'SA', 'BH', 'OM'];
+        const countryNames = ['Egypt', 'UAE', 'Qatar', 'Saudi Arabia', 'Bahrain', 'Oman'];
+        
+        const resultsDiv = document.getElementById('results');
+        
+        countryCodes.forEach((code, index) => {
+            const flagEmoji = getFlagEmoji(code);
+            const testDiv = document.createElement('div');
+            testDiv.className = 'test-result';
+            testDiv.innerHTML = `
+                <h3>${countryNames[index]} (${code})</h3>
+                <div class="flag-display" style="font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', sans-serif;">${flagEmoji}</div>
+                <p>Unicode: ${flagEmoji.split('').map(char => 'U+' + char.codePointAt(0).toString(16).toUpperCase()).join(' ')}</p>
+            `;
+            resultsDiv.appendChild(testDiv);
+            
+            console.log(`${code}: ${flagEmoji}`);
+        });
+        
+        // Add a button to test on Noon page
+        const testButton = document.createElement('button');
+        testButton.innerHTML = 'Apply to Noon Page';
+        testButton.style.cssText = 'background: #7EB143; color: white; padding: 15px 30px; border: none; border-radius: 10px; font-size: 1rem; cursor: pointer; margin-top: 20px;';
+        testButton.onclick = function() {
+            window.open('Noon-PromoCode/index.html', '_blank');
+        };
+        document.body.appendChild(testButton);
+    </script>
+</body>
+</html>

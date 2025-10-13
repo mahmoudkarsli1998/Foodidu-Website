@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noon Simple Test</title>
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: #FFD15C;
+            background-image: url('images/BG.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-weight: bold;
+            z-index: 1000;
+        }
+        
+        .content {
+            margin-top: 100px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .country-flag {
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", sans-serif;
+            font-size: 4rem;
+            margin: 10px;
+            display: inline-block;
+        }
+        
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .country-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        Navbar with BG.svg Background
+    </nav>
+    
+    <div class="content">
+        <h1>🛒 Noon GCC Countries Test</h1>
+        
+        <div style="background: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 10px;">
+            <h2>Navbar Test</h2>
+            <p>The navbar above should have full-width yellow BG.svg background.</p>
+        </div>
+        
+        <div style="background: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 10px;">
+            <h2>Country Flags Test</h2>
+            <p>Direct emoji test: 🇪🇬 🇦🇪 🇶🇦 🇸🇦 🇧🇭 🇴🇲</p>
+        </div>
+        
+        <div class="countries-grid">
+            <div class="country-item">
+                <div class="country-flag">🇪🇬</div>
+                <h4>Egypt</h4>
+                <p>مصر</p>
+            </div>
+            <div class="country-item">
+                <div class="country-flag">🇦🇪</div>
+                <h4>UAE</h4>
+                <p>الإمارات</p>
+            </div>
+            <div class="country-item">
+                <div class="country-flag">🇶🇦</div>
+                <h4>Qatar</h4>
+                <p>قطر</p>
+            </div>
+            <div class="country-item">
+                <div class="country-flag">🇸🇦</div>
+                <h4>Saudi Arabia</h4>
+                <p>السعودية</p>
+            </div>
+            <div class="country-item">
+                <div class="country-flag">🇧🇭</div>
+                <h4>Bahrain</h4>
+                <p>البحرين</p>
+            </div>
+            <div class="country-item">
+                <div class="country-flag">🇴🇲</div>
+                <h4>Oman</h4>
+                <p>عمان</p>
+            </div>
+        </div>
+        
+        <p style="margin-top: 30px;">
+            <a href="Noon-PromoCode/index.html" style="background: #7EB143; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                Go to Full Noon Page
+            </a>
+        </p>
+    </div>
+</body>
+</html>

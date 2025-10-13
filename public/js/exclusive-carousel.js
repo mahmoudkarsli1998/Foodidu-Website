@@ -184,7 +184,7 @@ function handleCopySuccess(code, vendor, copyBtn) {
     }, 2000);
     
     // Show notification with vendor-specific message (same as home promo codes)
-    const vendorName = vendor === 'rabbit' ? 'Rabbit' : vendor === 'senem' ? 'Senem' : 'Vendor';
+    const vendorName = vendor === 'rabbit' ? 'Rabbit' : vendor === 'senem' ? 'Senem' : vendor === 'noon' ? 'Noon' : 'Vendor';
     showRabbitNotification(`${vendorName} promo code "${code}" copied to clipboard! 🎉`, 'success');
     
     // Track the copy event
