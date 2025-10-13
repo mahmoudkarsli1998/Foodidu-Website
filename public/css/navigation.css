@@ -94,24 +94,24 @@
     box-shadow: 0 5px 15px rgba(126, 177, 67, 0.4);
 }
 
-/* Ensure Download App button in nav-menu aligns visually */
+/* Ensure Download App button in nav-menu aligns visually - Compact */
 .nav-menu .download-btn {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    padding: 0.5rem 0.8rem;
-    margin: 0.2rem 1rem;
-    width: calc(100% - 2rem);
-    border-radius: 15px;
+    padding: 0.4rem 0.6rem;
+    margin: 0.15rem 0.6rem;
+    width: calc(100% - 1.2rem);
+    border-radius: 10px;
     background: linear-gradient(90deg, #7EB143 60%, #6BA037 100%);
     color: white;
     border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: background 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
     position: relative;
     z-index: 1;
 }
@@ -141,33 +141,13 @@
     gap: 4px;
 }
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: #333;
-    transition: 0.3s;
-    border-radius: 2px;
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Mobile Drawer Styles */
+/* Mobile Drawer Styles - Compact Version */
 .mobile-drawer {
     position: fixed;
     top: 0;
     right: 0;
-    width: 80%;
-    max-width: 350px;
+    width: 75%;
+    max-width: 280px;
     height: 100vh;
     background: #fff;
     box-shadow: -2px 0 20px rgba(0,0,0,0.15);
@@ -176,7 +156,7 @@
     transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
     display: flex;
     flex-direction: column;
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    padding: 0.5rem 0.3rem;
 }
 
 .mobile-drawer.active {
@@ -186,22 +166,27 @@
 .drawer-menu {
     list-style: none;
     padding: 0;
-    margin: 0 0 2rem 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.1rem;
 }
 
 .drawer-menu li a {
     color: #333;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s;
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+    display: block;
+    line-height: 1.1;
 }
 
 .drawer-menu li a:hover {
     color: #7EB143;
+    background: rgba(126, 177, 67, 0.1);
 }
 
 .drawer-overlay {
@@ -222,30 +207,115 @@
     visibility: visible;
 }
 
-/* Navigation Action Buttons */
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Drawer Styles - Compact Version */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 20px rgba(0,0,0,0.15);
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.8rem 0.8rem 0.8rem;
+}
+
+.mobile-drawer.active {
+    transform: translateX(0);
+}
+
+.drawer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.8rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.drawer-menu li a {
+    color: #333;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    display: block;
+}
+
+.drawer-menu li a:hover {
+    color: #7EB143;
+    background: rgba(126, 177, 67, 0.1);
+}
+
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Navigation Action Buttons - Compact Version */
 .nav-action-buttons {
-    margin-top: 10px;
+    margin-top: 0.5rem;
 }
 
 .nav-action-btn {
-    width: calc(100% - 2rem);
-    margin: 0.2rem 1rem;
-    padding: 0.5rem 0.8rem;
+    width: calc(100% - 1.2rem);
+    margin: 0.15rem 0.6rem;
+    padding: 0.4rem 0.6rem;
     background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
     color: white;
     border: none;
-    border-radius: 15px;
-    font-size: 0.85rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
     position: relative;
     z-index: 1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-action-btn:hover {
@@ -271,7 +341,7 @@
     }
 }
 
-/* Mobile Navigation Responsive */
+/* Mobile Navigation Responsive - Compact Version */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -279,20 +349,20 @@
     
     .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 70px;
         right: -100%;
-        width: 280px;
-        height: calc(100vh - 80px);
+        width: 260px;
+        height: calc(100vh - 70px);
         background: #FFD15C url('../images/BG.svg') no-repeat center center;
         background-size: cover;
         flex-direction: column;
-        padding: 0;
+        padding: 0.5rem 0;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         z-index: 999;
         overflow-y: auto;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
     }
     
     .nav-menu.active {
@@ -319,15 +389,15 @@
         backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(2px);
         z-index: -1;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
     }
     
     .nav-menu a {
         display: block;
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 0.8rem;
         margin: 0;
-        font-size: 1.05rem;
+        font-size: 1rem;
         font-weight: 600;
         color: #333;
         position: relative;
@@ -335,7 +405,7 @@
     }
     
     .nav-action-buttons {
-        margin: 0;
+        margin: 0.3rem 0 0 0;
         padding: 0;
         border: none;
     }
@@ -404,4 +474,184 @@ ditional mobile menu spacing optimizations */
         border-radius: 12px;
         gap: 3px;
     }
+}
+/* UL
+TRA-COMPACT MOBILE MENU - MINIMAL SPACING */
+@media (max-width: 480px) {
+    .nav-menu {
+        padding: 0.2rem 0 !important;
+        width: 240px !important;
+        top: 60px !important;
+        height: calc(100vh - 60px) !important;
+    }
+    
+    .nav-menu li {
+        margin-bottom: 0.05rem !important;
+    }
+    
+    .nav-menu a {
+        font-size: 0.85rem !important;
+        padding: 0.2rem 0.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .nav-action-buttons {
+        margin-top: 0.2rem !important;
+        padding-top: 0.2rem !important;
+    }
+    
+    .nav-action-btn {
+        padding: 0.2rem 0.4rem !important;
+        font-size: 0.7rem !important;
+        margin: 0.05rem 0.5rem !important;
+        width: calc(100% - 1rem) !important;
+        border-radius: 6px !important;
+        gap: 2px !important;
+        line-height: 1.1 !important;
+    }
+    
+    .nav-menu .download-btn {
+        padding: 0.2rem 0.4rem !important;
+        font-size: 0.75rem !important;
+        margin: 0.05rem 0.5rem !important;
+        width: calc(100% - 1rem) !important;
+        border-radius: 6px !important;
+        gap: 2px !important;
+        line-height: 1.1 !important;
+    }
+}
+
+/* EXTRA COMPACT FOR VERY SMALL SCREENS */
+@media (max-width: 360px) {
+    .nav-menu {
+        width: 220px !important;
+        padding: 0.1rem 0 !important;
+    }
+    
+    .nav-menu a {
+        font-size: 0.8rem !important;
+        padding: 0.15rem 0.4rem !important;
+    }
+    
+    .nav-action-btn,
+    .nav-menu .download-btn {
+        padding: 0.15rem 0.3rem !important;
+        font-size: 0.65rem !important;
+        margin: 0.03rem 0.4rem !important;
+        width: calc(100% - 0.8rem) !important;
+    }
+}
+/* ZERO-
+GAP MOBILE MENU - ABSOLUTE MINIMAL SPACING */
+@media (max-width: 480px) {
+    .nav-menu {
+        padding: 0 !important;
+        width: 200px !important;
+        top: 45px !important;
+        height: calc(100vh - 45px) !important;
+    }
+    
+    .nav-menu li {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .nav-menu a {
+        font-size: 0.75rem !important;
+        padding: 0.08rem 0.25rem !important;
+        line-height: 1 !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+    
+    .nav-action-buttons {
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-top: 0.05rem !important;
+    }
+    
+    .nav-action-btn {
+        padding: 0.08rem 0.15rem !important;
+        font-size: 0.6rem !important;
+        margin: 0.01rem 0.25rem !important;
+        width: calc(100% - 0.5rem) !important;
+        border-radius: 3px !important;
+        gap: 0 !important;
+        line-height: 0.9 !important;
+        height: 20px !important;
+        min-height: 20px !important;
+    }
+    
+    .nav-menu .download-btn {
+        padding: 0.08rem 0.15rem !important;
+        font-size: 0.65rem !important;
+        margin: 0.01rem 0.25rem !important;
+        width: calc(100% - 0.5rem) !important;
+        border-radius: 3px !important;
+        gap: 0 !important;
+        line-height: 0.9 !important;
+        height: 22px !important;
+        min-height: 22px !important;
+    }
+}
+
+/* EXTREME COMPACT FOR TINY SCREENS */
+@media (max-width: 360px) {
+    .nav-menu {
+        width: 180px !important;
+        padding: 0 !important;
+        top: 40px !important;
+    }
+    
+    .nav-menu a {
+        font-size: 0.7rem !important;
+        padding: 0.05rem 0.2rem !important;
+        line-height: 0.9 !important;
+    }
+    
+    .nav-action-btn,
+    .nav-menu .download-btn {
+        padding: 0.05rem 0.1rem !important;
+        font-size: 0.55rem !important;
+        margin: 0.005rem 0.2rem !important;
+        width: calc(100% - 0.4rem) !important;
+        height: 18px !important;
+        min-height: 18px !important;
+        border-radius: 2px !important;
+    }
+}/
+* Navigation Action Buttons - Ultra Compact */
+.nav-action-buttons {
+    margin-top: 0.2rem;
+    padding: 0;
+}
+
+.nav-action-btn {
+    width: calc(100% - 0.6rem);
+    margin: 0.05rem 0.3rem;
+    padding: 0.15rem 0.3rem;
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    line-height: 1;
+    height: 24px;
+    min-height: 24px;
+}
+
+.nav-action-btn:hover {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    transform: translateY(-1px);
+}
+
+.nav-action-btn i {
+    font-size: 0.7rem;
 }
