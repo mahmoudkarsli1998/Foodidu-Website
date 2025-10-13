@@ -67,81 +67,21 @@
 
     <!-- Initialize components loading -->
     <script>
+      // Simple, single loading system
       document.addEventListener("DOMContentLoaded", function () {
         console.log("DOM loaded, starting component loading...");
         
-        // Load all components with enhanced error handling
+        // Load all components once
         componentLoader.loadAllComponents(function () {
           console.log("All components loaded successfully");
           
-          // Additional check after a delay to ensure components are visible
+          // Single verification after loading
           setTimeout(function() {
-            verifyAndFixHomeComponents();
-          }, 1000);
-          
-          // Another check after a longer delay as final backup
-          setTimeout(function() {
-            verifyAndFixHomeComponents();
-          }, 3000);
+            if (componentLoader.makeHomeComponentsVisible) {
+              componentLoader.makeHomeComponentsVisible();
+            }
+          }, 500);
         });
-      });
-      
-      // Function to verify and fix home components
-      function verifyAndFixHomeComponents() {
-        const homeComponents = document.getElementById('home-components');
-        if (!homeComponents) {
-          console.log("Home components container not found");
-          return;
-        }
-        
-        const requiredComponents = [
-          '.exclusive-deals',
-          '.hot-promos', 
-          '.features',
-          '.how-it-works'
-        ];
-        
-        let missingComponents = [];
-        requiredComponents.forEach(function(selector) {
-          if (!homeComponents.querySelector(selector)) {
-            missingComponents.push(selector);
-          }
-        });
-        
-        console.log("Component verification:", {
-          total: homeComponents.children.length,
-          missing: missingComponents
-        });
-        
-        if (missingComponents.length > 0) {
-          console.log("Missing components detected:", missingComponents);
-          console.log("Triggering component reload...");
-          
-          // Clear and reload all components
-          componentLoader.loadAllComponents(function() {
-            console.log("Component reload completed");
-            
-            // Make sure components are visible
-            setTimeout(function() {
-              if (componentLoader.makeHomeComponentsVisible) {
-                componentLoader.makeHomeComponentsVisible();
-              }
-            }, 500);
-          });
-        } else {
-          console.log("All components present");
-          // Just make sure they're visible
-          if (componentLoader.makeHomeComponentsVisible) {
-            componentLoader.makeHomeComponentsVisible();
-          }
-        }
-      }
-      
-      // Additional backup loading on window load
-      window.addEventListener("load", function() {
-        setTimeout(function() {
-          verifyAndFixHomeComponents();
-        }, 500);
       });
     </script>
   </body>

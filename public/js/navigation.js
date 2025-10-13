@@ -66,33 +66,15 @@ function initializePage(pageId) {
     }
 }
 
-// Ensure home components are loaded in the correct order
+// Simplified - only ensure visibility, no reloading during navigation
 function ensureHomeComponentsLoaded() {
     const homeComponents = document.getElementById('home-components');
     if (!homeComponents) return;
     
-    console.log('Checking home components...');
+    console.log('Ensuring home components are visible...');
     
-    // Check if we need to reload all components
-    const hasExclusiveDeals = homeComponents.querySelector('.exclusive-deals');
-    const hasHotPromos = homeComponents.querySelector('.hot-promos');
-    const hasFeatures = homeComponents.querySelector('.features');
-    
-    console.log('Component check:', {
-        exclusiveDeals: !!hasExclusiveDeals,
-        hotPromos: !!hasHotPromos,
-        features: !!hasFeatures
-    });
-    
-    // If we're missing critical components, reload everything in correct order
-    if (!hasExclusiveDeals || !hasHotPromos || !hasFeatures) {
-        console.log('Missing critical components, reloading...');
-        reloadAllHomeComponentsInOrder();
-    } else {
-        console.log('All components present, making visible...');
-        // Just make sure existing components are visible
-        makeAllHomeComponentsVisible();
-    }
+    // Just make sure existing components are visible
+    makeAllHomeComponentsVisible();
 }
 
 // Reload all home components in the correct order

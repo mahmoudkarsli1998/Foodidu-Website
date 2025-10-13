@@ -1,6 +1,7 @@
 // Component Loader - Handles loading HTML components
 function ComponentLoader() {
   this.loadedComponents = new Set();
+  this.isLoading = false; // Prevent multiple simultaneous loads
 
   // Load a single component
   this.loadComponent = function (componentPath, targetSelector, callback, position, forceReload) {
@@ -68,6 +69,14 @@ function ComponentLoader() {
   // Load all components in the correct order
   this.loadAllComponents = function (callback) {
     var self = this;
+    
+    // Prevent multiple simultaneous loads
+    if (self.isLoading) {
+      console.log('Components already loading, skipping...');
+      return;
+    }
+    
+    self.isLoading = true;
     console.log('Starting loadAllComponents...');
 
     // Clear loaded components set to ensure fresh loading
@@ -128,6 +137,9 @@ function ComponentLoader() {
               self.makeHomeComponentsVisible();
             }, 100);
           }
+          
+          // Reset loading state
+          self.isLoading = false;
           
           if (callback) callback();
         });
