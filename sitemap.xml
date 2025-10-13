@@ -1,33 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
   <url>
     <loc>https://foodidu.com/</loc>
-    <lastmod>2025-09-18</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/" />
+  </url>
+  
+  <!-- Main Sections -->
+  <url>
+    <loc>https://foodidu.com/#discover</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://foodidu.com/#deals</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://foodidu.com/#promo</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://foodidu.com/#vendors</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://foodidu.com/#about</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-01-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://foodidu.com/#benefits</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-01-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://foodidu.com/#vendor-form</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-01-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://foodidu.com/#contact</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-01-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  
+  <!-- Vendor Pages - High Priority -->
+  <url>
+    <loc>https://foodidu.com/Rabbit-PromoCode</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/Rabbit-PromoCode" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/Rabbit-PromoCode" />
+  </url>
+  <url>
+    <loc>https://foodidu.com/rabbit</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/rabbit" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/rabbit" />
+  </url>
+  <url>
+    <loc>https://foodidu.com/Senem-PromoCode</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/Senem-PromoCode" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/Senem-PromoCode" />
+  </url>
+  <url>
+    <loc>https://foodidu.com/senem</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/senem" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/senem" />
+  </url>
+  <url>
+    <loc>https://foodidu.com/pizza-hut</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/pizza-hut" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/pizza-hut" />
+  </url>
+  <url>
+    <loc>https://foodidu.com/kfc</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/kfc" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/kfc" />
+  </url>
+  <url>
+    <loc>https://foodidu.com/burger-king</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/burger-king" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/burger-king" />
+  </url>
+  <url>
+    <loc>https://foodidu.com/starbucks</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/starbucks" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/starbucks" />
+  </url>
+  <url>
+    <loc>https://foodidu.com/breadfast</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://foodidu.com/breadfast" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://foodidu.com/breadfast" />
+  </url>
+  
+  <!-- Additional Pages -->
+  <url>
+    <loc>https://foodidu.com/vendors-list.html</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://foodidu.com/privacy-policy</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://foodidu.com/terms-and-conditions</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
