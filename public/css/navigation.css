@@ -1,13 +1,74 @@
-/* Navigation Styles */
+/* Navigation Styles - Enhanced BG.svg Background */
 .navbar {
-    position: fixed;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    background: #FFD15C !important; /* Fallback color */
+    background-image: url('../images/BG.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
+    z-index: 1000 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Additional background enforcement */
+.navbar::before {
+    content: '';
+    position: absolute;
     top: 0;
-    width: 100%;
-    background: url('../images/BG.svg') center center/cover no-repeat, rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: none;
-    z-index: 1000;
-    transition: all 0.3s ease;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/BG.svg') center center/cover no-repeat;
+    z-index: -1;
+    opacity: 0.9;
+}
+
+/* Ensure background shows even with inline styles */
+.navbar[style] {
+    background-image: url('../images/BG.svg') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+}
+
+/* Multiple selector approaches for maximum compatibility */
+nav.navbar,
+.navbar,
+nav,
+header.navbar,
+[class*="navbar"] {
+    background: #FFD15C !important;
+    background-image: url('../images/BG.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+}
+
+/* CSS class for JavaScript application */
+.navbar.bg-applied,
+.navbar[data-bg-applied="true"] {
+    background: #FFD15C !important;
+    background-image: url('../images/BG.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+}
+
+/* Ultimate fallback with highest specificity */
+html body .navbar,
+html body nav.navbar,
+html body header.navbar {
+    background: #FFD15C !important;
+    background-image: url('../images/BG.svg') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-attachment: scroll !important;
 }
 
 .nav-container {

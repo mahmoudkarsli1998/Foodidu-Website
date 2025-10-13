@@ -91,6 +91,10 @@
     background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
 }
 
+.noon-banner {
+    background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
+}
+
 .exclusive-banner::before {
     content: '';
     position: absolute;
@@ -235,6 +239,27 @@
     background: #059669;
 }
 
+/* Noon-specific styling - same green theme */
+.noon-banner .exclusive-btn {
+    background: #7EB143;
+}
+
+.noon-banner .exclusive-btn:hover {
+    background: #6BA037;
+}
+
+.noon-banner .quick-copy {
+    background: #7EB143;
+}
+
+.noon-banner .quick-copy:hover {
+    background: #6BA037;
+}
+
+.noon-banner .quick-copy.copied {
+    background: #059669;
+}
+
 /* Carousel Indicators */
 .exclusive-indicators {
     display: flex;
@@ -321,6 +346,7 @@
 .exclusive-banner .exclusive-logo img,
 .rabbit-banner .exclusive-logo img,
 .senem-banner .exclusive-logo img,
+.noon-banner .exclusive-logo img,
 .exclusive-logo img.vendor-logo {
     background: white !important;
     background-color: white !important;

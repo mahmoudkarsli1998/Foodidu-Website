@@ -145,6 +145,26 @@ const vendors = {
     website: "https://breadfast.com",
     seoKeywords: "breadfast foodidu, breadfast code, breadfast promo, breadfast promo code, breadfast discount code, breadfast coupon, breadfast deals, breadfast offers, breadfast egypt, breadfast cairo, breadfast alexandria, breadfast delivery, breadfast bakery, breadfast bread, breadfast breakfast, breadfast free delivery, breadfast pastries, breadfast discount, breadfast coupons, breadfast codes, breadfast discounts, breadfast voucher, breadfast promotion, breadfast sale, breadfast offer, breadfast deal, breadfast foodidu breadfast code breadfast promo breadfast promo code, bakery delivery deals, fresh bread Egypt, breakfast delivery, pastry deals Egypt",
     seoKeywordsAr: "بريد فاست فوديدو، كود بريد فاست، برومو بريد فاست، كود خصم بريد فاست، كوبون بريد فاست، عروض بريد فاست، بريد فاست مصر، بريد فاست القاهرة، بريد فاست الإسكندرية، توصيل بريد فاست، مخبز بريد فاست، خبز بريد فاست، إفطار بريد فاست، توصيل مجاني بريد فاست، معجنات بريد فاست، بريد فاست خصم، خصومات بريد فاست، اكواد بريد فاست، اكواد خصم بريد فاست، كوبونات بريد فاست، عروض خصم بريد فاست، تخفيضات بريد فاست، خصم بريد فاست، كود تخفيض بريد فاست، برومو كود بريد فاست، كوبون خصم بريد فاست، عرض بريد فاست، تخفيض بريد فاست، خصومات وعروض بريد فاست، اكواد وخصومات بريد فاست، كوبونات وعروض بريد فاست، بريد فاست فوديدو بريد فاست كود بريد فاست برومو بريد فاست كود خصم، عروض توصيل المخبز، خبز طازج مصر، توصيل الإفطار، عروض المعجنات مصر"
+  },
+  noon: {
+    name: "Noon",
+    nameAr: "نون",
+    logo: "noon-logo.png",
+    promoCode: "NOON15",
+    discount: "15% OFF First Order",
+    description: "Get 15% OFF on your first order with Noon across GCC",
+    descriptionAr: "احصل على خصم 15% على طلبك الأول مع نون في دول الخليج",
+    expiry: "Dec 31, 2025",
+    badge: "GCC Wide",
+    category: "E-commerce & Shopping",
+    categoryAr: "تجارة إلكترونية وتسوق",
+    cuisine: "Electronics, Fashion, Home, Beauty, Groceries",
+    cuisineAr: "إلكترونيات، أزياء، منزل، جمال، بقالة",
+    iosApp: "https://apps.apple.com/us/app/noon-shopping-food-grocery/id1269038866",
+    androidApp: "https://play.google.com/store/apps/details?id=com.noon.buyerapp&hl=en",
+    website: "https://www.noon.com/egypt-en/?utm_source=C1000088L&utm_medium=cpc&utm_campaign=C1000151355N_eg_en_web_searchxxexactandphrasexxbrandpurexx08082022_noon_web_c1000088l_acquisition_sembranded_&gad_source=1&gad_campaignid=17997274048&gbraid=0AAAAADH71hjyNOWupfD-l4BXz79ajFU9P&gclid=CjwKCAjwxrLHBhA2EiwAu9EdMzmBSouAmioCR_YbKvFh_8kJFkb0hMg73wK57yvTl2y5J6DhAVihHBoCDgYQAvD_BwE",
+    seoKeywords: "noon foodidu, noon code, noon promo, noon promo code, noon discount code, noon coupon, noon deals, noon offers, noon egypt, noon cairo, noon alexandria, noon delivery, noon shopping, noon electronics, noon fashion, noon home, noon beauty, noon groceries, noon 15% off, noon first order, noon gcc, noon discount, noon coupons, noon codes, noon discounts, noon voucher, noon promotion, noon sale, noon offer, noon deal, noon foodidu noon code noon promo noon promo code, online shopping deals, electronics coupons Egypt, fashion deals GCC, home shopping Egypt, beauty products Egypt",
+    seoKeywordsAr: "نون فوديدو، كود نون، برومو نون، كود خصم نون، كوبون نون، عروض نون، نون مصر، نون القاهرة، نون الإسكندرية، توصيل نون، تسوق نون، إلكترونيات نون، أزياء نون، منزل نون، جمال نون، بقالة نون، نون خصم 15%، نون الطلب الأول، نون الخليج، نون خصم، خصومات نون، اكواد نون، اكواد خصم نون، كوبونات نون، عروض خصم نون، تخفيضات نون، خصم نون، كود تخفيض نون، برومو كود نون، كوبون خصم نون، عرض نون، تخفيض نون، خصومات وعروض نون، اكواد وخصومات نون، كوبونات وعروض نون، نون فوديدو نون كود نون برومو نون كود خصم، عروض التسوق الإلكتروني، كوبونات الإلكترونيات مصر، عروض الأزياء الخليج، تسوق المنزل مصر، منتجات الجمال مصر"
   }
 };
 
