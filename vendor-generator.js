@@ -4,100 +4,278 @@
 const fs = require("fs");
 const path = require("path");
 
-// Vendor configuration
+// Vendor configuration with comprehensive SEO data
 const vendors = {
   "pizza-hut": {
     name: "Pizza Hut",
+    nameAr: "بيتزا هت",
     logo: "Pizza Hut.svg",
     promoCode: "NEW40",
     discount: "40% Off First Order",
     description: "40% Off first order on the Pizza Hut app",
+    descriptionAr: "خصم 40% على الطلب الأول من تطبيق بيتزا هت",
     expiry: "Dec 31, 2025",
     badge: "New User",
+    category: "Pizza & Italian Food",
+    categoryAr: "بيتزا وطعام إيطالي",
+    cuisine: "Italian, Pizza, Fast Food",
+    cuisineAr: "إيطالي، بيتزا، وجبات سريعة",
     iosApp: "https://apps.apple.com/app/pizza-hut",
     androidApp: "https://play.google.com/store/apps/details?id=com.pizzahut",
     website: "https://pizzahut.com",
+    seoKeywords: "pizza hut foodidu, pizza hut code, pizza hut promo, pizza hut promo code, pizza hut discount code, pizza hut coupon, pizza hut deals, pizza hut offers, pizza hut egypt, pizza hut cairo, pizza hut alexandria, pizza hut delivery, pizza hut 40% off, pizza hut first order, pizza hut new user, pizza hut foodidu pizza hut code pizza hut promo pizza hut promo code, pizza delivery deals, Italian food coupons, fast food offers, pizza coupons Egypt, food delivery Egypt",
+    seoKeywordsAr: "بيتزا هت فوديدو، كود بيتزا هت، برومو بيتزا هت، كود خصم بيتزا هت، كوبون بيتزا هت، عروض بيتزا هت، بيتزا هت مصر، بيتزا هت القاهرة، بيتزا هت الإسكندرية، توصيل بيتزا هت، بيتزا هت خصم 40%، بيتزا هت الطلب الأول، بيتزا هت مستخدم جديد، بيتزا هت فوديدو بيتزا هت كود بيتزا هت برومو بيتزا هت كود خصم، عروض توصيل البيتزا، كوبونات الطعام الإيطالي، عروض الوجبات السريعة، كوبونات البيتزا مصر، توصيل الطعام مصر"
   },
   kfc: {
     name: "KFC",
+    nameAr: "كنتاكي",
     logo: "KFC.svg",
     promoCode: "KFCBOX",
     discount: "30% Off Family Boxes",
     description: "Save 30% on all family meal boxes",
+    descriptionAr: "وفر 30% على جميع صناديق الوجبات العائلية",
     expiry: "Nov 15, 2025",
     badge: "Family Deal",
+    category: "Fried Chicken & Fast Food",
+    categoryAr: "دجاج مقلي ووجبات سريعة",
+    cuisine: "American, Fried Chicken, Fast Food",
+    cuisineAr: "أمريكي، دجاج مقلي، وجبات سريعة",
     iosApp: "https://apps.apple.com/app/kfc",
     androidApp: "https://play.google.com/store/apps/details?id=com.kfc",
     website: "https://kfc.com",
+    seoKeywords: "kfc foodidu, kfc code, kfc promo, kfc promo code, kfc discount code, kfc coupon, kfc deals, kfc offers, kfc egypt, kfc cairo, kfc alexandria, kfc delivery, kfc chicken, kfc family box, kfc 30% off, kfc family deal, kfc foodidu kfc code kfc promo kfc promo code, fried chicken deals, family meal offers, Kentucky Fried Chicken coupons, fast food deals Egypt, chicken delivery Egypt",
+    seoKeywordsAr: "كنتاكي فوديدو، كود كنتاكي، برومو كنتاكي، كود خصم كنتاكي، كوبون كنتاكي، عروض كنتاكي، كنتاكي مصر، كنتاكي القاهرة، كنتاكي الإسكندرية، توصيل كنتاكي، دجاج كنتاكي، صندوق عائلي كنتاكي، كنتاكي خصم 30%، عرض عائلي كنتاكي، كنتاكي فوديدو كنتاكي كود كنتاكي برومو كنتاكي كود خصم، عروض الدجاج المقلي، عروض الوجبات العائلية، كوبونات كنتاكي فرايد تشيكن، عروض الوجبات السريعة مصر، توصيل الدجاج مصر"
   },
   "burger-king": {
     name: "Burger King",
+    nameAr: "برجر كينج",
     logo: "Burger King.svg",
     promoCode: "WHOPPER15",
     discount: "15% Off Whopper Meal",
     description: "Save 15% on all Whopper meals",
+    descriptionAr: "وفر 15% على جميع وجبات الواوبر",
     expiry: "Dec 28, 2024",
     badge: "Limited Time",
+    category: "Burgers & Fast Food",
+    categoryAr: "برجر ووجبات سريعة",
+    cuisine: "American, Burgers, Fast Food",
+    cuisineAr: "أمريكي، برجر، وجبات سريعة",
     iosApp: "https://apps.apple.com/app/burger-king",
     androidApp: "https://play.google.com/store/apps/details?id=com.burgerking",
     website: "https://burgerking.com",
+    seoKeywords: "burger king foodidu, burger king code, burger king promo, burger king promo code, burger king discount code, burger king coupon, burger king deals, burger king offers, burger king egypt, burger king cairo, burger king alexandria, burger king delivery, burger king whopper, burger king 15% off, burger king limited time, burger king foodidu burger king code burger king promo burger king promo code, Whopper deals, burger delivery offers, fast food coupons Egypt, American food Egypt",
+    seoKeywordsAr: "برجر كينج فوديدو، كود برجر كينج، برومو برجر كينج، كود خصم برجر كينج، كوبون برجر كينج، عروض برجر كينج، برجر كينج مصر، برجر كينج القاهرة، برجر كينج الإسكندرية، توصيل برجر كينج، واوبر برجر كينج، برجر كينج خصم 15%، برجر كينج وقت محدود، برجر كينج فوديدو برجر كينج كود برجر كينج برومو برجر كينج كود خصم، عروض الواوبر، عروض توصيل البرجر، كوبونات الوجبات السريعة مصر، الطعام الأمريكي مصر"
   },
   starbucks: {
     name: "Starbucks",
+    nameAr: "ستاربكس",
     logo: "starbucks.png",
     promoCode: "STARBUCKS",
     discount: "Buy 1 Get 1 Free Coffee",
     description: "Free coffee with any coffee purchase",
+    descriptionAr: "قهوة مجانية مع أي مشتريات قهوة",
     expiry: "Dec 31, 2025",
     badge: "BOGO Deal",
+    category: "Coffee & Beverages",
+    categoryAr: "قهوة ومشروبات",
+    cuisine: "Coffee, Beverages, Pastries",
+    cuisineAr: "قهوة، مشروبات، معجنات",
     iosApp: "https://apps.apple.com/app/starbucks",
     androidApp: "https://play.google.com/store/apps/details?id=com.starbucks",
     website: "https://starbucks.com",
+    seoKeywords: "starbucks foodidu, starbucks code, starbucks promo, starbucks promo code, starbucks discount code, starbucks coupon, starbucks deals, starbucks offers, starbucks egypt, starbucks cairo, starbucks alexandria, starbucks delivery, starbucks coffee, starbucks bogo, starbucks buy one get one, starbucks free coffee, starbucks foodidu starbucks code starbucks promo starbucks promo code, coffee deals, buy one get one free coffee, coffee delivery Egypt, coffee coupons Egypt, beverage deals",
+    seoKeywordsAr: "ستاربكس فوديدو، كود ستاربكس، برومو ستاربكس، كود خصم ستاربكس، كوبون ستاربكس، عروض ستاربكس، ستاربكس مصر، ستاربكس القاهرة، ستاربكس الإسكندرية، توصيل ستاربكس، قهوة ستاربكس، ستاربكس اشتري واحدة، ستاربكس احصل على أخرى مجاناً، ستاربكس قهوة مجانية، ستاربكس فوديدو ستاربكس كود ستاربكس برومو ستاربكس كود خصم، عروض القهوة، اشتري واحدة واحصل على أخرى مجاناً، توصيل القهوة مصر، كوبونات القهوة مصر، عروض المشروبات"
   },
   rabbit: {
     name: "Rabbit",
+    nameAr: "رابيت",
     logo: "Rabbit.svg",
-    promoCode: "RABBIT25",
-    discount: "25% Off First Order",
-    description: "Save 25% on your first order with Rabbit",
+    promoCode: "RabbitFood4",
+    discount: "30% OFF upto 150 EGP",
+    description: "Get 30% OFF upto 150 EGP on your first order on Rabbit",
+    descriptionAr: "احصل على خصم 30% حتى 150 جنيه على طلبك الأول من رابيت",
     expiry: "Dec 31, 2025",
     badge: "New User",
-    iosApp:
-      "https://apps.apple.com/eg/app/rabbit-20-mins-delivery/id1588565838",
-    androidApp:
-      "https://play.google.com/store/apps/details?id=com.rabbit.mart&hl=en",
+    category: "Grocery & Food Delivery",
+    categoryAr: "بقالة وتوصيل طعام",
+    cuisine: "Groceries, Food Delivery, Supermarket",
+    cuisineAr: "بقالة، توصيل طعام، سوبر ماركت",
+    iosApp: "https://apps.apple.com/eg/app/rabbit-20-mins-delivery/id1588565838",
+    androidApp: "https://play.google.com/store/apps/details?id=com.rabbit.mart&hl=en",
     website: "https://www.rabbitmart.com/us/",
+    seoKeywords: "rabbit foodidu, rabbit code, rabbit promo, rabbit promo code, rabbit discount code, rabbit coupon, rabbit deals, rabbit offers, rabbit egypt, rabbit cairo, rabbit alexandria, rabbit delivery, rabbit grocery, rabbit food delivery, rabbit app, rabbit website, rabbit 30% off, rabbit first order, rabbit new user, rabbit savings, rabbit foodidu rabbit code rabbit promo rabbit promo code, grocery delivery deals, supermarket coupons Egypt, food delivery Egypt, 20 minute delivery, fast delivery Egypt",
+    seoKeywordsAr: "رابيت فوديدو، كود رابيت، برومو رابيت، كود خصم رابيت، كوبون رابيت، عروض رابيت، رابيت مصر، رابيت القاهرة، رابيت الإسكندرية، توصيل رابيت، بقالة رابيت، توصيل طعام رابيت، تطبيق رابيت، موقع رابيت، رابيت خصم 30%، رابيت الطلب الأول، رابيت مستخدم جديد، توفير رابيت، رابيت فوديدو رابيت كود رابيت برومو رابيت كود خصم، عروض توصيل البقالة، كوبونات السوبر ماركت مصر، توصيل الطعام مصر، توصيل 20 دقيقة، التوصيل السريع مصر"
   },
   senem: {
     name: "Senem",
+    nameAr: "سنيم",
     logo: "Senem.svg",
-    promoCode: "SENEM20",
-    discount: "20% Off First Order",
-    description: "Save 20% on your first order with Senem",
+    promoCode: "FOODIDU10",
+    discount: "10% OFF on premium groceries",
+    description: "Get 10% OFF on premium groceries with Senem",
+    descriptionAr: "احصل على خصم 10% على البقالة المميزة مع سنيم",
     expiry: "Dec 31, 2025",
     badge: "New User",
+    category: "Premium Grocery Delivery",
+    categoryAr: "توصيل بقالة مميز",
+    cuisine: "Premium Groceries, Organic Food, Fresh Products",
+    cuisineAr: "بقالة مميزة، طعام عضوي، منتجات طازجة",
     iosApp: "https://apps.apple.com/app/senem",
     androidApp: "https://play.google.com/store/apps/details?id=com.senem",
     website: "https://www.senem-eg.com/",
+    seoKeywords: "senem foodidu, senem code, senem promo, senem promo code, senem discount code, senem coupon, senem deals, senem offers, senem egypt, senem cairo, senem alexandria, senem delivery, senem grocery, senem premium, senem organic, senem fresh, senem 10% off, senem foodidu senem code senem promo senem promo code, premium grocery delivery, organic food deals, fresh products Egypt, premium supermarket Egypt, quality groceries Egypt",
+    seoKeywordsAr: "سنيم فوديدو، كود سنيم، برومو سنيم، كود خصم سنيم، كوبون سنيم، عروض سنيم، سنيم مصر، سنيم القاهرة، سنيم الإسكندرية، توصيل سنيم، بقالة سنيم، سنيم مميز، سنيم عضوي، سنيم طازج، سنيم خصم 10%، سنيم فوديدو سنيم كود سنيم برومو سنيم كود خصم، توصيل بقالة مميز، عروض الطعام العضوي، منتجات طازجة مصر، سوبر ماركت مميز مصر، بقالة عالية الجودة مصر"
   },
+  breadfast: {
+    name: "BreadFast",
+    nameAr: "بريد فاست",
+    logo: "BreadFast.svg",
+    promoCode: "SMR",
+    discount: "Free Delivery",
+    description: "Free delivery on all BreadFast orders",
+    descriptionAr: "توصيل مجاني على جميع طلبات بريد فاست",
+    expiry: "Dec 31, 2025",
+    badge: "Free Delivery",
+    category: "Bakery & Fresh Food",
+    categoryAr: "مخبز وطعام طازج",
+    cuisine: "Bakery, Fresh Food, Breakfast, Pastries",
+    cuisineAr: "مخبز، طعام طازج، إفطار، معجنات",
+    iosApp: "https://apps.apple.com/app/breadfast",
+    androidApp: "https://play.google.com/store/apps/details?id=com.breadfast",
+    website: "https://breadfast.com",
+    seoKeywords: "breadfast foodidu, breadfast code, breadfast promo, breadfast promo code, breadfast discount code, breadfast coupon, breadfast deals, breadfast offers, breadfast egypt, breadfast cairo, breadfast alexandria, breadfast delivery, breadfast bakery, breadfast bread, breadfast breakfast, breadfast free delivery, breadfast pastries, breadfast foodidu breadfast code breadfast promo breadfast promo code, bakery delivery deals, fresh bread Egypt, breakfast delivery, pastry deals Egypt",
+    seoKeywordsAr: "بريد فاست فوديدو، كود بريد فاست، برومو بريد فاست، كود خصم بريد فاست، كوبون بريد فاست، عروض بريد فاست، بريد فاست مصر، بريد فاست القاهرة، بريد فاست الإسكندرية، توصيل بريد فاست، مخبز بريد فاست، خبز بريد فاست، إفطار بريد فاست، توصيل مجاني بريد فاست، معجنات بريد فاست، بريد فاست فوديدو بريد فاست كود بريد فاست برومو بريد فاست كود خصم، عروض توصيل المخبز، خبز طازج مصر، توصيل الإفطار، عروض المعجنات مصر"
+  }
 };
 
-// HTML template
+// HTML template with comprehensive SEO
 function generateHTML(vendorKey, vendor) {
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get exclusive ${vendor.name} promo codes and discounts with Foodidu. Save money on your favorite food orders.">
-    <meta name="keywords" content="${vendor.name} promo codes, ${vendor.name} discounts, food delivery deals, Foodidu">
-    <meta name="author" content="Foodidu">
-    <meta property="og:title" content="${vendor.name} Promo Codes - Foodidu">
-    <meta property="og:description" content="Exclusive ${vendor.name} promo codes and deals. Save money on your food orders with verified discount codes.">
-    <meta property="og:image" content="../images/${vendor.logo}">
-    <meta property="og:url" content="https://foodidu.com/${vendorKey}">
     
-    <title>${vendor.name} Promo Codes - Foodidu</title>
+    <!-- Primary Meta Tags -->
+    <title>${vendor.name} Promo Codes & Discounts - ${vendor.discount} | Foodidu Egypt</title>
+    <meta name="title" content="${vendor.name} Promo Codes & Discounts - ${vendor.discount} | Foodidu Egypt">
+    <meta name="description" content="Get exclusive ${vendor.name} promo codes and save with ${vendor.discount}. Verified discount codes for ${vendor.category} delivery in Egypt. Free ${vendor.name} coupons at Foodidu.">
+    <meta name="keywords" content="${vendor.seoKeywords}">
+    <meta name="author" content="Foodidu">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Arabic Meta Tags -->
+    <meta name="description" lang="ar" content="احصل على كوبونات ${vendor.nameAr} الحصرية ووفر مع ${vendor.descriptionAr}. كوبونات خصم موثقة لتوصيل ${vendor.categoryAr} في مصر. كوبونات ${vendor.nameAr} مجانية في فوديدو.">
+    <meta name="keywords" lang="ar" content="${vendor.seoKeywordsAr}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Foodidu">
+    <meta property="og:title" content="${vendor.name} Promo Codes - ${vendor.discount} | Foodidu">
+    <meta property="og:description" content="Exclusive ${vendor.name} promo codes and deals. Save with ${vendor.discount} on ${vendor.category}. Verified discount codes for food delivery in Egypt.">
+    <meta property="og:image" content="https://foodidu.com/images/${vendor.logo}">
+    <meta property="og:image:alt" content="${vendor.name} Logo - Promo Codes at Foodidu">
+    <meta property="og:url" content="https://foodidu.com/${vendorKey}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ar_EG">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@Foodidu">
+    <meta property="twitter:creator" content="@Foodidu">
+    <meta property="twitter:title" content="${vendor.name} Promo Codes - ${vendor.discount} | Foodidu">
+    <meta property="twitter:description" content="Get exclusive ${vendor.name} promo codes. Save with ${vendor.discount} on food delivery in Egypt.">
+    <meta property="twitter:image" content="https://foodidu.com/images/${vendor.logo}">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#ffe082">
+    <meta name="msapplication-TileColor" content="#ffe082">
+    <meta name="application-name" content="Foodidu">
+    <meta name="apple-mobile-web-app-title" content="Foodidu">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="EG">
+    <meta name="geo.placename" content="Egypt">
+    <meta name="geo.position" content="26.8206;30.8025">
+    <meta name="ICBM" content="26.8206, 30.8025">
+    
+    <!-- Business/Local SEO -->
+    <meta name="business:contact_data:locality" content="Cairo">
+    <meta name="business:contact_data:region" content="Cairo Governorate">
+    <meta name="business:contact_data:country_name" content="Egypt">
+    
+    <!-- Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "${vendor.name} Promo Codes - Foodidu",
+      "description": "Get exclusive ${vendor.name} promo codes and save with ${vendor.discount}",
+      "url": "https://foodidu.com/${vendorKey}",
+      "mainEntity": {
+        "@type": "Offer",
+        "name": "${vendor.name} ${vendor.discount}",
+        "description": "${vendor.description}",
+        "seller": {
+          "@type": "Organization",
+          "name": "${vendor.name}"
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "EGP"
+        },
+        "validThrough": "${vendor.expiry}",
+        "category": "${vendor.category}",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Egypt"
+        }
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://foodidu.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Vendors",
+            "item": "https://foodidu.com/#vendors"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "${vendor.name}",
+            "item": "https://foodidu.com/${vendorKey}"
+          }
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Foodidu",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://foodidu.com/images/Logo.svg"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://foodidu.com/${vendorKey}">
+    
+    <!-- Alternate Language Pages -->
+    <link rel="alternate" hreflang="en" href="https://foodidu.com/${vendorKey}">
+    <link rel="alternate" hreflang="ar" href="https://foodidu.com/${vendorKey}">
+    <link rel="alternate" hreflang="x-default" href="https://foodidu.com/${vendorKey}">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../images/Logo.svg">
