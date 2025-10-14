@@ -144,7 +144,7 @@ Your Foodidu vendor page system is **complete and ready to go live**. The struct
 ### Next Steps:
 1. **Deploy** to Firebase: `firebase deploy`
 2. **Test** each vendor page on mobile and desktop
-3. **Share** the vendor URLs with your partners
+3. **Share** the vendor URLs with yBecome a partner
 4. **Monitor** performance and user engagement
 
 **Happy launching! 🚀**
