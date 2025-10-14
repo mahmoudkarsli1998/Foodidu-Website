@@ -150,7 +150,7 @@ const vendors = {
     name: "Noon",
     nameAr: "نون",
     logo: "noon-logo.png",
-    promoCode: "NOON15",
+    promoCode: "FFR55",
     discount: "15% OFF First Order",
     description: "Get 15% OFF on your first order with Noon across GCC",
     descriptionAr: "احصل على خصم 15% على طلبك الأول مع نون في دول الخليج",

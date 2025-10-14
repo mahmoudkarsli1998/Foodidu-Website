@@ -71,10 +71,11 @@ export function animateCounters() {
 }
 
 export function downloadApp() {
-    showNotification('🚀 Redirecting to app store...');
-    setTimeout(() => {
-        window.open('https://play.google.com/store', '_blank');
-    }, 1000);
+    if (typeof window.showComingSoonModal === 'function') {
+        window.showComingSoonModal();
+    } else {
+        showNotification('📱 Foodidu App is coming soon!');
+    }
 }
 
 // Rabbit Notification Function

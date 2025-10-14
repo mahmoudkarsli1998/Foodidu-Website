@@ -6,12 +6,12 @@ function showComingSoonModal() {
         existingModal.remove();
     }
 
-    // Create modal HTML
+    // Create modal HTML (no inline onclick)
     const modalHTML = `
         <div id="coming-soon-modal" class="coming-soon-modal show">
             <div class="coming-soon-overlay" onclick="closeComingSoonModal()"></div>
             <div class="coming-soon-content">
-                <button class="coming-soon-close" onclick="closeComingSoonModal()">
+                <button type="button" class="coming-soon-close" aria-label="Close" onclick="closeComingSoonModal()">
                     <i class="fas fa-times"></i>
                 </button>
                 <div class="coming-soon-icon">
@@ -43,18 +43,58 @@ function showComingSoonModal() {
         </div>
     `;
 
-    // Add modal to body and show immediately
+    // Add modal to body
     document.body.insertAdjacentHTML('beforeend', modalHTML);
+    // Lock background scroll
+    try { document.body.classList.add('modal-open'); } catch (_) {}
+    
+    // Attach event listeners after modal is added to DOM
+    const modal = document.getElementById('coming-soon-modal');
+    const overlay = modal.querySelector('.coming-soon-overlay');
+    const closeBtn = modal.querySelector('.coming-soon-close');
+    const notifyBtn = modal.querySelector('.notify-btn');
+    
+    // Close modal when clicking overlay
+    overlay.addEventListener('click', closeComingSoonModal);
+    
+    // Close modal when clicking close button
+    closeBtn.addEventListener('click', closeComingSoonModal);
+    
+    // Handle notify button click
+    notifyBtn.addEventListener('click', notifyWhenReady);
+
+    // Last-resort: close on any click/touch while modal is open (capture-phase)
+    const anyClickClose = (e) => {
+        const m = document.getElementById('coming-soon-modal');
+        if (!m) return;
+        try { e.stopPropagation(); } catch (_) {}
+        try { if (e.cancelable) e.preventDefault(); } catch (_) {}
+        closeComingSoonModal();
+    };
+    window.addEventListener('click', anyClickClose, true);
+    window.addEventListener('touchend', anyClickClose, { capture: true, passive: false });
+    // store handler reference to remove later
+    modal.__anyClickClose = anyClickClose;
 }
 
 function closeComingSoonModal() {
     const modal = document.getElementById('coming-soon-modal');
     if (modal) {
-        modal.classList.remove('show');
-        setTimeout(() => {
-            modal.remove();
-        }, 300);
+        try { modal.classList.remove('show'); } catch (_) {}
+        // Remove immediately to avoid any interference on vendor pages
+        try { modal.remove(); } catch (_) {
+            // Hard fallback
+            try { modal.parentNode && modal.parentNode.removeChild(modal); } catch (_) {}
+        }
+        // remove global handlers if present
+        const h = modal.__anyClickClose;
+        if (h) {
+            try { window.removeEventListener('click', h, true); } catch (_) {}
+            try { window.removeEventListener('touchend', h, { capture: true }); } catch (_) {}
+        }
     }
+    // Unlock background scroll
+    try { document.body.classList.remove('modal-open'); } catch (_) {}
 }
 
 function notifyWhenReady() {
@@ -71,13 +111,53 @@ function notifyWhenReady() {
     }
 }
 
-// Replace all downloadApp functions
-function downloadApp(platform = null) {
-    showComingSoonModal();
-}
-
 // Make functions globally available
 window.showComingSoonModal = showComingSoonModal;
 window.closeComingSoonModal = closeComingSoonModal;
 window.notifyWhenReady = notifyWhenReady;
-window.downloadApp = downloadApp;
+
+// Safety: Event delegation to ensure close/notify always work
+document.addEventListener('click', (e) => {
+    const overlay = e.target.closest('.coming-soon-overlay');
+    const closeBtn = e.target.closest('.coming-soon-close');
+    const notify = e.target.closest('.notify-btn');
+    if (overlay || closeBtn) {
+        closeComingSoonModal();
+    } else if (notify) {
+        notifyWhenReady();
+    }
+});
+
+// Capture-phase listener to handle cases where other scripts stop propagation
+document.addEventListener('click', (e) => {
+    const overlay = e.target.closest && e.target.closest('.coming-soon-overlay');
+    const closeBtn = e.target.closest && e.target.closest('.coming-soon-close');
+    if (overlay || closeBtn) {
+        // prevent other handlers from interfering
+        try { e.stopPropagation(); } catch (_) {}
+        closeComingSoonModal();
+    }
+}, true);
+
+// Close if clicking anywhere outside modal content (capture-phase)
+function handleGlobalCloseCapture(e) {
+    const modal = document.getElementById('coming-soon-modal');
+    if (!modal) return;
+    const content = modal.querySelector('.coming-soon-content');
+    if (!content) return;
+    const insideContent = content.contains(e.target);
+    // If click/touch is outside content, close
+    if (!insideContent) {
+        try { e.stopPropagation(); } catch (_) {}
+        closeComingSoonModal();
+    }
+}
+document.addEventListener('mousedown', handleGlobalCloseCapture, true);
+document.addEventListener('touchstart', handleGlobalCloseCapture, { capture: true, passive: true });
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeComingSoonModal();
+    }
+});

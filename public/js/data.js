@@ -219,7 +219,7 @@ export const promoCodesData = [
     id: 13,
     brand: "Noon",
     category: "delivery",
-    code: "NOON15",
+    code: "FFR55",
     discount: "15% OFF First Order",
     expiry: "Dec 31, 2025",
     logo: "images/noon-logo.png",

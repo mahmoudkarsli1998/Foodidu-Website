@@ -510,4 +510,14 @@ document.addEventListener("DOMContentLoaded", function () {
       page_location: window.location.href,
     });
   }
+  // Ensure downloadApp() is available to show the Coming Soon modal
+  if (typeof window.downloadApp !== 'function') {
+    window.downloadApp = function () {
+      if (typeof window.showComingSoonModal === 'function') {
+        window.showComingSoonModal();
+      } else {
+        alert('Foodidu App is coming soon!');
+      }
+    };
+  }
 });

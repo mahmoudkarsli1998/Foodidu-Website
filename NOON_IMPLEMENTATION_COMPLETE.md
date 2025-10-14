@@ -12,7 +12,7 @@
 ### 🎯 **Noon-Specific Content**
 
 #### **Promo Code Details**
-- **Code**: `NOON15`
+- **Code**: `FFR55`
 - **Discount**: 15% OFF First Order
 - **Description**: Get 15% OFF on your first order across GCC countries
 - **Expiry**: Dec 31, 2025
@@ -78,7 +78,7 @@ public/
 ```
 
 #### **JavaScript Functionality**
-- **Copy-to-clipboard** for NOON15 promo code
+- **Copy-to-clipboard** for FFR55 promo code
 - **Navbar background** enforcement with multiple strategies
 - **Notification system** with Noon-specific messages
 - **Mobile menu** toggle functionality

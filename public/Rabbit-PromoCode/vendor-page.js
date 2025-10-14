@@ -511,4 +511,56 @@ document.addEventListener("DOMContentLoaded", function () {
       page_location: window.location.href,
     });
   }
+  // Ensure downloadApp() is available to show the Coming Soon modal
+  if (typeof window.downloadApp !== 'function') {
+    window.downloadApp = function () {
+      if (typeof window.showComingSoonModal === 'function') {
+        window.showComingSoonModal();
+      } else {
+        alert('Foodidu App is coming soon!');
+      }
+    };
+  }
+
+  // Wire only the Foodidu App group's buttons: find the group by its heading text
+  try {
+    document.querySelectorAll('.app-group').forEach(group => {
+      const heading = group.querySelector('h3');
+      if (heading && /Foodidu\s+App/i.test(heading.textContent)) {
+        group.querySelectorAll('a.download-btn.app-store, a.download-btn.google-play').forEach(a => {
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (typeof window.downloadApp === 'function') {
+              window.downloadApp();
+            }
+          });
+        });
+      }
+    });
+  } catch (err) {
+    console.warn('Failed to bind Foodidu App download buttons:', err);
+  }
+
+  // Fallback: ensure close function exists and capture clicks to close modal
+  if (typeof window.closeComingSoonModal !== 'function') {
+    window.closeComingSoonModal = function () {
+      var modal = document.getElementById('coming-soon-modal');
+      if (modal) {
+        try { modal.parentNode && modal.parentNode.removeChild(modal); } catch (_) {}
+      }
+      try { document.body.classList.remove('modal-open'); } catch (_) {}
+    };
+  }
+
+  // Capture-phase close for overlay/close button on this page
+  const rabbitModalCaptureCloser = function(e) {
+    const t = e.target;
+    if (!t) return;
+    if ((t.closest && (t.closest('.coming-soon-overlay') || t.closest('.coming-soon-close'))) || t.classList.contains('coming-soon-overlay')) {
+      try { e.stopPropagation(); } catch (_) {}
+      try { if (e.cancelable) e.preventDefault(); } catch (_) {}
+      window.closeComingSoonModal();
+    }
+  };
+  window.addEventListener('click', rabbitModalCaptureCloser, true);
 });
