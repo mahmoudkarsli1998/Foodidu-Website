@@ -12,6 +12,21 @@
         .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
         .component-count { font-weight: bold; font-size: 1.2em; }
     </style>
+    <script>
+        fetch('header.html')
+          .then(r => r.ok ? r.text() : Promise.reject(r))
+          .then(html => {
+            const tmp = document.createElement('div');
+            tmp.innerHTML = html;
+            tmp.querySelectorAll('script').forEach(s => {
+              const sc = document.createElement('script');
+              for (const attr of s.attributes) sc.setAttribute(attr.name, attr.value);
+              sc.text = s.textContent || '';
+              document.head.appendChild(sc);
+            });
+          })
+          .catch(() => {});
+    </script>
 </head>
 <body>
     <h1>🔧 Duplicate Loading Fix Test</h1>

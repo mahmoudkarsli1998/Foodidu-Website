@@ -41,6 +41,21 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+    <script>
+      fetch('header.html')
+        .then(r => r.ok ? r.text() : Promise.reject(r))
+        .then(html => {
+          const tmp = document.createElement('div');
+          tmp.innerHTML = html;
+          tmp.querySelectorAll('script').forEach(s => {
+            const sc = document.createElement('script');
+            for (const attr of s.attributes) sc.setAttribute(attr.name, attr.value);
+            sc.text = s.textContent || '';
+            document.head.appendChild(sc);
+          });
+        })
+        .catch(() => {});
+    </script>
   </head>
   <body>
 
