@@ -249,28 +249,28 @@ function copyPromoCode(code) {
     });
 }
 
-// Download Foodidu app
-function downloadApp(platform) {
-  let url = "";
+// Download Foodidu app - DISABLED: Using coming-soon modal instead
+// function downloadApp(platform) {
+//   let url = "";
 
-  if (platform === "ios") {
-    url = "https://apps.apple.com/app/foodidu";
-  } else if (platform === "android") {
-    url = "https://play.google.com/store/apps/details?id=com.foodidu";
-  }
+//   if (platform === "ios") {
+//     url = "https://apps.apple.com/app/foodidu";
+//   } else if (platform === "android") {
+//     url = "https://play.google.com/store/apps/details?id=com.foodidu";
+//   }
 
-  if (url) {
-    window.open(url, "_blank");
+//   if (url) {
+//     window.open(url, "_blank");
 
-    if (typeof gtag !== "undefined") {
-      gtag("event", "app_download_attempt", {
-        event_category: "conversion",
-        event_label: platform,
-        source: "vendor_page",
-      });
-    }
-  }
-}
+//     if (typeof gtag !== "undefined") {
+//       gtag("event", "app_download_attempt", {
+//         event_category: "conversion",
+//         event_label: platform,
+//         source: "vendor_page",
+//       });
+//     }
+//   }
+// }
 
 // Open vendor app
 function openVendorApp(vendor, platform) {
@@ -476,11 +476,23 @@ document.head.appendChild(style);
 // Mobile menu toggle
 // ====================
 function toggleMenu() {
-  const navMenu = document.querySelector(".nav-menu");
-  const hamburger = document.querySelector(".hamburger");
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  const overlay = document.querySelector('.drawer-overlay');
+  
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+  overlay.classList.toggle('active');
+}
 
-  navMenu.classList.toggle("active");
-  hamburger.classList.toggle("active");
+function closeDrawer() {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  const overlay = document.querySelector('.drawer-overlay');
+  
+  hamburger.classList.remove('active');
+  navMenu.classList.remove('active');
+  overlay.classList.remove('active');
 }
 
 // ====================

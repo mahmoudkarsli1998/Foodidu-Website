@@ -54,6 +54,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
+    <link rel="stylesheet" href="../css/coming-soon-modal.css" />
     <link rel="stylesheet" href="vendor-page.css" />
     
     <!-- FLAG IMAGE STYLING - CLEAN APPROACH -->
@@ -87,7 +89,7 @@
     </style>
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- Navigation Component -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="logo">
@@ -96,7 +98,7 @@
               src="../images/Logo-Text.svg"
               alt="Foodidu Logo"
               style="
-                height: 80px;
+                height: 120px;
                 width: auto;
                 object-fit: contain;
                 margin-right: 0.7rem;
@@ -118,19 +120,14 @@
           <li><a href="../index.html#vendors">Become a partner</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
           <li>
-            <button
-              class="download-btn"
-              onclick="window.open('https://play.google.com/store/apps/details?id=com.foodidu.app', '_blank')"
-            >
+            <button class="download-btn" onclick="downloadApp()">
               Download App
             </button>
           </li>
+
           <!-- Quick Action Buttons -->
           <li class="nav-action-buttons">
-            <button
-              class="nav-action-btn"
-              onclick="window.location.href='../index.html#promo'"
-            >
+            <button class="nav-action-btn" onclick="window.location.href='../index.html#promo'">
               <i class="fas fa-tags"></i>
               Get Promo Codes
             </button>
@@ -143,6 +140,7 @@
         </div>
       </div>
     </nav>
+    <div class="drawer-overlay" onclick="closeDrawer()"></div>
 
     <!-- Vendor Page Content -->
     <main class="vendor-page">
@@ -159,7 +157,7 @@
                 />
                 <h2>Noon Promo Code</h2>
               </div>
-              <div class="promo-badge">GCC Wide</div>
+
             </div>
             <div class="promo-code-display">
               <span class="promo-code" id="promoCode">NOON15</span>
@@ -610,6 +608,7 @@
     <!-- JavaScript -->
     <script src="../js/navbar-bg-fix.js"></script>
     <script src="../script.js"></script>
+    <script src="../js/coming-soon-modal.js"></script>
     <script src="vendor-page.js"></script>
     <script>
       // Ensure navbar background is always visible - Multiple approaches
