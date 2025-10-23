@@ -65,6 +65,14 @@
   padding: 2rem 0;
 }
 
+/* Ensure featured cards get proper sizing in promo codes section */
+.promo-grid .rabbit-featured-card,
+.promo-grid .senem-featured-card,
+.promo-grid .noon-featured-card,
+.promo-grid .noon-egypt-featured-card {
+    min-width: 350px;
+}
+
 .promo-card {
   background: white;
   border-radius: 20px;
@@ -545,6 +553,141 @@ atured Promo Cards Styling for Promo Codes Page */
   color: white;
 }
 
+/* Featured Noon Promo Card Styling */
+.noon-featured-card {
+  position: relative;
+  background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(251, 191, 36, 0.4);
+  overflow: hidden;
+  min-height: 400px;
+  max-width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.noon-featured-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  animation: noonCardShimmer 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes noonCardShimmer {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.noon-featured-card .promo-header {
+  position: relative;
+  z-index: 2;
+}
+
+.noon-featured-card .promo-logo:not(.has-image) {
+  background: white !important;
+  border-radius: 15px !important;
+  padding: 10px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.noon-featured-card .promo-logo.has-image {
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.noon-featured-card .vendor-logo {
+  border-radius: 10px;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.noon-featured-card .promo-brand {
+  color: #1a202c;
+  font-weight: 900;
+  text-shadow: none;
+}
+
+.noon-featured-card .promo-code-section {
+  position: relative;
+  z-index: 2;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.noon-featured-card .promo-discount {
+  color: #1a202c;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.noon-featured-card .promo-code {
+  background: white;
+  color: #1a202c;
+  font-weight: 900;
+  text-shadow: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border: 2px dashed #fbbf24;
+}
+
+.noon-featured-card .promo-description,
+.noon-featured-card .promo-expiry {
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.noon-copy-btn {
+  background: #7EB143 !important;
+  color: white !important;
+  font-weight: 700;
+  border: 2px solid #7EB143;
+  position: relative;
+  z-index: 2;
+}
+
+.noon-copy-btn:hover {
+  background: #6BA037 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
+}
+
+.noon-featured-card .featured-cta {
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.noon-featured-card .view-details-btn {
+  background: #1a202c;
+  color: white;
+}
+
+.noon-featured-card .view-details-btn:hover {
+  background: #2d3748;
+  color: white;
+}
+
 /* Ensure Featured Cards Have Same Size */
 .rabbit-featured-card,
 .senem-featured-card {
@@ -582,7 +725,8 @@ atured Promo Cards Styling for Promo Codes Page */
 /* Mobile adjustments for featured cards */
 @media (max-width: 768px) {
   .rabbit-featured-card,
-  .senem-featured-card {
+  .senem-featured-card,
+  .noon-featured-card {
     transform: scale(1);
     margin-bottom: 20px;
     min-height: 350px;
@@ -594,7 +738,8 @@ atured Promo Cards Styling for Promo Codes Page */
 .exclusive-logo img,
 .promo-logo.has-image .vendor-logo,
 .rabbit-featured-card .promo-logo.has-image .vendor-logo,
-.senem-featured-card .promo-logo.has-image .vendor-logo {
+.senem-featured-card .promo-logo.has-image .vendor-logo,
+.noon-featured-card .promo-logo.has-image .vendor-logo {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
@@ -611,7 +756,8 @@ atured Promo Cards Styling for Promo Codes Page */
 .exclusive-logo img:hover,
 .promo-logo.has-image .vendor-logo:hover,
 .rabbit-featured-card .promo-logo.has-image .vendor-logo:hover,
-.senem-featured-card .promo-logo.has-image .vendor-logo:hover {
+.senem-featured-card .promo-logo.has-image .vendor-logo:hover,
+.noon-featured-card .promo-logo.has-image .vendor-logo:hover {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
@@ -626,7 +772,8 @@ atured Promo Cards Styling for Promo Codes Page */
 /* Ensure promo logo containers don't affect vendor logos */
 .promo-logo.has-image,
 .rabbit-featured-card .promo-logo.has-image,
-.senem-featured-card .promo-logo.has-image {
+.senem-featured-card .promo-logo.has-image,
+.noon-featured-card .promo-logo.has-image {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
@@ -638,7 +785,8 @@ atured Promo Cards Styling for Promo Codes Page */
 
 .promo-logo.has-image:hover,
 .rabbit-featured-card .promo-logo.has-image:hover,
-.senem-featured-card .promo-logo.has-image:hover {
+.senem-featured-card .promo-logo.has-image:hover,
+.noon-featured-card .promo-logo.has-image:hover {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
@@ -649,7 +797,8 @@ atured Promo Cards Styling for Promo Codes Page */
 
 .promo-logo.has-image::before,
 .rabbit-featured-card .promo-logo.has-image::before,
-.senem-featured-card .promo-logo.has-image::before {
+.senem-featured-card .promo-logo.has-image::before,
+.noon-featured-card .promo-logo.has-image::before {
   display: none !important;
   opacity: 0 !important;
 }

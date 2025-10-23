@@ -95,6 +95,10 @@
     background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
 }
 
+.noon-egypt-banner {
+    background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
+}
+
 .exclusive-banner::before {
     content: '';
     position: absolute;
@@ -257,6 +261,27 @@
 }
 
 .noon-banner .quick-copy.copied {
+    background: #059669;
+}
+
+/* Noon Egypt-specific styling - SAME AS NOON GCC */
+.noon-egypt-banner .exclusive-btn {
+    background: #7EB143;
+}
+
+.noon-egypt-banner .exclusive-btn:hover {
+    background: #6BA037;
+}
+
+.noon-egypt-banner .quick-copy {
+    background: #7EB143;
+}
+
+.noon-egypt-banner .quick-copy:hover {
+    background: #6BA037;
+}
+
+.noon-egypt-banner .quick-copy.copied {
     background: #059669;
 }
 

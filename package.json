@@ -1,0 +1,22 @@
+{
+  "name": "foodidu-website",
+  "version": "1.0.0",
+  "description": "Foodidu - Discover Hidden Gems & Save Money",
+  "scripts": {
+    "deploy": "firebase deploy",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "serve": "firebase serve",
+    "check-status": "firebase hosting:sites:list"
+  },
+  "keywords": [
+    "foodidu",
+    "restaurant",
+    "deals",
+    "promo-codes"
+  ],
+  "author": "Foodidu",
+  "license": "ISC",
+  "devDependencies": {
+    "firebase-tools": "^13.0.0"
+  }
+}

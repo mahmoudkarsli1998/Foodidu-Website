@@ -339,10 +339,110 @@
     color: white;
 }
 
+/* Featured Noon Egypt Promo Card Styling - EXACT COPY OF NOON GCC */
+.noon-egypt-featured-card {
+    position: relative;
+    background: linear-gradient(135deg, #ffe082 0%, #ffcc02 100%);
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 204, 2, 0.4);
+    overflow: hidden;
+}
+
+.noon-egypt-featured-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    animation: noonEgyptCardShimmer 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes noonEgyptCardShimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.noon-egypt-featured-card .promo-header {
+    position: relative;
+    z-index: 2;
+}
+
+.noon-egypt-featured-card .promo-logo {
+    background: white !important;
+    border-radius: 15px !important;
+    padding: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.noon-egypt-featured-card .vendor-logo {
+    border-radius: 10px;
+}
+
+.noon-egypt-featured-card .promo-brand {
+    color: #1a202c;
+    font-weight: 900;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.noon-egypt-featured-card .promo-code-section {
+    position: relative;
+    z-index: 2;
+}
+
+.noon-egypt-featured-card .promo-discount {
+    color: #1a202c;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.noon-egypt-featured-card .promo-code {
+    background: white;
+    color: #1a202c;
+    font-weight: 900;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.noon-egypt-featured-card .promo-description,
+.noon-egypt-featured-card .promo-expiry {
+    color: #1a202c;
+    font-weight: 600;
+}
+
+.noon-egypt-copy-btn {
+    background: #7EB143 !important;
+    color: white !important;
+    font-weight: 700;
+    border: 2px solid #7EB143;
+    position: relative;
+    z-index: 2;
+}
+
+.noon-egypt-copy-btn:hover {
+    background: #6BA037 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(126, 177, 67, 0.3);
+}
+
+.noon-egypt-featured-card .view-details-btn {
+    background: #7EB143;
+    color: white;
+}
+
+.noon-egypt-featured-card .view-details-btn:hover {
+    background: #6BA037;
+    color: white;
+}
+
 /* Ensure Featured Cards Have Same Size */
 .rabbit-featured-card,
 .senem-featured-card,
-.noon-featured-card {
+.noon-featured-card,
+.noon-egypt-featured-card {
     min-height: 400px;
     max-width: 350px;
     margin: 0 auto;
@@ -353,7 +453,8 @@
 
 .rabbit-featured-card .promo-code-section,
 .senem-featured-card .promo-code-section,
-.noon-featured-card .promo-code-section {
+.noon-featured-card .promo-code-section,
+.noon-egypt-featured-card .promo-code-section {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -362,7 +463,8 @@
 
 .rabbit-featured-card .featured-cta,
 .senem-featured-card .featured-cta,
-.noon-featured-card .featured-cta {
+.noon-featured-card .featured-cta,
+.noon-egypt-featured-card .featured-cta {
     margin-top: auto;
     padding-top: 15px;
 }
@@ -392,7 +494,8 @@
 @media (max-width: 768px) {
     .rabbit-featured-card,
     .senem-featured-card,
-    .noon-featured-card {
+    .noon-featured-card,
+    .noon-egypt-featured-card {
         transform: scale(1);
         margin-bottom: 20px;
         min-height: 350px;

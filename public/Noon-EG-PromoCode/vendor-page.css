@@ -1,0 +1,15 @@
+/* Use the EXACT same CSS as the main Noon-PromoCode page */
+@import url('../Noon-PromoCode/vendor-page.css');
+
+/* Egypt badge styling - keep it simple like the original */
+.egypt-badge {
+  background: #dc2626;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  margin-left: 15px;
+  font-size: 0.9rem;
+}

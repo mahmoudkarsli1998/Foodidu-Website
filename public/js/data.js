@@ -227,6 +227,17 @@ export const promoCodesData = [
     featured: true,
   },
   {
+    id: 14,
+    brand: "Noon-EG",
+    category: "delivery",
+    code: "WK32",
+    discount: "5-7% OFF",
+    expiry: "Dec 31, 2025",
+    logo: "images/noon-logo.png",
+    description: "Exclusive Egypt discount on all orders",
+    featured: true,
+  },
+  {
     id: 3,
     brand: "BreadFast",
     category: "delivery",

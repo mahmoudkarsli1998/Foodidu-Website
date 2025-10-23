@@ -73,10 +73,18 @@
 
 .hot-promos .promo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+/* Ensure featured cards get proper sizing */
+.hot-promos .rabbit-featured-card,
+.hot-promos .senem-featured-card,
+.hot-promos .noon-featured-card,
+.hot-promos .noon-egypt-featured-card {
+    min-width: 350px;
 }
 
 .hot-promos .view-all-promos {

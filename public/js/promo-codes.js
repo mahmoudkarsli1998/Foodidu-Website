@@ -33,6 +33,8 @@ export function loadPromoCodes() {
               ? "senem-featured-card"
               : promo.brand.toLowerCase() === "noon"
               ? "noon-featured-card"
+              : promo.brand.toLowerCase() === "noon-eg"
+              ? "noon-egypt-featured-card"
               : ""
             : ""
         }" data-aos="fade-up">
@@ -69,6 +71,8 @@ export function loadPromoCodes() {
                     ? "senem-copy-btn"
                     : promo.brand.toLowerCase() === "noon"
                     ? "noon-copy-btn"
+                    : promo.brand.toLowerCase() === "noon-eg"
+                    ? "noon-egypt-copy-btn"
                     : ""
                 }" onclick="window.copyPromoCode('${promo.code}', ${
         promo.id
