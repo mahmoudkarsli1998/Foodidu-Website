@@ -57,16 +57,18 @@
     <link rel="stylesheet" href="../css/navigation.css" />
     <link rel="stylesheet" href="../css/coming-soon-modal.css" />
     <link rel="stylesheet" href="vendor-page.css" />
+
     <script>
-      fetch('../header.html')
-        .then(r => r.ok ? r.text() : Promise.reject(r))
-        .then(html => {
-          const tmp = document.createElement('div');
+      fetch("../header.html")
+        .then((r) => (r.ok ? r.text() : Promise.reject(r)))
+        .then((html) => {
+          const tmp = document.createElement("div");
           tmp.innerHTML = html;
-          tmp.querySelectorAll('script').forEach(s => {
-            const sc = document.createElement('script');
-            for (const attr of s.attributes) sc.setAttribute(attr.name, attr.value);
-            sc.text = s.textContent || '';
+          tmp.querySelectorAll("script").forEach((s) => {
+            const sc = document.createElement("script");
+            for (const attr of s.attributes)
+              sc.setAttribute(attr.name, attr.value);
+            sc.text = s.textContent || "";
             document.head.appendChild(sc);
           });
         })
@@ -112,7 +114,10 @@
 
           <!-- Quick Action Buttons -->
           <li class="nav-action-buttons">
-            <button class="nav-action-btn" onclick="window.location.href='../index.html#promo'">
+            <button
+              class="nav-action-btn"
+              onclick="window.location.href='../index.html#promo'"
+            >
               <i class="fas fa-tags"></i>
               Get Promo Codes
             </button>
@@ -142,7 +147,6 @@
                 />
                 <h2>Rabbit Promo Code</h2>
               </div>
-
             </div>
             <div class="promo-code-display">
               <span class="promo-code" id="promoCode">RabbitFood4</span>
@@ -535,7 +539,9 @@
                 <a href="../Noon-PromoCode/index.html">Noon GCC Promo Codes</a>
               </li>
               <li>
-                <a href="../Noon-EG-PromoCode/index.html">Noon Egypt Promo Codes</a>
+                <a href="../Noon-EG-PromoCode/index.html"
+                  >Noon Egypt Promo Codes</a
+                >
               </li>
             </ul>
           </div>
@@ -566,6 +572,7 @@
     <script src="../js/navbar-bg-fix.js"></script>
     <script src="../script.js"></script>
     <script src="../js/coming-soon-modal.js"></script>
+    <script src="../js/vendor-navigation.js"></script>
     <script src="vendor-page.js"></script>
   </body>
 </html>
