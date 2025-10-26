@@ -619,74 +619,9 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="../js/vendor-performance-boost.js"></script>
-    <script src="../js/navbar-bg-fix.js"></script>
-    <script src="../script.js"></script>
+    <script src="../js/ultimate-menu-fix.js"></script>
     <script src="../js/coming-soon-modal.js"></script>
-    <script src="../js/vendor-navigation.js"></script>
-    <script src="vendor-page.js"></script>
 
-    <script></script>
-      // Ensure navbar background is always visible - Multiple approaches
-      function applyNavbarBackground() {
-        const navbar = document.querySelector(".navbar");
-        const nav = document.querySelector("nav");
 
-        if (navbar) {
-          // Method 1: Direct style application
-          navbar.style.setProperty("background", "#FFD15C", "important");
-          navbar.style.setProperty(
-            "background-image",
-            'url("../images/BG.svg")',
-            "important"
-          );
-          navbar.style.setProperty(
-            "background-repeat",
-            "no-repeat",
-            "important"
-          );
-          navbar.style.setProperty(
-            "background-position",
-            "center center",
-            "important"
-          );
-          navbar.style.setProperty("background-size", "cover", "important");
-          navbar.style.setProperty(
-            "backdrop-filter",
-            "blur(10px)",
-            "important"
-          );
-          navbar.style.setProperty(
-            "-webkit-backdrop-filter",
-            "blur(10px)",
-            "important"
-          );
-
-          // Method 2: Add a class for CSS targeting
-          navbar.classList.add("bg-applied");
-        }
-
-        if (nav) {
-          nav.style.setProperty(
-            "background-image",
-            'url("../images/BG.svg")',
-            "important"
-          );
-          nav.style.setProperty("background-size", "cover", "important");
-        }
-      }
-
-      // Apply immediately when DOM is ready
-      document.addEventListener("DOMContentLoaded", applyNavbarBackground);
-
-      // Apply on window load as backup
-      window.addEventListener("load", applyNavbarBackground);
-
-      // Apply with a slight delay as additional backup
-      setTimeout(applyNavbarBackground, 100);
-      setTimeout(applyNavbarBackground, 500);
-
-      console.log("✅ Noon Egypt page loaded successfully!");
-    </script>
   </body>
 </html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Debug Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .debug-info {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 10001;
+        }
+        .test-content {
+            margin-top: 200px;
+            padding: 20px;
+            text-align: center;
+        }
+        /* Force hamburger to be visible for testing */
+        .hamburger {
+            display: flex !important;
+            background: red !important;
+            padding: 10px !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Component -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Logo-Text.svg" alt="Foodidu Logo" style="height: 60px; width: auto;">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#discover">Discover</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#promo">Promo Codes</a></li>
+                <li><a href="#vendors">Partners</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="download-btn" onclick="downloadApp()">
+                        Download App
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <div class="drawer-overlay" onclick="closeDrawer()"></div>
+
+    <div class="test-content">
+        <h1>🍔 Menu Debug Test</h1>
+        <p>Click the red hamburger menu (top right) to test if it works.</p>
+        <button onclick="testToggle()" style="padding: 10px 20px; font-size: 16px; margin: 10px;">
+            Manual Toggle Test
+        </button>
+        <button onclick="checkElements()" style="padding: 10px 20px; font-size: 16px; margin: 10px;">
+            Check Elements
+        </button>
+    </div>
+
+    <div class="debug-info" id="debug-info">
+        Debug info will appear here...
+    </div>
+
+    <script src="js/simple-menu-fix.js"></script>
+    <script>
+        function updateDebugInfo(message) {
+            const debugDiv = document.getElementById('debug-info');
+            debugDiv.innerHTML += '<br>' + new Date().toLocaleTimeString() + ': ' + message;
+        }
+
+        function testToggle() {
+            updateDebugInfo('Manual toggle test clicked');
+            if (typeof window.toggleMenu === 'function') {
+                window.toggleMenu();
+                updateDebugInfo('toggleMenu function called');
+            } else {
+                updateDebugInfo('ERROR: toggleMenu function not found');
+            }
+        }
+
+        function checkElements() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const overlay = document.querySelector('.drawer-overlay');
+            
+            updateDebugInfo('Elements check:');
+            updateDebugInfo('- Hamburger: ' + (hamburger ? 'FOUND' : 'NOT FOUND'));
+            updateDebugInfo('- Nav Menu: ' + (navMenu ? 'FOUND' : 'NOT FOUND'));
+            updateDebugInfo('- Overlay: ' + (overlay ? 'FOUND' : 'NOT FOUND'));
+            
+            if (hamburger) {
+                updateDebugInfo('- Hamburger classes: ' + hamburger.className);
+                updateDebugInfo('- Hamburger onclick: ' + hamburger.getAttribute('onclick'));
+            }
+            
+            if (navMenu) {
+                updateDebugInfo('- Nav menu classes: ' + navMenu.className);
+            }
+        }
+
+        // Auto-check on load
+        setTimeout(function() {
+            updateDebugInfo('Page loaded');
+            checkElements();
+        }, 1000);
+    </script>
+</body>
+</html>
