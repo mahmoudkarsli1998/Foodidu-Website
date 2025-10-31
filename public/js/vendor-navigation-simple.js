@@ -77,8 +77,48 @@ function copyPromoCode(code) {
     }
 }
 
+// Vendor app download function
+function openVendorApp(vendor, platform) {
+    // For now, show coming soon modal since most vendor apps aren't available
+    if (typeof window.showComingSoonModal === 'function') {
+        window.showComingSoonModal();
+    } else {
+        alert('📱 ' + vendor.charAt(0).toUpperCase() + vendor.slice(1) + ' app coming soon!');
+    }
+}
+
+// Vendor website function
+function openVendorWebsite(vendor) {
+    const vendorWebsites = {
+        'rabbit': 'https://www.rabbitmart.com/us/',
+        'senem': 'https://www.senem-eg.com/',
+        'noon': 'https://www.noon.com/',
+        'breadfast': 'https://breadfast.com/',
+        'pizza-hut': 'https://www.pizzahut.me/',
+        'kfc': 'https://www.kfc-me.com/',
+        'just-smash-burger': '#',
+        'butchers-burger': '#',
+        'mini-beirut': '#',
+        'my-buffalo': '#',
+        'abu-auf': 'https://www.abuauf.com.eg/'
+    };
+    
+    const website = vendorWebsites[vendor];
+    if (website && website !== '#') {
+        window.open(website, '_blank');
+    } else {
+        if (typeof window.showComingSoonModal === 'function') {
+            window.showComingSoonModal();
+        } else {
+            alert('🌐 ' + vendor.charAt(0).toUpperCase() + vendor.slice(1) + ' website coming soon!');
+        }
+    }
+}
+
 // Make functions globally available (same as main site)
 window.toggleMenu = toggleMenu;
 window.closeDrawer = closeDrawer;
 window.downloadApp = downloadApp;
 window.copyPromoCode = copyPromoCode;
+window.openVendorApp = openVendorApp;
+window.openVendorWebsite = openVendorWebsite;

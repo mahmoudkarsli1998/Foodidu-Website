@@ -25,25 +25,55 @@ const seoData = {
     localKeywordsAr:
       "توصيل كنتاكي القاهرة، توصيل كنتاكي الإسكندرية، توصيل الدجاج المقلي مصر، الوجبات العائلية مصر، كنتاكي فرايد تشيكن مصر",
   },
-  "burger-king": {
+  "just-smash-burger": {
     titleAr:
-      "كوبونات برجر كينج وخصومات - خصم 15% على وجبة الواوبر | فوديدو مصر",
+      "كوبونات جست سماش برجر وخصومات - استرداد نقدي 10% | فوديدو مصر",
     descriptionAr:
-      "احصل على كوبونات برجر كينج الحصرية ووفر خصم 15% على وجبات الواوبر. كوبونات خصم موثقة للبرجر والوجبات السريعة في مصر.",
+      "احصل على كوبونات جست سماش برجر الحصرية مع استرداد نقدي 10% على جميع الطلبات. كوبونات خصم موثقة للبرجر والوجبات السريعة في مصر.",
     localKeywords:
-      "Burger King delivery Cairo, Whopper delivery Egypt, burger delivery Alexandria, American food Egypt, fast food Egypt",
+      "Just Smash Burger delivery Cairo, smash burger delivery Egypt, burger cashback Alexandria, American food Egypt, fast food Egypt",
     localKeywordsAr:
-      "توصيل برجر كينج القاهرة، توصيل الواوبر مصر، توصيل البرجر الإسكندرية، الطعام الأمريكي مصر، الوجبات السريعة مصر",
+      "توصيل جست سماش برجر القاهرة، توصيل سماش برجر مصر، استرداد نقدي برجر الإسكندرية، الطعام الأمريكي مصر، الوجبات السريعة مصر",
   },
-  starbucks: {
+  "butchers-burger": {
     titleAr:
-      "كوبونات ستاربكس وخصومات - اشتري واحدة واحصل على أخرى مجاناً | فوديدو مصر",
+      "كوبونات بوتشرز برجر وخصومات - هدية ترحيب 200 جنيه | فوديدو مصر",
     descriptionAr:
-      "احصل على كوبونات ستاربكس الحصرية مع عرض اشتري قهوة واحصل على أخرى مجاناً. كوبونات خصم موثقة للقهوة والمشروبات في مصر.",
+      "احصل على كوبونات بوتشرز برجر الحصرية مع هدية ترحيب 200 جنيه على طلبك الإلكتروني. كوبونات خصم موثقة للبرجر الجورميه في مصر.",
     localKeywords:
-      "Starbucks delivery Cairo, coffee delivery Egypt, Starbucks Alexandria, coffee deals Egypt, beverage delivery Egypt",
+      "Butchers Burger delivery Cairo, gourmet burger delivery Egypt, burger welcome gift Alexandria, premium burgers Egypt, fast food Egypt",
     localKeywordsAr:
-      "توصيل ستاربكس القاهرة، توصيل القهوة مصر، ستاربكس الإسكندرية، عروض القهوة مصر، توصيل المشروبات مصر",
+      "توصيل بوتشرز برجر القاهرة، توصيل برجر جورميه مصر، هدية ترحيب برجر الإسكندرية، برجر مميز مصر، الوجبات السريعة مصر",
+  },
+  "mini-beirut": {
+    titleAr:
+      "كوبونات ميني بيروت وخصومات - خصم 15% | فوديدو مصر",
+    descriptionAr:
+      "احصل على كوبونات ميني بيروت الحصرية مع خصم 15% عند الطلب من الموقع مباشرة. كوبونات خصم موثقة للطعام اللبناني في مصر.",
+    localKeywords:
+      "Mini Beirut delivery Cairo, Lebanese food delivery Egypt, Middle Eastern food Alexandria, Mediterranean cuisine Egypt, Lebanese restaurant Egypt",
+    localKeywordsAr:
+      "توصيل ميني بيروت القاهرة، توصيل طعام لبناني مصر، طعام شرق أوسطي الإسكندرية، مطبخ متوسطي مصر، مطعم لبناني مصر",
+  },
+  "my-buffalo": {
+    titleAr:
+      "كوبونات ماي بافلو وخصومات - عروض حصرية للتطبيق | فوديدو مصر",
+    descriptionAr:
+      "احصل على كوبونات ماي بافلو الحصرية مع عروض وخصومات حصرية للتطبيق. كوبونات خصم موثقة لأجنحة البافلو في مصر.",
+    localKeywords:
+      "My Buffalo delivery Cairo, buffalo wings delivery Egypt, American wings Alexandria, wings restaurant Egypt, fast food Egypt",
+    localKeywordsAr:
+      "توصيل ماي بافلو القاهرة، توصيل أجنحة بافلو مصر، أجنحة أمريكية الإسكندرية، مطعم أجنحة مصر، الوجبات السريعة مصر",
+  },
+  "abu-auf": {
+    titleAr:
+      "كوبونات أبو عوف وخصومات - خصم 20% على الطلب الأول | فوديدو مصر",
+    descriptionAr:
+      "احصل على كوبونات أبو عوف الحصرية مع خصم 20% على طلبك الأول من المكسرات والفواكه المجففة المميزة. كوبونات خصم موثقة للوجبات الخفيفة الصحية في مصر.",
+    localKeywords:
+      "Abu Auf delivery Cairo, nuts delivery Egypt, dried fruits Alexandria, healthy snacks Egypt, premium nuts Egypt",
+    localKeywordsAr:
+      "توصيل أبو عوف القاهرة، توصيل مكسرات مصر، فواكه مجففة الإسكندرية، وجبات خفيفة صحية مصر، مكسرات مميزة مصر",
   },
   rabbit: {
     titleAr: "كوبونات رابيت وخصومات - خصم 25% على الطلب الأول | فوديدو مصر",

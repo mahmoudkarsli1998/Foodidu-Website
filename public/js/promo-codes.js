@@ -33,8 +33,18 @@ export function loadPromoCodes() {
               ? "senem-featured-card"
               : promo.brand.toLowerCase() === "noon"
               ? "noon-featured-card"
-              : promo.brand.toLowerCase() === "noon-eg"
+              : promo.brand.toLowerCase() === "noon egypt"
               ? "noon-egypt-featured-card"
+              : promo.brand.toLowerCase() === "just smash burger"
+              ? "rabbit-featured-card"
+              : promo.brand.toLowerCase() === "butcher's burger"
+              ? "senem-featured-card"
+              : promo.brand.toLowerCase() === "mini beirut"
+              ? "noon-featured-card"
+              : promo.brand.toLowerCase() === "my buffalo"
+              ? "rabbit-featured-card"
+              : promo.brand.toLowerCase() === "abu auf"
+              ? "senem-featured-card"
               : ""
             : ""
         }" data-aos="fade-up">
@@ -71,8 +81,18 @@ export function loadPromoCodes() {
                     ? "senem-copy-btn"
                     : promo.brand.toLowerCase() === "noon"
                     ? "noon-copy-btn"
-                    : promo.brand.toLowerCase() === "noon-eg"
+                    : promo.brand.toLowerCase() === "noon egypt"
                     ? "noon-egypt-copy-btn"
+                    : promo.brand.toLowerCase() === "just smash burger"
+                    ? "rabbit-copy-btn"
+                    : promo.brand.toLowerCase() === "butcher's burger"
+                    ? "senem-copy-btn"
+                    : promo.brand.toLowerCase() === "mini beirut"
+                    ? "noon-copy-btn"
+                    : promo.brand.toLowerCase() === "my buffalo"
+                    ? "rabbit-copy-btn"
+                    : promo.brand.toLowerCase() === "abu auf"
+                    ? "senem-copy-btn"
                     : ""
                 }" onclick="window.copyPromoCode('${promo.code}', ${
         promo.id
@@ -82,7 +102,27 @@ export function loadPromoCodes() {
               promo.featured
                 ? `
                 <div class="featured-cta">
-                    <a href="${promo.brand}-PromoCode/index.html" class="view-details-btn">
+                    <a href="${
+                      promo.brand.toLowerCase() === "rabbit"
+                        ? "Rabbit-PromoCode/index.html"
+                        : promo.brand.toLowerCase() === "senem"
+                        ? "Senem-PromoCode/index.html"
+                        : promo.brand.toLowerCase() === "noon"
+                        ? "Noon-PromoCode/index.html"
+                        : promo.brand.toLowerCase() === "noon egypt"
+                        ? "Noon-EG-PromoCode/index.html"
+                        : promo.brand.toLowerCase() === "just smash burger"
+                        ? "Just-Smash-Burger-PromoCode/index.html"
+                        : promo.brand.toLowerCase() === "butcher's burger"
+                        ? "Butchers-Burger-PromoCode/index.html"
+                        : promo.brand.toLowerCase() === "mini beirut"
+                        ? "Mini-Beirut-PromoCode/index.html"
+                        : promo.brand.toLowerCase() === "my buffalo"
+                        ? "My-Buffalo-PromoCode/index.html"
+                        : promo.brand.toLowerCase() === "abu auf"
+                        ? "Abu-Auf-PromoCode/index.html"
+                        : `${promo.brand}-PromoCode/index.html`
+                    }" class="view-details-btn">
                         <i class="fas fa-external-link-alt"></i>
                         View Full Details
                     </a>
