@@ -813,63 +813,129 @@ html body header.navbar {
 @media (max-width: 768px) {
     .vendor-page {
         padding-top: 100px;
+        padding-bottom: 40px;
         background-attachment: scroll;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* Promo Code Section Mobile */
+    .promo-section {
+        margin-bottom: 30px;
+    }
+    
+    .promo-card-large {
+        margin: 0 10px 30px 10px;
+        padding: 25px 20px;
     }
     
     .promo-code {
         font-size: 1.8rem;
         padding: 12px 20px;
         letter-spacing: 2px;
+        margin: 15px 0;
     }
     
     .promo-code-display {
         flex-direction: column;
+        margin-bottom: 20px;
     }
     
     .copy-btn-container {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
     
     .copy-btn {
-        padding: 8px 16px;
-        font-size: 0.85rem;
-        max-width: 120px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        max-width: 140px;
     }
     
     .promo-details {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
         text-align: center;
+        margin-top: 20px;
     }
     
-    .download-buttons {
-        flex-direction: column;
-    }
-    
-    .download-btn {
-        min-width: auto;
+    /* About and Partnership Sections Mobile */
+    .about-section, .partnership-section {
+        margin-bottom: 30px;
     }
     
     .about-card, .partnership-card {
-        padding: 30px 20px;
+        margin: 0 10px;
+        padding: 25px 20px;
+    }
+    
+    .about-header, .partnership-header {
+        margin-bottom: 20px;
     }
     
     .features-grid, .benefits-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 25px 0;
     }
     
-    .partnership-logos {
+    .feature-item, .benefit-item {
+        padding: 20px 15px;
+    }
+    
+    /* Download Section Mobile */
+    .download-section {
+        margin-bottom: 30px;
+    }
+    
+    .app-group {
+        margin: 0 10px 25px 10px;
+        padding: 25px 20px;
+    }
+    
+    .download-buttons {
         flex-direction: column;
         gap: 15px;
     }
     
+    .download-btn {
+        min-width: auto;
+        padding: 15px 20px;
+    }
+    
+    /* Partnership specific mobile adjustments */
+    .partnership-logos {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
     .steps-container {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .step {
         flex-direction: column;
         text-align: center;
+        padding: 20px 15px;
+    }
+    
+    .step-number {
+        margin-right: 0 !important;
+        margin-bottom: 15px;
+    }
+    
+    /* Highlights section mobile */
+    .rabbit-highlights {
+        margin: 25px 10px;
+        padding: 20px 15px;
+    }
+    
+    .rabbit-highlights li {
+        padding: 8px 0;
+        font-size: 0.95rem;
     }
 }
 
@@ -878,30 +944,179 @@ html body header.navbar {
         padding: 0 15px;
     }
     
-    .promo-card-large {
-        padding: 30px 20px;
+    .vendor-page {
+        padding-top: 90px;
+        padding-bottom: 30px;
     }
     
-    .app-group {
-        padding: 25px 20px;
+    /* Extra small mobile adjustments */
+    .promo-card-large {
+        margin: 0 5px 25px 5px;
+        padding: 20px 15px;
     }
     
     .promo-code {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         padding: 10px 15px;
         letter-spacing: 1px;
     }
     
+    .copy-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        max-width: 120px;
+    }
+    
+    .about-card, .partnership-card {
+        margin: 0 5px;
+        padding: 20px 15px;
+    }
+    
+    .app-group {
+        margin: 0 5px 20px 5px;
+        padding: 20px 15px;
+    }
+    
     .about-header h2, .partnership-header h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     
     .feature-item, .benefit-item {
-        padding: 15px;
+        padding: 15px 10px;
     }
     
     .rabbit-highlights {
-        padding: 20px;
+        margin: 20px 5px;
+        padding: 15px 10px;
+    }
+    
+    .rabbit-highlights li {
+        font-size: 0.9rem;
+        gap: 10px;
+    }
+    
+    .step {
+        padding: 15px 10px;
+    }
+    
+    .download-btn {
+        padding: 12px 16px;
+        font-size: 0.85rem;
+    }
+    
+    /* Reduce section spacing on very small screens */
+    .about-section, .partnership-section, .download-section {
+        margin-bottom: 25px;
+    }
+}
+
+/* Specific adjustments for 398x906 mobile viewport */
+@media (max-width: 400px) and (min-height: 800px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .vendor-page {
+        padding-top: 85px;
+        padding-bottom: 25px;
+    }
+    
+    /* Ultra-compact card spacing */
+    .promo-card-large {
+        margin: 0 3px 20px 3px;
+        padding: 18px 12px;
+    }
+    
+    .about-card, .partnership-card {
+        margin: 0 3px;
+        padding: 18px 12px;
+    }
+    
+    .app-group {
+        margin: 0 3px 18px 3px;
+        padding: 18px 12px;
+    }
+    
+    /* Compact promo code section */
+    .promo-code {
+        font-size: 1.3rem;
+        padding: 8px 12px;
+        letter-spacing: 0.5px;
+    }
+    
+    .copy-btn {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+        max-width: 110px;
+    }
+    
+    .promo-details {
+        gap: 12px;
+        margin-top: 15px;
+    }
+    
+    /* Compact feature grids */
+    .features-grid, .benefits-grid {
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .feature-item, .benefit-item {
+        padding: 12px 8px;
+    }
+    
+    /* Compact highlights */
+    .rabbit-highlights {
+        margin: 18px 3px;
+        padding: 12px 8px;
+    }
+    
+    .rabbit-highlights li {
+        font-size: 0.85rem;
+        gap: 8px;
+        padding: 6px 0;
+    }
+    
+    /* Compact steps */
+    .steps-container {
+        gap: 15px;
+    }
+    
+    .step {
+        padding: 12px 8px;
+    }
+    
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    
+    /* Compact download buttons */
+    .download-btn {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+    }
+    
+    .download-buttons {
+        gap: 12px;
+    }
+    
+    /* Reduce section margins for tight spacing */
+    .about-section, .partnership-section, .download-section {
+        margin-bottom: 20px;
+    }
+    
+    /* Compact headers */
+    .about-header h2, .partnership-header h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .download-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
     }
 }
 

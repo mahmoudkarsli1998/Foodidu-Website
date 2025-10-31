@@ -402,12 +402,22 @@ html body header.navbar {
     .mobile-drawer {
         display: none !important;
     }
+    
+    /* Hide mobile drawer logo on desktop */
+    .mobile-drawer-logo {
+        display: none !important;
+    }
 }
 
 /* Mobile Navigation Responsive - Enhanced Version */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+    }
+    
+    /* Show mobile drawer logo only on mobile */
+    .mobile-drawer-logo {
+        display: block !important;
     }
     
     .nav-menu {
@@ -446,6 +456,30 @@ html body header.navbar {
         right: 0;
     }
     
+    /* Mobile Drawer Logo */
+    .mobile-drawer-logo {
+        display: none; /* Hidden on desktop */
+        padding: 1.5rem 2rem 1rem 2rem !important;
+        border-bottom: 2px solid rgba(126, 177, 67, 0.2) !important;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .drawer-logo-img {
+        height: 50px !important;
+        width: auto !important;
+        object-fit: contain !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: none !important;
+        transition: transform 0.3s ease;
+    }
+    
+    .drawer-logo-img:hover {
+        transform: scale(1.05);
+    }
+
     /* Mobile menu items styling */
     .nav-menu li {
         width: 100%;
